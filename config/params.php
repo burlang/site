@@ -5,7 +5,7 @@ return [
         'class' => \yii\db\Connection::class,
         'dsn' => 'mysql:host=localhost;dbname=burlang',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'charset' => 'utf8',
         'enableSchemaCache' => true,
     ],
