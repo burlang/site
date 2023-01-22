@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/damasco/burlang.ru/issues"
   },
-  "homepage": "http://burlang.ru",
+  "homepage": "https://burlang.ru",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
