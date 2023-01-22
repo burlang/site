@@ -2,7 +2,7 @@
     "name": "burlang/site",
     "description": "Russian-Buryat, Buryat-Russian electronic dictionary",
     "keywords": ["buryat dictionary", "burlang", "buryat-lang"],
-    "homepage": "http://burlang.ru/",
+    "homepage": "https://burlang.ru/",
     "type": "project",
     "minimum-stability": "stable",
     "require": {
