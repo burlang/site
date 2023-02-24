@@ -46,7 +46,8 @@ use yii\widgets\ActiveForm;
                 <button type="button" class="btn btn-default btn-lg bur-letter"
                         _="on click
                         set #bur-search.value to #bur-search.value + my.innerText
-                        call htmx.trigger('#bur-search', 'keyup')">
+                        call htmx.trigger('#bur-search', 'keyup')
+                        call #bur-search.focus()">
                     <?= $letter ?>
                 </button>
             <?php endforeach ?>
