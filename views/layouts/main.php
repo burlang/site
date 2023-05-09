@@ -6,6 +6,7 @@ use app\widgets\Counters;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
@@ -16,6 +17,7 @@ use yii\widgets\Menu;
  */
 
 AppAsset::register($this);
+$route = Yii::$app->controller->getRoute();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -61,22 +63,27 @@ AppAsset::register($this);
             [
                 'label' => 'Словарь',
                 'url' => Yii::$app->homeUrl,
-                'active' => Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index'
+                'active' => $route === 'site/index',
             ],
             [
                 'label' => 'Бурятские имена',
                 'url' => ['/buryat-name/index'],
-                'active' => get_class(Yii::$app->controller) === \app\controllers\BuryatNameController::class,
+                'active' => StringHelper::startsWith($route, 'buryat-name/'),
             ],
             [
                 'label' => 'Книги',
                 'url' => ['/book/index'],
-                'active' => Yii::$app->controller->id === 'book',
+                'active' => StringHelper::startsWith($route, 'book/'),
             ],
             [
                 'label' => 'Новости',
                 'url' => ['/news/index'],
-                'active' => Yii::$app->controller->id === 'news'
+                'active' => StringHelper::startsWith($route, 'news/'),
+            ],
+            [
+                'label' => 'Контакты',
+                'url' => ['/site/contacts'],
+                'active' => $route === 'site/contacts',
             ],
 
             PageMenu::getItem('services'),
@@ -138,10 +145,7 @@ AppAsset::register($this);
                     ],
                 ]) ?>
             </div>
-            <div class="col-sm-6 text-right">
-                <?= Html::mailto('dbulats88@gmail.com') ?>
-                <?= Html::mailto('bairdarmaev@gmail.com') ?>
-            </div>
+            <div class="col-sm-6 text-right"></div>
         </div>
         <h5 class="text-center">
             <span class="label label-default">

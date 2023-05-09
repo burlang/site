@@ -34,6 +34,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'index' => ['GET'],
+                    'contacts' => ['GET'],
                     'russian-words-form' => ['GET'],
                     'buryat-words-form' => ['GET'],
                     'find-russian-words' => ['GET'],
@@ -46,6 +47,11 @@ class SiteController extends Controller
     public function actionIndex(): string
     {
         return $this->render('index');
+    }
+
+    public function actionContacts(): string
+    {
+        return $this->render('contacts');
     }
 
     public function actionBuryatWordsForm(): string

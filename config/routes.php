@@ -18,6 +18,8 @@ return [
     'page/<action:(create|update|delete|index)>' => 'page/<action>',
     'page/<link:[\w-]+>' => 'page/view',
 
+    'contacts' => 'site/contacts',
+
     // api v1
     'api/v1/names' => 'api/v1/buryat-name/index',
     'api/v1/names/<action>' => 'api/v1/buryat-name/<action>',
