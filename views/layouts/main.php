@@ -128,7 +128,7 @@ $route = Yii::$app->controller->getRoute();
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <?= Menu::widget([
                     'items' => [
                         [
@@ -145,13 +145,12 @@ $route = Yii::$app->controller->getRoute();
                     ],
                 ]) ?>
             </div>
-            <div class="col-sm-6 text-right"></div>
+            <div class="col-sm-4 text-center">
+                <span class="label label-default">
+                    &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
+                </span>
+            </div>
         </div>
-        <h5 class="text-center">
-            <span class="label label-default">
-                &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
-            </span>
-        </h5>
     </div>
 </footer>
 <?= Counters::widget() ?>
