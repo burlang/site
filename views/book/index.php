@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\web\View;
@@ -9,7 +9,7 @@ use yii\widgets\ListView;
 /**
  * @var View $this
  * @var ActiveDataProvider $dataProvider
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 
 $this->title = 'Книги';
@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'summary' => false,
         'layout' => "{summary}\n<div class=\"row\">{items}</div>\n{pager}",
-        'itemView' => $deviceDetect->isDesktop() ? '_view' : '_view_mobile',
+        'itemView' => $deviceDetector->isDesktop() ? '_view' : '_view_mobile',
         'pager' => [
-            'maxButtonCount' => $deviceDetect->isDesktop() ? 10 : 5,
+            'maxButtonCount' => $deviceDetector->isDesktop() ? 10 : 5,
         ],
     ]) ?>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
  * @var BuryatTranslation $translationForm
  * @var array $dictionaries
  * @var BuryatWord $model
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 ?>
 <hr>
@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
             [
                 'attribute' => 'dict_id',
                 'value' => 'dictionary.name',
-                'visible' => $deviceDetect->isDesktop(),
+                'visible' => $deviceDetector->isDesktop(),
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

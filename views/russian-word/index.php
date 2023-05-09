@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\RussianWord;
 use app\models\search\RussianWordSearch;
 use app\widgets\FlashMessages;
@@ -17,7 +17,7 @@ use yii\widgets\Pjax;
  * @var View $this
  * @var ActiveDataProvider $dataProvider
  * @var RussianWordSearch $searchModel
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 
 $this->title = 'Русские слова';
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => $deviceDetect->isDesktop() ? 10 : 5,
+                'maxButtonCount' => $deviceDetector->isDesktop() ? 10 : 5,
             ],
             'columns' => [
                 ['class' => SerialColumn::class],
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
                     'format' => 'raw',
-                    'visible' => $deviceDetect->isDesktop(),
+                    'visible' => $deviceDetector->isDesktop(),
                 ],
                 [
                     'class' => ActionColumn::class,

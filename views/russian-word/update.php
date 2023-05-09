@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\widgets\FlashMessages;
@@ -12,7 +12,7 @@ use yii\web\View;
  * @var RussianWord $model
  * @var RussianTranslation $translationForm
  * @var array $dictionaries
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 
 $this->title = 'Редактировать: ' . $model->name;
@@ -30,6 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'translationForm' => $translationForm,
         'dictionaries' => $dictionaries,
-        'deviceDetect' => $deviceDetect,
+        'deviceDetector' => $deviceDetector,
     ]) ?>
 </div>

@@ -2,7 +2,7 @@
 
 namespace app\controllers\admin;
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
 use Yii;
@@ -50,14 +50,14 @@ class BuryatNameController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectInterface $deviceDetect): string
+    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 

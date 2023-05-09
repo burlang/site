@@ -1,8 +1,8 @@
 <?php
 
-namespace app\components\DeviceDetect;
+namespace app\components\DeviceDetector;
 
-interface DeviceDetectInterface
+interface DeviceDetectorInterface
 {
     public function isMobile(): bool;
 

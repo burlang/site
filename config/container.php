@@ -1,9 +1,8 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetect;
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetector;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\services\SearchDataService;
-use Detection\MobileDetect;
 use yii\grid\ActionColumn;
 
 return [
@@ -11,13 +10,7 @@ return [
         ActionColumn::class => \app\components\Grid\ActionColumn::class,
     ],
     'singletons' => [
-        DeviceDetectInterface::class => function () {
-            $mobileDetect = new MobileDetect();
-            return new DeviceDetect(
-                $mobileDetect->isMobile(),
-                $mobileDetect->isTablet()
-            );
-        },
+        DeviceDetectorInterface::class => DeviceDetector::class,
         SearchDataService::class => SearchDataService::class,
     ],
 ];

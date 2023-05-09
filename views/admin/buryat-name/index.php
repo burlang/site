@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\search\BuryatNameSearch;
 use app\widgets\FlashMessages;
 use yii\bootstrap\Html;
@@ -15,12 +15,12 @@ use yii\widgets\Pjax;
  * @var View $this
  * @var BuryatNameSearch $searchModel
  * @var ActiveDataProvider $dataProvider
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 
 $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
-$isDesktop = $deviceDetect->isDesktop();
+$isDesktop = $deviceDetector->isDesktop();
 ?>
 <div class="buryat-name-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>

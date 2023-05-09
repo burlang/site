@@ -1,6 +1,6 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\widgets\FlashMessages;
@@ -12,7 +12,7 @@ use yii\web\View;
  * @var BuryatWord $model
  * @var BuryatTranslation $translationForm
  * @var array $dictionaries
- * @var DeviceDetectInterface $deviceDetect
+ * @var DeviceDetectorInterface $deviceDetector
  */
 
 $this->title = 'Редактировать: ' . $model->name;
@@ -30,6 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'translationForm' => $translationForm,
         'dictionaries' => $dictionaries,
-        'deviceDetect' => $deviceDetect,
+        'deviceDetector' => $deviceDetector,
     ]) ?>
 </div>

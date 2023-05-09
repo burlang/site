@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\Dictionary;
@@ -53,7 +53,7 @@ class BuryatWordController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectInterface $deviceDetect): string
+    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $searchModel = new BuryatWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -61,7 +61,7 @@ class BuryatWordController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 
@@ -89,12 +89,12 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param DeviceDetectInterface $deviceDetect
+     * @param DeviceDetectorInterface $deviceDetector
      * @param int $id
      * @return string|Response
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(DeviceDetectInterface $deviceDetect, int $id)
+    public function actionUpdate(DeviceDetectorInterface $deviceDetector, int $id)
     {
         $word = $this->getWord($id);
 
@@ -119,7 +119,7 @@ class BuryatWordController extends Controller
             'model' => $word,
             'dictionaries' => $dictionaries,
             'translationForm' => $translationForm,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 

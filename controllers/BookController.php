@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\Book;
 use app\models\BookChapter;
 use Yii;
@@ -65,7 +65,7 @@ class BookController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectInterface $deviceDetect): string
+    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $query = Book::find()->orderBy('created_at DESC');
         if (!Yii::$app->user->can('book_management')) {
@@ -77,7 +77,7 @@ class BookController extends Controller
         ]);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 

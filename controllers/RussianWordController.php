@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\DeviceDetect\DeviceDetectInterface;
+use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\Dictionary;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
@@ -53,14 +53,14 @@ class RussianWordController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectInterface $deviceDetect): string
+    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $searchModel = new RussianWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 
@@ -86,12 +86,12 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @param DeviceDetectInterface $deviceDetect
+     * @param DeviceDetectorInterface $deviceDetector
      * @param int $id
      * @return string|Response
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(DeviceDetectInterface $deviceDetect, int $id)
+    public function actionUpdate(DeviceDetectorInterface $deviceDetector, int $id)
     {
         $word = $this->getWord($id);
         $dictionaries = ArrayHelper::map(
@@ -113,7 +113,7 @@ class RussianWordController extends Controller
             'model' => $word,
             'translationForm' => $translationForm,
             'dictionaries' => $dictionaries,
-            'deviceDetect' => $deviceDetect,
+            'deviceDetector' => $deviceDetector,
         ]);
     }
 
