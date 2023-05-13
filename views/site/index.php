@@ -15,7 +15,7 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
         <div class="col-sm-8">
             <?= $this->render('partials/buryat_words_form') ?>
             <hr>
-            <div class="text-center mt-20">
+            <div class="text-center mt-20 mb-10">
                 <a href="https://apps.apple.com/ru/app/burlang/id1669964114" target="_blank" rel="noopener noreferrer">
                     <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="AppStore" height="40">
                 </a>
