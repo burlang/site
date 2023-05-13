@@ -20,4 +20,7 @@ use yii\helpers\Html;
             </div>
         </div>
     <?php endforeach ?>
+    <div class="text-right mt-20">
+        <?= Html::a('Все новости →', ['/news/index']) ?>
+    </div>
 </div>
