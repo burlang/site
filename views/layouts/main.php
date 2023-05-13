@@ -133,7 +133,7 @@ $route = Yii::$app->controller->getRoute();
                     'items' => [
                         [
                             'label' => 'Github',
-                            'url' => 'https://github.com/burlang/site',
+                            'url' => 'https://github.com/burlang',
                         ],
                         [
                             'label' => 'Api',
