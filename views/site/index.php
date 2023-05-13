@@ -19,7 +19,7 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
                     <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="AppStore" height="56">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=burlang.ru"  target="_blank" rel="noopener noreferrer">
-                    <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="GooglePlay" height="55">
+                    <img src="<?= Yii::getAlias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="55">
                 </a>
             </div>
             <?= Comments::widget() ?>
