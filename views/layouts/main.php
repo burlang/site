@@ -100,18 +100,15 @@ $route = Yii::$app->controller->getRoute();
                         Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
                         ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
                         ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
-                        ['label' => 'Пользователи', 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
                     ]
                 ]
                 : '',
             Yii::$app->user->isGuest
-                ? ['label' => 'Войти', 'url' => ['/user/security/login']]
+                ? ['label' => 'Войти', 'url' => ['/auth/login']]
                 : [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => 'Профиль', 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
-                        '<li role="separator" class="divider"></li>',
-                        ['label' => 'Выйти', 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
+                        ['label' => 'Выйти', 'url' => ['/auth/logout'], 'linkOptions' => ['data-method' => 'post']]
                     ],
                     'options' => [
                         'id' => 'dropdown-profile',

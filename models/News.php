@@ -3,7 +3,7 @@
 namespace app\models;
 
 use app\models\queries\NewsQuery;
-use app\modules\user\models\User;
+use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;

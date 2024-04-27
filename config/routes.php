@@ -20,6 +20,9 @@ return [
 
     'contacts' => 'site/contacts',
 
+    'login' => 'auth/login',
+    'logout' => 'auth/logout',
+
     // api v1
     'api/v1/names' => 'api/v1/buryat-name/index',
     'api/v1/names/<action>' => 'api/v1/buryat-name/<action>',
