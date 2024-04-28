@@ -6,7 +6,7 @@ $params = array_merge(
 );
 
 $config = [
-    'id' => 'burlang.ru',
+    'id' => 'burlang',
     'name' => 'Burlang',
     'language' => 'ru-RU',
     'sourceLanguage' => 'en-US',
@@ -22,6 +22,12 @@ $config = [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
         'mailer' => $params['components.mailer'],
+        'user' => [
+            'class' => \yii\web\User::class,
+            'identityClass' => \app\models\User::class,
+            'loginUrl' => ['auth/login'],
+            'enableAutoLogin' => true,
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -58,26 +64,8 @@ $config = [
                 ],
             ],
         ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@dektrium/user/views' => '@app/modules/user/views',
-                ],
-            ],
-        ],
     ],
     'modules' => [
-        'user' => [
-            'class' => \dektrium\user\Module::class,
-            'enableRegistration' => false,
-            'adminPermission' => 'admin',
-            'modelMap' => [
-                'User' => \app\modules\user\models\User::class,
-            ],
-            'controllerMap' => [
-                'profile' => \app\modules\user\controllers\ProfileController::class,
-            ],
-        ],
         'api' => [
             'class' => \app\modules\api\Module::class,
             'modules' => [

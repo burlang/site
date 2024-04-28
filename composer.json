@@ -10,7 +10,6 @@
         "bower-asset/bililiterange": "*",
         "bower-asset/codemirror": "~5.9.0",
         "bower-asset/codemirror-buttons": "~1.0.0",
-        "dektrium/yii2-user": "dev-master",
         "league/fractal": "^0.19.2",
         "mobiledetect/mobiledetectlib": "~2.8",
         "npm-asset/htmx.org": "^1.7.0",

@@ -15,18 +15,7 @@ Burlang.ru
 make init
 ```
 
-### Add local domain in `/etc/hosts`
-
-```
-127.0.0.1   burlang.local
-```
-
-### Open `burlang.local`
+### Open `http://127.0.0.1:80`
 
 Login: `admin`
-Password: `admin1`
-
-## Usage
-
-Use `Makefile`
-
+Password: `admin`
