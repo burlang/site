@@ -58,10 +58,6 @@ class User extends ActiveRecord implements IdentityInterface
                 'unique',
                 'message' => 'Этот адрес электронной почты уже занят',
             ],
-
-            // password rules
-            ['password', 'required', 'on' => ['register']],
-            ['password', 'string', 'min' => 5, 'max' => 72],
         ];
     }
 
