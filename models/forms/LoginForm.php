@@ -21,6 +21,7 @@ class LoginForm extends Model
             ['username', 'string', 'min' => 3, 'max' => 255],
             ['password', 'string', 'min' => 6, 'max' => 72],
             ['password', 'validatePassword'],
+            [['username'], 'validateBlocked'],
         ];
     }
 
@@ -32,13 +33,22 @@ class LoginForm extends Model
         ];
     }
 
-    public function validatePassword($attribute, $params)
+    public function validatePassword($attribute)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-
             if (!$user || !Yii::$app->security->validatePassword($this->password, $user->password_hash)) {
                 $this->addError($attribute, 'Неверное имя пользователя или пароль.');
+            }
+        }
+    }
+
+    public function validateBlocked($attribute)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if ($user && $user->isBlocked()) {
+                $this->addError($attribute, 'Ваш аккаунт заблокирован.');
             }
         }
     }
@@ -49,7 +59,11 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), 3600 * 24);
+            $isLogged = Yii::$app->user->login($this->getUser(), 3600 * 24);
+            if ($isLogged) {
+                $this->getUser()->updateAttributes(['last_login_at' => time()]);
+            }
+            return $isLogged;
         }
         return false;
     }

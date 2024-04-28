@@ -15,6 +15,9 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $auth_key
  * 
+ * @property int|string $blocked_at
+ * @property int|string $last_login_at
+ * 
  * @property-read int|string $created_at
  * @property-read int|string $updated_at
  */
@@ -124,5 +127,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         return $this->auth_key === (string)$authKey;
+    }
+
+    public function isBlocked(): bool
+    {
+        return $this->blocked_at != null;
     }
 }
