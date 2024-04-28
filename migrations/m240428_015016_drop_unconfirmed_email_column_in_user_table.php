@@ -2,9 +2,6 @@
 
 use yii\db\Migration;
 
-/**
- * Handles the dropping of table `{{%unconfirmed_email_column_in_user}}`.
- */
 class m240428_015016_drop_unconfirmed_email_column_in_user_table extends Migration
 {
     /**

@@ -2,9 +2,6 @@
 
 use yii\db\Migration;
 
-/**
- * Handles the dropping of table `{{%token}}`.
- */
 class m240428_012942_drop_token_table extends Migration
 {
     /**

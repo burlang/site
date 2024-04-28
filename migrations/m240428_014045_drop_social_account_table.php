@@ -2,9 +2,6 @@
 
 use yii\db\Migration;
 
-/**
- * Handles the dropping of table `{{%social_account}}`.
- */
 class m240428_014045_drop_social_account_table extends Migration
 {
     /**

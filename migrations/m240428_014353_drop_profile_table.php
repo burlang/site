@@ -2,9 +2,6 @@
 
 use yii\db\Migration;
 
-/**
- * Handles the dropping of table `{{%profile}}`.
- */
 class m240428_014353_drop_profile_table extends Migration
 {
     /**
