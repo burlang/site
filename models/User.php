@@ -61,7 +61,7 @@ class User extends ActiveRecord implements IdentityInterface
 
             // password rules
             ['password', 'required', 'on' => ['register']],
-            ['password', 'string', 'min' => 6, 'max' => 72],
+            ['password', 'string', 'min' => 5, 'max' => 72],
         ];
     }
 

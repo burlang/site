@@ -19,7 +19,7 @@ class LoginForm extends Model
         return [
             [['username', 'password'], 'required'],
             ['username', 'string', 'min' => 3, 'max' => 255],
-            ['password', 'string', 'min' => 6, 'max' => 72],
+            ['password', 'string', 'min' => 5, 'max' => 72],
             ['password', 'validatePassword'],
             [['username'], 'validateBlocked'],
         ];

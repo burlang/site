@@ -710,7 +710,7 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`id`, `username`, `email`, `password_hash`, `auth_key`, `confirmed_at`, `unconfirmed_email`, `blocked_at`, `registration_ip`, `created_at`, `updated_at`, `flags`, `last_login_at`)
 VALUES
-	(1,'admin','admin@exmaple.com','$2y$10$G3gRyF4x3L2hspqhNils3uxldSXHhgLrkAmfg31TS3uoV/WrOsQl.','ETtnj8brlJDpwRZRIinnyryO2C7WZXza',1459845148,NULL,NULL,NULL,1459845148,1637793121,0,1637793070);
+	(1,'admin','admin@exmaple.com','$2y$13$eR5BT./2ZgGN9XBlhaVe8uf9V3DRcCzK0QPK4sRk3R1Niqwyo01e6','ETtnj8brlJDpwRZRIinnyryO2C7WZXza',1459845148,NULL,NULL,NULL,1459845148,1637793121,0,1637793070);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
