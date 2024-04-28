@@ -10,7 +10,7 @@ class m240428_014045_drop_social_account_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeUp()
+    public function up()
     {
         $this->dropTable('{{%social_account}}');
     }
@@ -18,7 +18,7 @@ class m240428_014045_drop_social_account_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function down()
     {
         $this->db->createCommand(
             <<<SQL

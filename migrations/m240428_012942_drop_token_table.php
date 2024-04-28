@@ -10,7 +10,7 @@ class m240428_012942_drop_token_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeUp()
+    public function up()
     {
         $this->dropTable('{{%token}}');
     }
@@ -18,7 +18,7 @@ class m240428_012942_drop_token_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function down()
     {
         $this->db->createCommand(
             <<<SQL
