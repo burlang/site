@@ -33,7 +33,7 @@ $config = [
             'rules' => require __DIR__ . '/routes.php',
         ],
         'authManager' => [
-            'class' => \yii\rbac\PhpManager::class,
+            'class' => \app\components\AuthManager::class,
             'itemFile' => __DIR__ . '/rbac/items.php',
             'ruleFile' => __DIR__ . '/rbac/rules.php',
             'assignmentFile' => __DIR__ . '/rbac/assignments.php',

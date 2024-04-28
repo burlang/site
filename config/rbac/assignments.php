@@ -1,11 +1,12 @@
 <?php
 
 /**
- * [
- *    {id} => [
- *       '{role-name}',
- *    ]
- * ]
+ * Example:
+ *  [
+ *      {user id} => [
+ *          'permission-name',
+ *          'role-name',
+ *      ],
+ *  ]
  */
-return (require __DIR__ . '/assignments-local.php')
-    + [];
+return [];

@@ -46,7 +46,7 @@ class RussianWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => ['moderator'],
+                        'roles' => ['russian_words_management'],
                     ],
                 ],
             ],
