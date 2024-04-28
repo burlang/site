@@ -16,7 +16,7 @@
         "npm-asset/hyperscript.org": "^0.9.7",
         "yiisoft/yii2": "~2.0.9",
         "yiisoft/yii2-bootstrap": "~2.0.6",
-        "yiisoft/yii2-swiftmailer": "~2.0.5"
+        "yiisoft/yii2-symfonymailer": "^3.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",

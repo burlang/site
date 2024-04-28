@@ -11,7 +11,7 @@ return [
     ],
     'components.cache' => \yii\caching\FileCache::class,
     'components.mailer' => [
-        'class' => \yii\swiftmailer\Mailer::class,
+        'class' => \yii\symfonymailer\Mailer::class,
         'useFileTransport' => false,
     ],
     'components.request.key' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
