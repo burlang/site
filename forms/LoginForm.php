@@ -1,10 +1,12 @@
 <?php
 
-namespace app\models\forms;
+namespace app\forms;
 
+use app\components\AuthIdentity;
 use app\models\User;
 use Yii;
 use yii\base\Model;
+use yii\web\User as WebUser;
 
 class LoginForm extends Model
 {
@@ -56,10 +58,11 @@ class LoginForm extends Model
     /**
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function login(WebUser $webUser)
     {
-        if ($this->validate()) {
-            $isLogged = Yii::$app->user->login($this->getUser(), 3600 * 24);
+        $user = $this->getUser();
+        if ($user) {
+            $isLogged = $webUser->login(new AuthIdentity((int)$user->id), 3600 * 24);
             if ($isLogged) {
                 $this->getUser()->updateAttributes(['last_login_at' => time()]);
             }

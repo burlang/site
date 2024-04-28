@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\forms\LoginForm;
+use app\forms\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -48,7 +48,10 @@ class AuthController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if ($model->load(Yii::$app->request->post()) 
+            && $model->validate()
+            && $model->login(Yii::$app->user)
+        ) {
             return $this->goBack();
         }
 
