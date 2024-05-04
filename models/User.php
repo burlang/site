@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
@@ -12,6 +11,7 @@ use yii\db\ActiveRecord;
  * @property string $email
  * @property string $password_hash
  * @property string $auth_key
+ * @property string $role
  * 
  * @property int|string|null $blocked_at
  * @property int|string|null $last_login_at
@@ -21,6 +21,10 @@ use yii\db\ActiveRecord;
  */
 class User extends ActiveRecord
 {
+    public const ROLE_USER = 'user';
+    public const ROLE_MODERATOR = 'moderator';
+    public const ROLE_ADMIN = 'admin';
+
     /**
      * {@inheritdoc}
      */
@@ -56,6 +60,11 @@ class User extends ActiveRecord
                 'unique',
                 'message' => 'Этот адрес электронной почты уже занят',
             ],
+
+            // role rules
+            ['role', 'required'],
+            ['role', 'string', 'max' => 60],
+            ['role', 'in', 'range' => array_keys(self::roles())],
         ];
     }
 
@@ -80,6 +89,15 @@ class User extends ActiveRecord
     {
         return [
             TimestampBehavior::class,
+        ];
+    }
+
+    public static function roles(): array
+    {
+        return [
+            self::ROLE_USER => 'Пользователь',
+            self::ROLE_MODERATOR => 'Модератор',
+            self::ROLE_ADMIN => 'Администратор',
         ];
     }
 

@@ -37,7 +37,7 @@ class StatisticsController extends Controller
                             'index',
                             'search',
                         ],
-                        'roles' => ['admin'],
+                        'roles' => ['statistics_view'],
                     ],
                 ],
             ],

@@ -43,7 +43,7 @@ class BuryatNameController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => ['moderator'],
+                        'roles' => ['buryat_names_management'],
                     ],
                 ],
             ],

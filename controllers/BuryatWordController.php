@@ -46,7 +46,7 @@ class BuryatWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => ['moderator'],
+                        'roles' => ['buryat_words_management'],
                     ],
                 ],
             ],

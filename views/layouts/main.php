@@ -2,6 +2,7 @@
 
 use app\assets\AppAsset;
 use app\components\PageMenu;
+use app\models\User;
 use app\widgets\Counters;
 use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
@@ -92,17 +93,40 @@ $route = Yii::$app->controller->getRoute();
                 PageMenu::getItem('services'),
                 PageMenu::getItem('about'),
 
-                Yii::$app->user->can('moderator')
+                Yii::$app->user->can(User::ROLE_MODERATOR)
                     ? [
                         'label' => 'Управление',
                         'items' => [
-                            ['label' => 'Бурятские имена', 'url' => ['/admin/buryat-name/index']],
-                            ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
-                            ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
-                            ['label' => 'Словари', 'url' => ['/dictionary/index']],
-                            Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
-                            ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
-                            ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
+                            [
+                                'label' => 'Бурятские имена',
+                                'url' => ['/admin/buryat-name/index'],
+                                'visible' => Yii::$app->user->can('buryat_names_management'),
+                            ],
+                            [
+                                'label' => 'Бурятские слова',
+                                'url' => ['/buryat-word/index'],
+                                'visible' => Yii::$app->user->can('buryat_words_management'),
+                            ],
+                            [
+                                'label' => 'Русские слова',
+                                'url' => ['/russian-word/index'],
+                                'visible' => Yii::$app->user->can('russian_words_management'),
+                            ],
+                            [
+                                'label' => 'Словари',
+                                'url' => ['/dictionary/index'],
+                                'visible' => Yii::$app->user->can('dictionaries_management'),
+                            ],
+                            [
+                                'label' => 'Страницы',
+                                'url' => ['/page/index'],
+                                'visible' => Yii::$app->user->can('pages_management'),
+                            ],
+                            [
+                                'label' => 'Статистика',
+                                'url' => ['/statistics'],
+                                'visible' => Yii::$app->user->can('statistics_view'),
+                            ],
                         ]
                     ]
                     : '',

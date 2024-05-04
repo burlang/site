@@ -58,7 +58,7 @@ class BookController extends Controller
                             'chapter-update',
                             'chapter-delete',
                         ],
-                        'roles' => ['book_management'],
+                        'roles' => ['books_management'],
                     ],
                 ],
             ],

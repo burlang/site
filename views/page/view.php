@@ -13,7 +13,7 @@ use yii\web\View;
  */
 
 $this->title = $model->title;
-if (!Yii::$app->user->isGuest) {
+if (Yii::$app->user->can('pages_management')) {
     $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 }
 $this->params['breadcrumbs'][] = $this->title;
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
-    <?php if (Yii::$app->user->can('admin')): ?>
+    <?php if (Yii::$app->user->can('pages_management')): ?>
         <p>
             <?= Html::a(
                 Html::icon('pencil') . ' Редактировать',

@@ -47,7 +47,7 @@ class PageController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => ['admin'],
+                        'roles' => ['pages_management'],
                     ],
                 ],
             ],
@@ -72,7 +72,7 @@ class PageController extends Controller
     public function actionView(string $link): string
     {
         $page = Page::findOne(['link' => $link]);
-        if (!$page || (!$page->active && !Yii::$app->user->can('admin'))) {
+        if (!$page || (!$page->active && !Yii::$app->user->can('pages_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
