@@ -3,6 +3,7 @@
 use app\assets\AppAsset;
 use app\components\PageMenu;
 use app\widgets\Counters;
+use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
@@ -22,6 +23,7 @@ $route = Yii::$app->controller->getRoute();
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
+
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,115 +45,122 @@ $route = Yii::$app->controller->getRoute();
         'content' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     ]) ?>
 
-    <?php if (isset($this->blocks['head'])): ?>
+    <?php if (isset($this->blocks['head'])) : ?>
         <?= $this->blocks['head'] ?>
     <?php endif ?>
 </head>
+
 <body>
-<?php $this->beginBody() ?>
-<div class="wrap">
-    <?php NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]) ?>
-    <?= Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            [
-                'label' => 'Словарь',
-                'url' => Yii::$app->homeUrl,
-                'active' => $route === 'site/index',
+    <?php $this->beginBody() ?>
+    <div class="wrap">
+        <?php NavBar::begin([
+            'brandLabel' => Yii::$app->name,
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
             ],
-            [
-                'label' => 'Бурятские имена',
-                'url' => ['/buryat-name/index'],
-                'active' => StringHelper::startsWith($route, 'buryat-name/'),
-            ],
-            [
-                'label' => 'Книги',
-                'url' => ['/book/index'],
-                'active' => StringHelper::startsWith($route, 'book/'),
-            ],
-            [
-                'label' => 'Новости',
-                'url' => ['/news/index'],
-                'active' => StringHelper::startsWith($route, 'news/'),
-            ],
-            [
-                'label' => 'Контакты',
-                'url' => ['/site/contacts'],
-                'active' => $route === 'site/contacts',
-            ],
-
-            PageMenu::getItem('services'),
-            PageMenu::getItem('about'),
-
-            Yii::$app->user->can('moderator')
-                ? [
-                    'label' => 'Управление',
-                    'items' => [
-                        ['label' => 'Бурятские имена', 'url' => ['/admin/buryat-name/index']],
-                        ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
-                        ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
-                        ['label' => 'Словари', 'url' => ['/dictionary/index']],
-                        Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
-                        ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
-                        ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
-                    ]
-                ]
-                : '',
-            Yii::$app->user->isGuest
-                ? ['label' => 'Войти', 'url' => ['/auth/login']]
-                : [
-                    'label' => Yii::$app->user->identity->username,
-                    'items' => [
-                        ['label' => 'Выйти', 'url' => ['/auth/logout'], 'linkOptions' => ['data-method' => 'post']]
-                    ],
-                    'options' => [
-                        'id' => 'dropdown-profile',
-                    ],
+        ]) ?>
+        <?= Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                [
+                    'label' => 'Словарь',
+                    'url' => Yii::$app->homeUrl,
+                    'active' => $route === 'site/index',
                 ],
-        ],
-    ]) ?>
-    <?php NavBar::end() ?>
-    <div class="container">
-        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]) ?>
-        <?= $content ?>
-    </div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <?= Menu::widget([
-                    'items' => [
-                        [
-                            'label' => 'Github',
-                            'url' => 'https://github.com/burlang',
+                [
+                    'label' => 'Бурятские имена',
+                    'url' => ['/buryat-name/index'],
+                    'active' => StringHelper::startsWith($route, 'buryat-name/'),
+                ],
+                [
+                    'label' => 'Книги',
+                    'url' => ['/book/index'],
+                    'active' => StringHelper::startsWith($route, 'book/'),
+                ],
+                [
+                    'label' => 'Новости',
+                    'url' => ['/news/index'],
+                    'active' => StringHelper::startsWith($route, 'news/'),
+                ],
+                [
+                    'label' => 'Контакты',
+                    'url' => ['/site/contacts'],
+                    'active' => $route === 'site/contacts',
+                ],
+
+                PageMenu::getItem('services'),
+                PageMenu::getItem('about'),
+
+                Yii::$app->user->can('moderator')
+                    ? [
+                        'label' => 'Управление',
+                        'items' => [
+                            ['label' => 'Бурятские имена', 'url' => ['/admin/buryat-name/index']],
+                            ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
+                            ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
+                            ['label' => 'Словари', 'url' => ['/dictionary/index']],
+                            Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
+                            ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                            ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
+                        ]
+                    ]
+                    : '',
+                Yii::$app->user->isGuest
+                    ? ['label' => 'Войти', 'url' => ['/auth/login']]
+                    : [
+                        'label' => BootstrapHtml::icon('user'),
+                        'encode' => false,
+                        'items' => [
+                            [
+                                'label' => 'Выйти',
+                                'url' => ['/auth/logout'],
+                                'linkOptions' => ['data-method' => 'post'],
+                            ],
                         ],
-                        [
-                            'label' => 'Api',
-                            'url' => ['/api/v1'],
+                        'options' => [
+                            'id' => 'dropdown-profile',
                         ],
                     ],
-                    'options' => [
-                        'class' => 'list-inline',
-                    ],
-                ]) ?>
-            </div>
-            <div class="col-sm-4 text-center">
-                <span class="label label-default">
-                    &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
-                </span>
-            </div>
+            ],
+        ]) ?>
+        <?php NavBar::end() ?>
+        <div class="container">
+            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]) ?>
+            <?= $content ?>
         </div>
     </div>
-</footer>
-<?= Counters::widget() ?>
-<?php $this->endBody() ?>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <?= Menu::widget([
+                        'items' => [
+                            [
+                                'label' => 'Github',
+                                'url' => 'https://github.com/burlang',
+                            ],
+                            [
+                                'label' => 'Api',
+                                'url' => ['/api/v1'],
+                            ],
+                        ],
+                        'options' => [
+                            'class' => 'list-inline',
+                        ],
+                    ]) ?>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <span class="label label-default">
+                        &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <?= Counters::widget() ?>
+    <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage() ?>

@@ -3,10 +3,8 @@
 namespace app\models;
 
 use Yii;
-use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\web\IdentityInterface;
 
 /**
  * @property int $id
@@ -15,13 +13,13 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $auth_key
  * 
- * @property int|string $blocked_at
- * @property int|string $last_login_at
+ * @property int|string|null $blocked_at
+ * @property int|string|null $last_login_at
  * 
  * @property-read int|string $created_at
  * @property-read int|string $updated_at
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -85,48 +83,8 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function findIdentity($id)
-    {
-        return self::findOne($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        throw new NotSupportedException('Method "' . __CLASS__ . '::' . __METHOD__ . '" is not implemented.');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->auth_key;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->auth_key === (string)$authKey;
-    }
-
     public function isBlocked(): bool
     {
-        return $this->blocked_at != null;
+        return $this->blocked_at !== null;
     }
 }

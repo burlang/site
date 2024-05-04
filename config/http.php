@@ -23,8 +23,7 @@ $config = [
         'cache' => $params['components.cache'],
         'mailer' => $params['components.mailer'],
         'user' => [
-            'class' => \yii\web\User::class,
-            'identityClass' => \app\models\User::class,
+            'identityClass' => \app\components\AuthIdentity::class,
             'loginUrl' => ['auth/login'],
             'enableAutoLogin' => true,
         ],

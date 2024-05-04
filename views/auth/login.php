@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= Html::submitButton(
                     'Login',
-                    ['class' => 'btn btn-primary btn-block', 'tabindex' => '4']
+                    ['class' => 'btn btn-custom btn-block', 'tabindex' => '4']
                 ) ?>
 
                 <?php ActiveForm::end(); ?>
