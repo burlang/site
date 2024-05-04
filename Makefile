@@ -32,8 +32,6 @@ app-migrate:
 	docker-compose run --rm app php bin/app.php migrate --interactive=0
 app-clear-cache:
 	docker-compose run --rm app php bin/app.php cache/flush-all
-app-cs-fix:
-	docker-compose run --rm app composer phpcs-fixer
 app-npm-install:
 	docker-compose run --rm app npm install
 app-npm-update:
