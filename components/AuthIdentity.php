@@ -12,7 +12,7 @@ class AuthIdentity implements IdentityInterface
 
     public function __construct(int $id)
     {
-        $this->id = $id;        
+        $this->id = $id;
     }
 
     /**
