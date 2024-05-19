@@ -2,20 +2,10 @@ FROM php:8.1-fpm
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions \
-        soap \
-        zip \
-        curl \
-        bcmath \
-        exif \
         gd \
-        iconv \
         intl \
         mbstring \
-        opcache \
-        pdo_mysql \
-        pdo_pgsql \
-        imagick \
-        mongodb
+        pdo_mysql
 
 # Environment settings
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
