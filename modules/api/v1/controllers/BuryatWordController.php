@@ -1,38 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\api\v1\controllers;
 
+use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\SearchData;
 use app\modules\api\v1\components\Controller;
-use app\modules\api\v1\transformer\BuryatWordsTransformer;
-use app\modules\api\v1\transformer\BuryatWordTranslationsTransformer;
 use app\services\SearchDataService;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
-use League\Fractal\Resource\Item;
 use yii\web\NotFoundHttpException;
 
 class BuryatWordController extends Controller
 {
-    private const SEARCH_LIMIT = 10;
-
     public function actionSearch(string $q): array
     {
-        $words = BuryatWord::find()
+        return BuryatWord::find()
+            ->select(['value' => 'name'])
             ->filterWhere(['like', 'name', $q . '%', false])
             ->orderBy('name')
-            ->limit(self::SEARCH_LIMIT)
+            ->limit(10)
+            ->asArray()
             ->all();
-        return (new Manager())
-            ->createData(new Collection($words, new BuryatWordsTransformer()))
-            ->toArray()['data'];
     }
 
     /**
-     * @param SearchDataService $searchDataService
-     * @param string $q
-     * @return array
      * @throws NotFoundHttpException
      */
     public function actionTranslate(
@@ -41,14 +33,14 @@ class BuryatWordController extends Controller
     ): array {
         try {
             $word = $this->getWord($q);
-            return (new Manager())
-                ->createData(
-                    new Item(
-                        $word,
-                        new BuryatWordTranslationsTransformer()
-                    )
-                )
-                ->toArray()['data'];
+            return [
+                'translations' => array_map(
+                    function (BuryatTranslation $translation) {
+                        return ['value' => $translation->name];
+                    },
+                    $word->translations
+                ),
+            ];
         } catch (NotFoundHttpException $exception) {
             $searchDataService->add($q, SearchData::TYPE_BURYAT);
             throw $exception;
@@ -67,8 +59,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param string $value
-     * @return BuryatWord
      * @throws NotFoundHttpException
      */
     private function getWord(string $value): BuryatWord
