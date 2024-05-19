@@ -1,14 +1,23 @@
+init: \
+	docker-down-clear \
+	docker-pull \
+	docker-build \
+	docker-up \
+	app-init
+
 up: docker-up
 down: docker-down
+shell: docker-shell
 restart: down up
 ps: docker-ps
-init: docker-down-clear docker-pull docker-build docker-up app-init
 update-deps: app-composer-update app-npm-update restart
 
 docker-up:
 	docker-compose up -d
 docker-down:
 	docker-compose down --remove-orphans
+docker-shell:
+	docker exec -it app /bin/bash
 docker-down-clear:
 	docker-compose down -v --remove-orphans
 docker-pull:
@@ -18,16 +27,22 @@ docker-build:
 docker-ps:
 	docker-compose ps
 
-shell:
-	docker exec -it app /bin/bash
+app-init: \
+	app-composer-install \
+	app-npm-install \
+	app-init-files \
+	app-wait-db \
+	app-migrate \
+	app-clear-cache
 
-app-init: app-composer-install app-npm-install app-init-files app-migrate app-clear-cache
 app-init-files:
 	docker-compose run --rm app php bin/init.php --env=Development --overwrite=n
 app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
 	docker-compose run --rm app composer update
+app-wait-db:
+	docker compose run --rm app wait-for-it mysql:3306 -t 30
 app-migrate:
 	docker-compose run --rm app php bin/app.php migrate --interactive=0
 app-clear-cache:

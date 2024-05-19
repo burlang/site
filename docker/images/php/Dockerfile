@@ -1,6 +1,4 @@
-FROM php:7.4-fpm
-
-MAINTAINER Burlang
+FROM php:8.1-fpm
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions \
@@ -23,6 +21,10 @@ RUN install-php-extensions \
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     PATH=/app:/app/vendor/bin:/root/.composer/vendor/bin:$PATH \
     TERM=linux
+
+# Copy wait-for-it script
+COPY ./docker/wait-for-it.sh /usr/local/bin/wait-for-it
+RUN chmod 555 /usr/local/bin/wait-for-it
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
