@@ -12,7 +12,6 @@
         "bower-asset/codemirror-buttons": "~1.0.5",
         "mobiledetect/mobiledetectlib": "~2.8.45",
         "npm-asset/htmx.org": "^1.9.12",
-        "npm-asset/hyperscript.org": "^0.9.12",
         "yiisoft/yii2": "~2.0.49",
         "yiisoft/yii2-bootstrap": "~2.0.11",
         "yiisoft/yii2-symfonymailer": "^4.0"
