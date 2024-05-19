@@ -6,29 +6,33 @@ namespace app\modules\api\v1\controllers;
 
 use app\models\News;
 use app\modules\api\v1\components\Controller;
-use app\modules\api\v1\transformer\NewsItemTransformer;
-use app\modules\api\v1\transformer\NewsTransformer;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
-use League\Fractal\Resource\Item;
 use yii\web\NotFoundHttpException;
 
 final class NewsController extends Controller
 {
-    private const PAGE_LIMIT = 5;
-
     public function actionIndex(int $page = 1): array
     {
+        $pageLimit = 5;
         $news = News::find()
-            ->where(['active' => 1])
-            ->offset(($page - 1) * self::PAGE_LIMIT)
-            ->limit(self::PAGE_LIMIT)
+            ->active()
+            ->offset(($page - 1) * $pageLimit)
+            ->limit($pageLimit)
             ->orderBy(['id' => SORT_DESC])
             ->all();
 
-        return (new Manager())
-            ->createData(new Collection($news, new NewsTransformer()))
-            ->toArray()['data'];
+        return array_map(
+            static function (News $news): array {
+                return [
+                    'title' => $news->title,
+                    'slug' => $news->slug,
+                    'description' => $news->description,
+                    'created_date' => (new \DateTimeImmutable())
+                        ->setTimestamp($news->created_at)
+                        ->format('Y-m-d'),
+                ];
+            },
+            $news
+        );
     }
 
     /**
@@ -38,16 +42,20 @@ final class NewsController extends Controller
     {
         $news = News::find()
             ->where(['slug' => trim($q)])
-            ->andWhere(['active' => 1])
+            ->active()
             ->one();
 
         if ($news === null) {
-            throw new NotFoundHttpException('Запрашиваемая страница не существует');
+            throw new NotFoundHttpException('Новость не найдена');
         }
 
-        return (new Manager())
-            ->createData(new Item($news, new NewsItemTransformer()))
-            ->toArray()['data'];
+        return [
+            'name' => $news->title,
+            'content' => $news->content,
+            'created_date' => (new \DateTimeImmutable())
+                ->setTimestamp($news->created_at)
+                ->format('Y-m-d'),
+        ];
     }
 
     /**
