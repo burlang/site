@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use dektrium\user\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
