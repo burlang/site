@@ -14,10 +14,10 @@ use yii\widgets\ActiveForm;
     <h3>
         Бурятско
         <button class="btn btn-default btn-sm"
-                hx-get="<?= Url::to(['site/russian-words-form']) ?>"
-                hx-trigger="click"
-                hx-target="#buryat-words-form"
-                hx-swap="outerHTML"
+            hx-get="<?= Url::to(['site/russian-words-form']) ?>"
+            hx-trigger="click"
+            hx-target="#buryat-words-form"
+            hx-swap="outerHTML"
         >
             <img src="<?= Yii::getAlias('@web/icon/arrow-left-right.svg') ?>" alt="switch">
         </button>
@@ -31,28 +31,22 @@ use yii\widgets\ActiveForm;
         'action' => ['/site/find-buryat-words'],
         'method' => 'get',
     ]) ?>
-    <div class="input-group">
-        <input name="q" type="search" required="required" autocomplete="off"
-               id="bur-search" class="form-control input-lg"
-               placeholder="Введите бурятское слово"
-               onkeydown="return (event.keyCode!==13);"
-               hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
-               hx-trigger="keyup changed delay:500ms, search"
-               hx-target="#buryat-words"
-               hx-indicator=".htmx-indicator"
-        >
-        <span class="input-group-btn">
-            <?php foreach (['ү', 'һ', 'ө'] as $letter): ?>
-                <button type="button" class="btn btn-default btn-lg bur-letter"
-                        _="on click
-                        set #bur-search.value to #bur-search.value + my.innerText
-                        call htmx.trigger('#bur-search', 'keyup')
-                        call #bur-search.focus()">
-                    <?= $letter ?>
-                </button>
-            <?php endforeach ?>
-        </span>
-    </div>
+        <div class="input-group">
+            <input name="q" type="search" required="required" autocomplete="off"
+                id="bur-search" class="form-control input-lg"
+                placeholder="Введите бурятское слово"
+                onkeydown="return (event.keyCode!==13);"
+                hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
+                hx-trigger="keyup changed delay:500ms, search"
+                hx-target="#buryat-words"
+                hx-indicator=".htmx-indicator"
+            >
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-lg bur-letter">ү</button>
+                <button type="button" class="btn btn-default btn-lg bur-letter">һ</button>
+                <button type="button" class="btn btn-default btn-lg bur-letter">ө</button>
+            </span>
+        </div>
     <?php ActiveForm::end() ?>
     <div id="buryat-words"></div>
 </div>
