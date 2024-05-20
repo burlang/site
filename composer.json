@@ -17,8 +17,7 @@
         "yiisoft/yii2-symfonymailer": "^4.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
-        "yiisoft/yii2-debug": "~2.1.25"
+        "roave/security-advisories": "dev-latest"
     },
     "config": {
         "process-timeout": 1800,
