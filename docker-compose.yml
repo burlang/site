@@ -1,28 +1,40 @@
-version: '3'
+version: "3.8"
 
 volumes:
     mysql_data:
 
+networks:
+    app_network:
+        driver: bridge
+
 services:
     app:
         container_name: app
+        image: php:8.1-fpm
         build:
             context: ./
-            dockerfile: ./docker/images/php/Dockerfile
+            dockerfile: ./docker/php/Dockerfile
         volumes:
             - ~/.composer-docker/cache:/root/.composer/cache:delegated
             - ./:/app:delegated
+        depends_on:
+            - mysql
+        networks:
+            - app_network
 
     nginx:
         container_name: nginx
-        platform: linux/x86_64
         image: nginx:latest
+        platform: linux/x86_64
         ports:
             - 80:80
         volumes:
             - ./:/app:delegated
-            - ./docker/env/etc/nginx:/etc/nginx/conf.d
-            - ./docker/env/log/nginx:/var/log/nginx/
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+        depends_on:
+            - app
+        networks:
+            - app_network
 
     mysql:
         container_name: mysql
@@ -34,6 +46,6 @@ services:
             - 3306:3306
         volumes:
             - mysql_data:/var/lib/mysql
-            - ./docker/env/etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf:cached
-            - ./docker/env/log/mysql:/var/log/mariadb:cached
-            - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+            - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+        networks:
+            - app_network

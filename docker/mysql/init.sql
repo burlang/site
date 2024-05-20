@@ -1,16 +1,3 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Версия 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Адрес: 127.0.0.1 (MySQL 5.5.5-10.3.32-MariaDB-1:10.3.32+maria~focal)
-# Схема: burlang
-# Время создания: 2021-11-24 22:38:46 +0000
-# ************************************************************
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -19,9 +6,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
-# Дамп таблицы auth_assignment
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `auth_assignment`;
 
@@ -44,9 +28,6 @@ VALUES
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы auth_item
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `auth_item`;
 
@@ -78,9 +59,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Дамп таблицы auth_item_child
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `auth_item_child`;
 
 CREATE TABLE `auth_item_child` (
@@ -105,9 +83,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Дамп таблицы auth_rule
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `auth_rule`;
 
 CREATE TABLE `auth_rule` (
@@ -117,11 +92,6 @@ CREATE TABLE `auth_rule` (
   `updated_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
-# Дамп таблицы book
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `book`;
 
@@ -154,10 +124,6 @@ VALUES
 
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Дамп таблицы book_chapter
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `book_chapter`;
 
@@ -192,10 +158,6 @@ VALUES
 /*!40000 ALTER TABLE `book_chapter` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы buryat_name
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `buryat_name`;
 
 CREATE TABLE `buryat_name` (
@@ -227,10 +189,6 @@ VALUES
 /*!40000 ALTER TABLE `buryat_name` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы buryat_translation
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `buryat_translation`;
 
 CREATE TABLE `buryat_translation` (
@@ -261,10 +219,6 @@ VALUES
 /*!40000 ALTER TABLE `buryat_translation` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы buryat_word
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `buryat_word`;
 
 CREATE TABLE `buryat_word` (
@@ -293,10 +247,6 @@ VALUES
 /*!40000 ALTER TABLE `buryat_word` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы buryat_word_temp
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `buryat_word_temp`;
 
 CREATE TABLE `buryat_word_temp` (
@@ -305,11 +255,6 @@ CREATE TABLE `buryat_word_temp` (
   `remainder` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-# Дамп таблицы dictionary
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `dictionary`;
 
@@ -338,10 +283,6 @@ VALUES
 
 /*!40000 ALTER TABLE `dictionary` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Дамп таблицы migration
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `migration`;
 
@@ -431,10 +372,6 @@ VALUES
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы news
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `news`;
 
 CREATE TABLE `news` (
@@ -466,10 +403,6 @@ VALUES
 
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Дамп таблицы page
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `page`;
 
@@ -505,10 +438,6 @@ VALUES
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы part_speech
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `part_speech`;
 
 CREATE TABLE `part_speech` (
@@ -518,9 +447,6 @@ CREATE TABLE `part_speech` (
   `color` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-# Дамп таблицы profile
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `profile`;
 
@@ -547,10 +473,6 @@ VALUES
 
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Дамп таблицы russian_translation
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `russian_translation`;
 
@@ -582,10 +504,6 @@ VALUES
 /*!40000 ALTER TABLE `russian_translation` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы russian_word
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `russian_word`;
 
 CREATE TABLE `russian_word` (
@@ -614,10 +532,6 @@ VALUES
 /*!40000 ALTER TABLE `russian_word` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Дамп таблицы search_data
-# ------------------------------------------------------------
-
 DROP TABLE IF EXISTS `search_data`;
 
 CREATE TABLE `search_data` (
@@ -629,11 +543,6 @@ CREATE TABLE `search_data` (
   PRIMARY KEY (`id`),
   KEY `idx-search_data-name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Дамп таблицы social_account
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `social_account`;
 
@@ -653,11 +562,6 @@ CREATE TABLE `social_account` (
   KEY `fk_user_account` (`user_id`),
   CONSTRAINT `fk_user_account` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
-# Дамп таблицы token
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `token`;
 
@@ -679,10 +583,6 @@ VALUES
 
 /*!40000 ALTER TABLE `token` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Дамп таблицы user
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `user`;
 
@@ -714,8 +614,6 @@ VALUES
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
