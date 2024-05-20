@@ -1,23 +1,22 @@
 {
-  "name": "burlang.ru",
+  "name": "burlang/site",
   "version": "2.0.0",
-  "description": "burlang.ru ========================",
-  "main": "gulpfile.js",
+  "description": "Russian-Buryat, Buryat-Russian electronic dictionary",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "./node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/damasco/burlang.ru.git"
+    "url": "git+https://github.com/burlang/site.git"
   },
   "author": "Bulat Damdinov",
   "bugs": {
-    "url": "https://github.com/damasco/burlang.ru/issues"
+    "url": "https://github.com/burlang/site/issues"
   },
   "homepage": "https://burlang.ru",
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^5.0.0",
