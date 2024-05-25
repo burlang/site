@@ -1,5 +1,7 @@
 init: \
 	docker-down-clear \
+	app-clear \
+	app-init-env-file \
 	docker-pull \
 	docker-build \
 	docker-up \
@@ -31,15 +33,19 @@ docker-ps:
 	docker compose ps
 
 app-init: \
+	app-permissions \
 	app-composer-install \
 	app-npm-install \
-	app-init-files \
 	app-wait-mysql \
 	app-migrate \
 	app-clear-cache
 
-app-init-files:
-	docker compose run --rm app php bin/init.php --env=Development --overwrite=n
+app-clear:
+	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'rm -rf runtime/* public/assets/* .env'
+app-permissions:
+	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'chmod 777 runtime public/assets'
+app-init-env-file:
+	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'cp .env.example .env'
 app-composer-install:
 	docker compose run --rm app composer install
 app-composer-update:
