@@ -5,7 +5,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 
 function styles() {
-  return src('./assets/src/scss/main.scss')
+  return src('./resources/assets/styles/main.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
@@ -13,7 +13,7 @@ function styles() {
 }
 
 function scripts() {
-  return src('./assets/src/js/main.js')
+  return src('./resources/assets/js/main.js')
     .pipe(uglify())
     .pipe(dest('./public/js/'));
 }

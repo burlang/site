@@ -12,6 +12,7 @@ return [
     'components.cache' => \yii\caching\FileCache::class,
     'components.mailer' => [
         'class' => \yii\symfonymailer\Mailer::class,
+        'viewPath' => '@app/resources/mail',
         'useFileTransport' => false,
     ],
 
