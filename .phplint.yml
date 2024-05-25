@@ -1,0 +1,12 @@
+path: ./
+jobs: 10
+cache: var/.phplint
+extensions:
+    - php
+exclude:
+    - vendor
+    - var
+    - public/assets
+    - node_modules
+    - database
+    - docker
