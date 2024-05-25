@@ -37,9 +37,9 @@ return [
     'viewPath' => '@root/resources/templates',
     'modules' => [
         'api' => [
-            'class' => \app\modules\api\Module::class,
+            'class' => \app\api\Module::class,
             'modules' => [
-                'v1' => \app\modules\api\v1\Module::class,
+                'v1' => \app\api\v1\Module::class,
             ],
         ],
     ],
