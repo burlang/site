@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace app\modules\api\v1\controllers;
+namespace app\api\v1\controllers;
 
+use app\api\v1\components\Controller;
 use app\models\BuryatName;
-use app\modules\api\v1\components\Controller;
 use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller

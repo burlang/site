@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace app\modules\api\v1\controllers;
+namespace app\api\v1\controllers;
 
-use app\models\BuryatTranslation;
-use app\models\BuryatWord;
+use app\api\v1\components\Controller;
+use app\models\RussianTranslation;
+use app\models\RussianWord;
 use app\models\SearchData;
-use app\modules\api\v1\components\Controller;
 use app\services\SearchDataService;
 use yii\web\NotFoundHttpException;
 
-class BuryatWordController extends Controller
+class RussianWordController extends Controller
 {
     public function actionSearch(string $q): array
     {
-        return BuryatWord::find()
+        return RussianWord::find()
             ->select(['value' => 'name'])
             ->filterWhere(['like', 'name', $q . '%', false])
             ->orderBy('name')
@@ -35,14 +35,14 @@ class BuryatWordController extends Controller
             $word = $this->getWord($q);
             return [
                 'translations' => array_map(
-                    function (BuryatTranslation $translation) {
+                    function (RussianTranslation $translation) {
                         return ['value' => $translation->name];
                     },
                     $word->translations
                 ),
             ];
         } catch (NotFoundHttpException $exception) {
-            $searchDataService->add($q, SearchData::TYPE_BURYAT);
+            $searchDataService->add($q, SearchData::TYPE_RUSSIAN);
             throw $exception;
         }
     }
@@ -61,9 +61,9 @@ class BuryatWordController extends Controller
     /**
      * @throws NotFoundHttpException
      */
-    private function getWord(string $value): BuryatWord
+    private function getWord(string $name): RussianWord
     {
-        $word = BuryatWord::findOne(['name' => $value]);
+        $word = RussianWord::findOne(['name' => $name]);
         if (!$word) {
             throw new NotFoundHttpException('Слово не найдено');
         }

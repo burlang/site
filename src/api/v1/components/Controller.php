@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\api\v1\components;
+namespace app\api\v1\components;
 
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
