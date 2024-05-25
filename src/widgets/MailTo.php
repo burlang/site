@@ -12,6 +12,8 @@ final class MailTo extends Widget
 
     public function run(): string
     {
-        return $this->render('mail-to', ['email' => $this->email]);
+        return $this->render('@templates/widgets/mail-to', [
+            'email' => $this->email,
+        ]);
     }
 }

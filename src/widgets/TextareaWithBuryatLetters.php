@@ -23,7 +23,7 @@ class TextareaWithBuryatLetters extends InputWidget
         $this->options['class'] = 'form-control';
         $this->options['id'] = $selector;
 
-        return $this->render('textarea-with-buryat-letters', [
+        return $this->render('@templates/widgets/textarea-with-buryat-letters', [
             'textarea' => $textarea,
             'selector' => $selector,
         ]);
