@@ -15,7 +15,7 @@ class TextareaWithBuryatLetters extends InputWidget
     {
         if ($this->hasModel()) {
             $textarea = Html::activeTextArea($this->model, $this->attribute, $this->options);
-            $selector = Inflector::camel2id($this->model->formName()) . '-' . $this->attribute;
+            $selector = strtolower($this->model->formName()) . '-' . $this->attribute;
         } else {
             $textarea = Html::textArea($this->name, $this->value, $this->options);
             $selector = 'charts-textarea-' . $this->name;
@@ -23,12 +23,6 @@ class TextareaWithBuryatLetters extends InputWidget
 
         $this->options['class'] = 'form-control';
         $this->options['id'] = $selector;
-
-        $this->view->registerJs("
-            $('body').on('click', '.add-letter-{$selector}', function() {
-                $('#{$selector}').sendkeys($(this).text());
-            });
-        ");
 
         return $this->render('textarea-with-buryat-letters', [
             'textarea' => $textarea,
