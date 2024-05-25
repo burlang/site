@@ -14,6 +14,8 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'layoutPath' => '@app/resources/templates/layouts',
+    'viewPath' => '@app/resources/templates',
     'container' => require __DIR__ . '/container.php',
     'components' => [
         'db' => $params['components.db'],
