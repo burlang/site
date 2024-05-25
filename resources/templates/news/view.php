@@ -43,11 +43,4 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="image-responsive-container">
         <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
     </div>
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="mt-20 comment-block">
-                <?= Comments::widget() ?>
-            </div>
-        </div>
-    </div>
 </div>

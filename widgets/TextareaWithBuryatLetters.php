@@ -3,7 +3,6 @@
 namespace app\widgets;
 
 use yii\helpers\Html;
-use yii\helpers\Inflector;
 use yii\widgets\InputWidget;
 
 class TextareaWithBuryatLetters extends InputWidget
