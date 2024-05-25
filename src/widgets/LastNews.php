@@ -14,7 +14,7 @@ class LastNews extends Widget
      */
     public function run(): string
     {
-        return $this->render('last-news', [
+        return $this->render('@templates/widgets/last-news', [
             'lastNews' => News::find()
                 ->active()
                 ->orderBy('created_at DESC')

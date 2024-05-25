@@ -30,16 +30,18 @@ return [
     'bootstrap' => ['log'],
     'aliases' => [
         '@root' => dirname(__DIR__),
+        '@templates' => '@root/resources/templates',
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'layoutPath' => '@root/resources/templates/layouts',
-    'viewPath' => '@root/resources/templates',
+    'layoutPath' => '@templates/views/layouts',
+    'viewPath' => '@templates/views',
     'modules' => [
         'api' => [
             'class' => \app\api\Module::class,
             'modules' => [
                 'v1' => \app\api\v1\Module::class,
+                'viewPath' => '@templates/api/v1',
             ],
         ],
     ],

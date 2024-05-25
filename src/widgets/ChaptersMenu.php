@@ -15,7 +15,7 @@ class ChaptersMenu extends Widget
      */
     public function run(): string
     {
-        return $this->render('chapters-menu', [
+        return $this->render('@templates/widgets/chapters-menu', [
             'model' => $this->book,
             'activeId' => $this->activeId,
         ]);
