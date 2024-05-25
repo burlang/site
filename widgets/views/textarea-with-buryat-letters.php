@@ -1,8 +1,18 @@
 <?php
+
+use yii\web\View;
+
 /**
+ * @var View $this
  * @var string $textarea
  * @var string $selector
  */
+
+$this->registerJs("
+    $('body').on('click', '.add-letter-{$selector}', function() {
+        $('#{$selector}').sendkeys($(this).text());
+    });
+");
 ?>
 <div class="well well-sm mb-0">
     <div class="form-group">
