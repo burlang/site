@@ -24,15 +24,17 @@ return [
     'language' => 'ru-RU',
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Irkutsk',
-    'basePath' => dirname(__DIR__),
+    'basePath' => dirname(__DIR__) . '/src',
+    'vendorPath' => dirname(__DIR__) . '/vendor',
     'runtimePath' => dirname(__DIR__) . '/var',
     'bootstrap' => ['log'],
     'aliases' => [
+        '@root' => dirname(__DIR__),
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'layoutPath' => '@app/resources/templates/layouts',
-    'viewPath' => '@app/resources/templates',
+    'layoutPath' => '@root/resources/templates/layouts',
+    'viewPath' => '@root/resources/templates',
     'modules' => [
         'api' => [
             'class' => \app\modules\api\Module::class,
