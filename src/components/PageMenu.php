@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use app\models\Page;
@@ -9,7 +11,6 @@ use yii\helpers\Url;
 class PageMenu
 {
     /**
-     * @param string $link
      * @return array|string
      */
     public static function getItem(string $link)

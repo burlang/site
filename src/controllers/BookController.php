@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
@@ -8,6 +10,7 @@ use app\models\BookChapter;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
+use yii\db\StaleObjectException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -16,9 +19,6 @@ use yii\web\Response;
 
 class BookController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -82,8 +82,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param string $slug
-     * @return string
      * @throws NotFoundHttpException
      */
     public function actionView(string $slug): string
@@ -98,7 +96,7 @@ class BookController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -112,8 +110,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)
@@ -128,11 +125,9 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
-     * @throws \yii\db\StaleObjectException
+     * @throws StaleObjectException
      */
     public function actionDelete(int $id): Response
     {
@@ -144,8 +139,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionChapterCreate(int $id)
@@ -166,8 +160,7 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionChapterUpdate(int $id)
@@ -187,9 +180,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param string $slug
-     * @param string $chapterSlug
-     * @return string
      * @throws NotFoundHttpException
      */
     public function actionChapter(string $slug, string $chapterSlug): string
@@ -208,8 +198,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws NotFoundHttpException
      */
     public function actionChapterDelete(int $id): Response
@@ -223,8 +211,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Book
      * @throws NotFoundHttpException
      */
     private function getBook(int $id): Book
@@ -237,8 +223,6 @@ class BookController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return BookChapter
      * @throws NotFoundHttpException
      */
     private function getChapter(int $id): BookChapter

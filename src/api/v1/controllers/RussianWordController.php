@@ -35,9 +35,7 @@ class RussianWordController extends Controller
             $word = $this->getWord($q);
             return [
                 'translations' => array_map(
-                    function (RussianTranslation $translation) {
-                        return ['value' => $translation->name];
-                    },
+                    static fn (RussianTranslation $translation) => ['value' => $translation->name],
                     $word->translations
                 ),
             ];
@@ -47,9 +45,6 @@ class RussianWordController extends Controller
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function verbs(): array
     {
         return [

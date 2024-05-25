@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
-use app\models\RussianWord;
 use app\models\BuryatWord;
+use app\models\RussianWord;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ErrorAction;
@@ -12,9 +14,6 @@ class SiteController extends Controller
 {
     private const SEARCH_LIMIT = 5;
 
-    /**
-     * {@inheritDoc}
-     */
     public function actions(): array
     {
         return [
@@ -24,9 +23,6 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors(): array
     {
         return [

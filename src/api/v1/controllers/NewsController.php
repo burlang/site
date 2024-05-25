@@ -6,6 +6,7 @@ namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
 use app\models\News;
+use DateTimeImmutable;
 use yii\web\NotFoundHttpException;
 
 final class NewsController extends Controller
@@ -26,7 +27,7 @@ final class NewsController extends Controller
                     'title' => $news->title,
                     'slug' => $news->slug,
                     'description' => $news->description,
-                    'created_date' => (new \DateTimeImmutable())
+                    'created_date' => (new DateTimeImmutable())
                         ->setTimestamp($news->created_at)
                         ->format('Y-m-d'),
                 ];
@@ -52,15 +53,12 @@ final class NewsController extends Controller
         return [
             'name' => $news->title,
             'content' => $news->content,
-            'created_date' => (new \DateTimeImmutable())
+            'created_date' => (new DateTimeImmutable())
                 ->setTimestamp($news->created_at)
                 ->format('Y-m-d'),
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function verbs(): array
     {
         return [

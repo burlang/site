@@ -44,9 +44,6 @@ class BuryatNameController extends Controller
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function verbs(): array
     {
         return [

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components\Grid;
 
 use Yii;
@@ -8,10 +10,7 @@ use yii\grid\ActionColumn as Column;
 
 class ActionColumn extends Column
 {
-    /**
-     * {@inheritDoc}
-     */
-    protected function initDefaultButtons()
+    protected function initDefaultButtons(): void
     {
         if (!isset($this->buttons['view'])) {
             $this->buttons['view'] = function ($url, $model, $key) {

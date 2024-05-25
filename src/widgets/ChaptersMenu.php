@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use app\models\Book;
@@ -10,9 +12,6 @@ class ChaptersMenu extends Widget
     public Book $book;
     public ?int $activeId = null;
 
-    /**
-     * {@inheritDoc}
-     */
     public function run(): string
     {
         return $this->render('@templates/widgets/chapters-menu', [

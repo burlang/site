@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use yii\helpers\Html;
@@ -7,9 +9,6 @@ use yii\widgets\InputWidget;
 
 class TextareaWithBuryatLetters extends InputWidget
 {
-    /**
-     * {@inheritDoc}
-     */
     public function run(): string
     {
         if ($this->hasModel()) {

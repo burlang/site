@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers\admin;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
@@ -15,9 +17,6 @@ use yii\web\Response;
 
 class BuryatNameController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -72,7 +71,7 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -86,7 +85,7 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)

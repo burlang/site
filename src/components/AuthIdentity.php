@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use app\models\User;
@@ -15,9 +17,6 @@ class AuthIdentity implements IdentityInterface
         $this->id = $id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function findIdentity($id)
     {
         $user = User::findOne($id);
@@ -29,33 +28,21 @@ class AuthIdentity implements IdentityInterface
         return new self($user->id);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public static function findIdentityByAccessToken($token, $type = null): void
     {
         throw new NotSupportedException('Method "findIdentityByAccessToken" is not implemented.');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAuthKey()
     {
-        return "";
+        return '';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function validateAuthKey($authKey)
     {
         return true;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\Page;
@@ -14,9 +16,6 @@ use yii\web\Response;
 
 class PageController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -65,8 +64,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param string $link
-     * @return string
      * @throws NotFoundHttpException
      */
     public function actionView(string $link): string
@@ -81,7 +78,7 @@ class PageController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -95,8 +92,7 @@ class PageController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)
@@ -111,8 +107,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -128,8 +122,6 @@ class PageController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Page
      * @throws NotFoundHttpException
      */
     private function getPage(int $id): Page

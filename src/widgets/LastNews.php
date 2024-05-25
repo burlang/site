@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use app\models\News;
@@ -9,9 +11,6 @@ class LastNews extends Widget
 {
     public int $limit = 3;
 
-    /**
-     * {@inheritDoc}
-     */
     public function run(): string
     {
         return $this->render('@templates/widgets/last-news', [
