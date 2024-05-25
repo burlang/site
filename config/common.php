@@ -25,6 +25,7 @@ return [
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Irkutsk',
     'basePath' => dirname(__DIR__),
+    'runtimePath' => dirname(__DIR__) . '/var',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

@@ -41,9 +41,9 @@ app-init: \
 	app-clear-cache
 
 app-clear:
-	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'rm -rf runtime/* public/assets/* .env'
+	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'rm -rf var/* public/assets/* .env'
 app-permissions:
-	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'chmod 777 runtime public/assets'
+	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'chmod 777 var public/assets'
 app-init-env-file:
 	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'cp .env.example .env'
 app-composer-install:
