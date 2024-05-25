@@ -1,29 +1,18 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
+declare(strict_types=1);
 
-$config = [
-    'id' => 'basic-console',
-    'language' => 'ru-RU',
-    'sourceLanguage' => 'en-US',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'layoutPath' => '@app/resources/templates/layouts',
-    'viewPath' => '@app/resources/templates',
-    'controllerNamespace' => 'app\commands',
-    'components' => [
-        'db' => $params['components.db'],
-        'cache' => $params['components.cache'],
-        'log' => [
-            'targets' => [
-                [
-                    'class' => \yii\log\FileTarget::class,
-                    'levels' => ['error', 'warning'],
-                ],
+use yii\console\ErrorHandler;
+use yii\helpers\ArrayHelper;
+
+return ArrayHelper::merge(
+    require __DIR__ . '/common.php',
+    [
+        'controllerNamespace' => 'app\commands',
+        'components' => [
+            'errorHandler' => [
+                'class' => ErrorHandler::class,
             ],
         ],
     ],
-    'params' => $params,
-];
-
-return $config;
+);
