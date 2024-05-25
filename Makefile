@@ -40,6 +40,10 @@ app-init: \
 	app-migrate \
 	app-clear-cache
 
+app-check: \
+	app-composer-validate \
+	app-lint
+
 app-clear:
 	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'rm -rf var/* public/assets/* .env'
 app-permissions:
@@ -62,3 +66,8 @@ app-npm-update:
 	docker compose run --rm app npm update
 app-assets-build:
 	docker compose run --rm app npm run build
+
+app-composer-validate:
+	docker compose run --rm app composer validate
+app-lint:
+	docker compose run --rm app composer lint
