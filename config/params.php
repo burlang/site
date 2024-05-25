@@ -3,9 +3,9 @@
 return [
     'components.db' => [
         'class' => \yii\db\Connection::class,
-        'dsn' => 'mysql:host=localhost;dbname=burlang',
-        'username' => 'root',
-        'password' => 'root',
+        'dsn' => 'mysql:host=' . env('DB_HOST') . ';dbname=' . env('DB_DATABASE'),
+        'username' => env('DB_USERNAME'),
+        'password' => env('DB_PASSWORD'),
         'charset' => 'utf8',
         'enableSchemaCache' => true,
     ],
@@ -14,7 +14,6 @@ return [
         'class' => \yii\symfonymailer\Mailer::class,
         'useFileTransport' => false,
     ],
-    'components.request.key' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
 
-    'adminEmail' => 'dbulats88@gmail.com',
+    'adminEmail' => 'info@burlang.org',
 ];

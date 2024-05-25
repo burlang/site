@@ -1,9 +1,6 @@
 <?php
 
-$params = \yii\helpers\ArrayHelper::merge(
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
-);
+$params = require __DIR__ . '/params.php';
 
 $config = [
     'id' => 'basic-console',
@@ -20,16 +17,6 @@ $config = [
                 [
                     'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'i18n' => [
-            'translations' => [
-                'app*' => [
-                    'class' => \yii\i18n\PhpMessageSource::class,
-                    'fileMap' => [
-                        'app' => 'app.php',
-                    ],
                 ],
             ],
         ],

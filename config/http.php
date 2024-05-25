@@ -1,9 +1,6 @@
 <?php
 
-$params = \yii\helpers\ArrayHelper::merge(
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
-);
+$params = require __DIR__ . '/params.php';
 
 $config = [
     'id' => 'burlang',
@@ -43,7 +40,7 @@ $config = [
             'appendTimestamp' => true,
         ],
         'request' => [
-            'cookieValidationKey' => $params['components.request.key'],
+            'cookieValidationKey' => env('COOKIE_SECRET'),
             'parsers' => [
                 'application/json' => \yii\web\JsonParser::class,
             ],
