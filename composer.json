@@ -22,8 +22,11 @@
     },
     "autoload": {
         "files": [
-            "components/functions/env.php"
-        ]
+            "src/functions.php"
+        ],
+        "psr-4": {
+            "app\\": "src/"
+        }
     },
     "config": {
         "process-timeout": 1800,
