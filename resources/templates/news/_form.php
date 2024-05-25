@@ -2,7 +2,7 @@
 
 use app\assets\MarkdownEditorAsset;
 use app\models\News;
-use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
+use app\widgets\InputWithBuryatLetters;
 use app\widgets\TextareaWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\web\View;

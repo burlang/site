@@ -12,10 +12,10 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/main.css',
+        'build/css/main.css',
     ];
     public $js = [
-        'js/main.js',
+        'build/js/main.js',
     ];
     public $jsOptions = [
         'position'=> View::POS_END

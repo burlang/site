@@ -7,12 +7,6 @@ use yii\widgets\InputWidget;
 
 final class InputWithBuryatLetters extends InputWidget
 {
-    public function init()
-    {
-        InputWithBuryatLettersAsset::register($this->getView());
-        parent::init();
-    }
-
     /**
      * {@inheritDoc}
      */

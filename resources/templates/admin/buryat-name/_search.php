@@ -1,7 +1,7 @@
 <?php
 
 use app\models\search\BuryatNameSearch;
-use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
+use app\widgets\InputWithBuryatLetters;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
