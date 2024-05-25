@@ -25,6 +25,7 @@
         "yiisoft/yii2-symfonymailer": "^4.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.57",
         "overtrue/phplint": "^9.3",
         "roave/security-advisories": "dev-latest"
     },
@@ -44,7 +45,8 @@
         }
     },
     "scripts": {
-        "lint": "phplint"
+        "lint": "phplint",
+        "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php"
     },
     "repositories": [
         {

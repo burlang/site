@@ -1,41 +1,37 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
-use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "russian_translation".
  *
- * @property integer $id
- * @property integer $ruword_id
+ * @property int $id
+ * @property int $ruword_id
  * @property string $name
- * @property integer|null $dict_id
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int|null $dict_id
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property RussianWord $russianWord
  * @property User $createdBy
  * @property User $updatedBy
  */
-class RussianTranslation extends \yii\db\ActiveRecord
+class RussianTranslation extends ActiveRecord
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'russian_translation';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -66,9 +62,6 @@ class RussianTranslation extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -83,9 +76,6 @@ class RussianTranslation extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [

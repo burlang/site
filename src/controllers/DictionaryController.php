@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\Dictionary;
@@ -14,9 +16,6 @@ use yii\web\Response;
 
 class DictionaryController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -67,7 +66,7 @@ class DictionaryController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -82,8 +81,7 @@ class DictionaryController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)
@@ -99,8 +97,6 @@ class DictionaryController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws NotFoundHttpException
      */
     public function actionDelete(int $id): Response
@@ -113,8 +109,6 @@ class DictionaryController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Dictionary
      * @throws NotFoundHttpException
      */
     private function getDictionary(int $id): Dictionary

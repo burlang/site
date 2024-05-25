@@ -1,43 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
-use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "book_chapter".
  *
- * @property integer $id
+ * @property int $id
  * @property string $title
  * @property string $slug
  * @property string $content
- * @property integer $book_id
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $book_id
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property Book $book
  * @property User $createdBy
  * @property User $updatedBy
  */
-class BookChapter extends \yii\db\ActiveRecord
+class BookChapter extends ActiveRecord
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'book_chapter';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -70,9 +66,6 @@ class BookChapter extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -88,9 +81,6 @@ class BookChapter extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [

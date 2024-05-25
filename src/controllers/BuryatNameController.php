@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\BuryatName;
@@ -34,7 +36,7 @@ class BuryatNameController extends Controller
 
     public function actionIndex(): string
     {
-        $letters = Yii::$app->cache->getOrSet('first-letters', function () {
+        $letters = Yii::$app->cache->getOrSet('first-letters', static function () {
             return ArrayHelper::map(
                 BuryatName::find()
                     ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
@@ -52,7 +54,7 @@ class BuryatNameController extends Controller
         ]);
     }
 
-    public function actionList(string $letter = null): string
+    public function actionList(?string $letter = null): string
     {
         $namesQuery = BuryatName::find()
             ->select('name');

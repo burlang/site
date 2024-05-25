@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\forms\LoginForm;
@@ -11,9 +13,6 @@ use yii\web\Response;
 
 class AuthController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [
@@ -48,7 +47,7 @@ class AuthController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) 
+        if ($model->load(Yii::$app->request->post())
             && $model->validate()
             && $model->login(Yii::$app->user)
         ) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\assets;
 
 use yii\bootstrap\BootstrapAsset;
@@ -18,7 +20,7 @@ class AppAsset extends AssetBundle
         'build/js/main.js',
     ];
     public $jsOptions = [
-        'position'=> View::POS_END
+        'position'=> View::POS_END,
     ];
     public $depends = [
         YiiAsset::class,

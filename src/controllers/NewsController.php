@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\News;
@@ -14,9 +16,6 @@ use yii\web\Response;
 
 class NewsController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -71,8 +70,6 @@ class NewsController extends Controller
     }
 
     /**
-     * @param string $slug
-     * @return string
      * @throws NotFoundHttpException
      */
     public function actionView(string $slug): string
@@ -87,7 +84,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -101,8 +98,7 @@ class NewsController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)
@@ -117,8 +113,6 @@ class NewsController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -132,8 +126,6 @@ class NewsController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return News
      * @throws NotFoundHttpException
      */
     private function getNews(int $id): News

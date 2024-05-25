@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'news/<action:(create|update|delete)>' => 'news/<action>',
     'news' => 'news/index',

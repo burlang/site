@@ -1,42 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
-use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "buryat_translation".
  *
- * @property integer $id
- * @property integer $burword_id
- * @property integer $dict_id
+ * @property int $id
+ * @property int $burword_id
+ * @property int $dict_id
  * @property string $name
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property BuryatWord $buraytWord
  * @property Dictionary $dictionary
  * @property User $createdBy
  * @property User $updatedBy
  */
-class BuryatTranslation extends \yii\db\ActiveRecord
+class BuryatTranslation extends ActiveRecord
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'buryat_translation';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -67,9 +63,6 @@ class BuryatTranslation extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -84,9 +77,6 @@ class BuryatTranslation extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [

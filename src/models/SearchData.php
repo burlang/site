@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use yii\behaviors\TimestampBehavior;
@@ -8,28 +10,22 @@ use yii\db\ActiveRecord;
 /**
  * This is the model class for table "search_data".
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
- * @property integer $type
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $type
+ * @property int $created_at
+ * @property int $updated_at
  */
 class SearchData extends ActiveRecord
 {
     public const TYPE_BURYAT = 0;
     public const TYPE_RUSSIAN = 1;
 
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'search_data';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -39,9 +35,6 @@ class SearchData extends ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -53,9 +46,6 @@ class SearchData extends ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use app\api\Module;
 use app\components\AuthManager;
 use app\components\DeviceDetector\DeviceDetector;
 use app\components\DeviceDetector\DeviceDetectorInterface;
@@ -38,9 +39,9 @@ return [
     'viewPath' => '@templates/views',
     'modules' => [
         'api' => [
-            'class' => \app\api\Module::class,
+            'class' => Module::class,
             'modules' => [
-                'v1' => \app\api\v1\Module::class,
+                'v1' => app\api\v1\Module::class,
                 'viewPath' => '@templates/api/v1',
             ],
         ],
@@ -106,7 +107,7 @@ return [
             SearchDataService::class => SearchDataService::class,
         ],
         'definitions' => [
-            ActionColumn::class => \app\components\Grid\ActionColumn::class,
+            ActionColumn::class => app\components\Grid\ActionColumn::class,
         ],
     ],
     'params' => [],

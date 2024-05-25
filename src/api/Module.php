@@ -1,11 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\api;
 
 class Module extends \yii\base\Module
 {
-    /**
-     * {@inheritDoc}
-     */
     public $controllerNamespace = 'app\api\controllers';
 }

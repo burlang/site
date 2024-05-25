@@ -1,44 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
-use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "page".
  *
- * @property integer $id
+ * @property int $id
  * @property string $menu_name
  * @property string $title
  * @property string $link
  * @property string $description
  * @property string $content
- * @property integer $active
- * @property integer $static
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $active
+ * @property int $static
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property User $createdBy
  * @property User $updatedBy
  */
-class Page extends \yii\db\ActiveRecord
+class Page extends ActiveRecord
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'page';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -68,9 +64,6 @@ class Page extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -79,9 +72,6 @@ class Page extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [

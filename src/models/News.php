@@ -1,44 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\queries\NewsQuery;
-use app\models\User;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "news".
  *
- * @property integer $id
+ * @property int $id
  * @property string $title
  * @property string $slug
  * @property string $description
  * @property string $content
- * @property integer $active
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $active
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property User $createdBy
  * @property User $updatedBy
  */
-class News extends \yii\db\ActiveRecord
+class News extends ActiveRecord
 {
-    /**
-     * {@inheritDoc}
-     */
     public static function tableName()
     {
         return 'news';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [
@@ -64,9 +60,6 @@ class News extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -79,9 +72,6 @@ class News extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -110,6 +100,6 @@ class News extends \yii\db\ActiveRecord
 
     public static function find(): NewsQuery
     {
-        return new NewsQuery(get_called_class());
+        return new NewsQuery(static::class);
     }
 }

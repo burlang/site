@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use yii\behaviors\TimestampBehavior;
@@ -12,12 +14,12 @@ use yii\db\ActiveRecord;
  * @property string $password_hash
  * @property string $auth_key
  * @property string $role
- * 
+ *
  * @property int|string|null $blocked_at
  * @property int|string|null $last_login_at
- * 
- * @property-read int|string $created_at
- * @property-read int|string $updated_at
+ *
+ * @property int|string $created_at
+ * @property int|string $updated_at
  */
 class User extends ActiveRecord
 {
@@ -25,17 +27,11 @@ class User extends ActiveRecord
     public const ROLE_MODERATOR = 'moderator';
     public const ROLE_ADMIN = 'admin';
 
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'user';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -68,9 +64,6 @@ class User extends ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -82,9 +75,6 @@ class User extends ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [

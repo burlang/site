@@ -44,6 +44,9 @@ app-check: \
 	app-composer-validate \
 	app-lint
 
+app-fix: \
+	app-lint-fix
+
 app-clear:
 	docker run --rm -v ${PWD}:/app -w /app php:8.1-fpm sh -c 'rm -rf var/* public/assets/* .env'
 app-permissions:
@@ -71,3 +74,8 @@ app-composer-validate:
 	docker compose run --rm app composer validate
 app-lint:
 	docker compose run --rm app composer lint
+	docker compose run --rm app composer php-cs-fixer fix -- --dry-run --diff
+
+app-lint-fix:
+	docker compose run --rm app composer php-cs-fixer fix
+

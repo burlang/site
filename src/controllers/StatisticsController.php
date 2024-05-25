@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\BuryatName;
@@ -15,9 +17,6 @@ use yii\web\Controller;
 
 class StatisticsController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [

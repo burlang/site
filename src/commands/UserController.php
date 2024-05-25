@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\commands;
 
 use app\models\User;
@@ -28,17 +30,17 @@ class UserController extends Controller
 
         $user = User::findOne(['username' => $username]);
         if ($user === null) {
-            $this->stderr("User not found: $username\n", Console::FG_RED);
+            $this->stderr("User not found: {$username}\n", Console::FG_RED);
             return ExitCode::DATAERR;
         }
 
         $user->role = $this->select('Select role:', User::roles());
         if (!$user->save()) {
-            $this->stderr("Failed to save user: $username\n", Console::FG_RED);
+            $this->stderr("Failed to save user: {$username}\n", Console::FG_RED);
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $this->stdout("Role changed: $username\n", Console::FG_GREEN);
+        $this->stdout("Role changed: {$username}\n", Console::FG_GREEN);
 
         return ExitCode::OK;
     }

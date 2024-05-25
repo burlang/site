@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\forms;
 
 use app\components\AuthIdentity;
@@ -13,7 +15,7 @@ class LoginForm extends Model
     public string $username = '';
     public string $password = '';
 
-    /** @var User|null|false */
+    /** @var false|User|null */
     private $user = false;
 
     public function rules(): array
@@ -35,7 +37,7 @@ class LoginForm extends Model
         ];
     }
 
-    public function validatePassword($attribute)
+    public function validatePassword($attribute): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -45,7 +47,7 @@ class LoginForm extends Model
         }
     }
 
-    public function validateBlocked($attribute)
+    public function validateBlocked($attribute): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();

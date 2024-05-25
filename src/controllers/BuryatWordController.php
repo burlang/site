@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
@@ -18,9 +20,6 @@ use yii\web\Response;
 
 class BuryatWordController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -66,7 +65,7 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -89,9 +88,7 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param DeviceDetectorInterface $deviceDetector
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(DeviceDetectorInterface $deviceDetector, int $id)
@@ -124,8 +121,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -142,8 +137,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -160,8 +153,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return BuryatWord
      * @throws NotFoundHttpException
      */
     private function getWord(int $id): BuryatWord
@@ -174,8 +165,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return BuryatTranslation
      * @throws NotFoundHttpException
      */
     private function getTranslation(int $id): BuryatTranslation

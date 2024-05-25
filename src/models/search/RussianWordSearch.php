@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models\search;
 
 use app\models\RussianWord;
@@ -7,9 +9,6 @@ use yii\data\ActiveDataProvider;
 
 class RussianWordSearch extends RussianWord
 {
-    /**
-     * {@inheritDoc}
-     */
     public function rules()
     {
         return [

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
@@ -18,9 +20,6 @@ use yii\web\Response;
 
 class RussianWordController extends Controller
 {
-    /**
-     * {@inheritDoc}
-     */
     public function behaviors()
     {
         return [
@@ -65,7 +64,7 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @return string|Response
+     * @return Response|string
      */
     public function actionCreate()
     {
@@ -86,9 +85,7 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @param DeviceDetectorInterface $deviceDetector
-     * @param int $id
-     * @return string|Response
+     * @return Response|string
      * @throws NotFoundHttpException
      */
     public function actionUpdate(DeviceDetectorInterface $deviceDetector, int $id)
@@ -118,8 +115,6 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -134,8 +129,6 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return Response
      * @throws Exception
      * @throws NotFoundHttpException
      */
@@ -150,8 +143,6 @@ class RussianWordController extends Controller
     }
 
     /**
-     * @param int $id
-     * @return RussianWord
      * @throws NotFoundHttpException
      */
     private function getWord(int $id): RussianWord

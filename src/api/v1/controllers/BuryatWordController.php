@@ -35,9 +35,7 @@ class BuryatWordController extends Controller
             $word = $this->getWord($q);
             return [
                 'translations' => array_map(
-                    function (BuryatTranslation $translation) {
-                        return ['value' => $translation->name];
-                    },
+                    static fn (BuryatTranslation $translation) => ['value' => $translation->name],
                     $word->translations
                 ),
             ];
@@ -47,9 +45,6 @@ class BuryatWordController extends Controller
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function verbs(): array
     {
         return [
