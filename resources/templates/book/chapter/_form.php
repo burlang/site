@@ -2,7 +2,7 @@
 
 use app\assets\MarkdownEditorAsset;
 use app\models\BookChapter;
-use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;

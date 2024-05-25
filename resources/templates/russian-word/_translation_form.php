@@ -3,7 +3,7 @@
 use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
-use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;

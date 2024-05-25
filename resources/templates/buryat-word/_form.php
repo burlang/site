@@ -1,7 +1,7 @@
 <?php
 
 use app\models\BuryatWord;
-use app\widgets\InputWithBuryatLetters\InputWithBuryatLetters;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;

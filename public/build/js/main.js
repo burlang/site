@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".image-responsive-container img").addClass("img-responsive"),$("button.add-input-letter").on("click",function(){var n=$(this);n.parent("span").siblings("input").sendkeys(n.text())})});

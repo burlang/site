@@ -9,13 +9,26 @@ function styles() {
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(dest('./public/css/'));
+    .pipe(dest('./public/build/css/'));
 }
 
 function scripts() {
   return src('./resources/assets/js/main.js')
     .pipe(uglify())
-    .pipe(dest('./public/js/'));
+    .pipe(dest('./public/build/js/'));
 }
 
-exports.build = series(styles, scripts);
+function markdownStyles() {
+  return src('./resources/assets/markdown/editor.css')
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
+    .pipe(dest('./public/build/markdown/'));
+}
+
+function markdownScripts() {
+  return src('./resources/assets/markdown/editor.js')
+    .pipe(uglify())
+    .pipe(dest('./public/build/markdown/'));
+}
+
+exports.build = series(styles, scripts, markdownStyles, markdownScripts);

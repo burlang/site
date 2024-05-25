@@ -7,7 +7,7 @@ use yii\web\JqueryAsset;
 
 class MarkdownEditorAsset extends AssetBundle
 {
-    public $sourcePath = '@app/assets/markdown';
+    public $baseUrl = '@web/build/markdown';
     public $js = [
         'editor.js',
     ];
