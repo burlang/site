@@ -42,7 +42,6 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
                     <img src="<?= Yii::getAlias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="40">
                 </a>
             </div>
-            <?= Comments::widget() ?>
         </div>
         <div class="col-sm-4">
             <?= LastNews::widget() ?>

@@ -3,7 +3,6 @@
 use app\assets\AppAsset;
 use app\components\PageMenu;
 use app\models\User;
-use app\widgets\Counters;
 use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -182,7 +181,6 @@ $route = Yii::$app->controller->getRoute();
             </div>
         </div>
     </footer>
-    <?= Counters::widget() ?>
     <?php $this->endBody() ?>
 </body>
 
