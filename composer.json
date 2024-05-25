@@ -25,6 +25,7 @@
         "yiisoft/yii2-symfonymailer": "^4.0"
     },
     "require-dev": {
+        "overtrue/phplint": "^9.3",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
@@ -41,6 +42,9 @@
         "allow-plugins": {
             "yiisoft/yii2-composer": true
         }
+    },
+    "scripts": {
+        "lint": "phplint"
     },
     "repositories": [
         {
