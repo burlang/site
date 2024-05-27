@@ -1,49 +1,118 @@
-version: "3.8"
-
-volumes:
-    mysql_data:
-
-networks:
-    app_network:
-        driver: bridge
-
 services:
-    app:
-        container_name: app
-        image: php:8.1-fpm
-        build:
-            context: ./
-            dockerfile: ./docker/php/Dockerfile
-        volumes:
-            - ~/.composer-docker/cache:/root/.composer/cache:delegated
-            - ./:/app:delegated
-        networks:
-            - app_network
-
-    nginx:
-        container_name: nginx
-        image: nginx:latest
-        platform: linux/x86_64
+    traefik:
+        image: traefik:2.10
+        container_name: traefik
+        command:
+            - --providers.docker=true
+            - --providers.docker.exposedbydefault=false
+            - --entrypoints.http.address=:80
         ports:
-            - 80:80
-        volumes:
-            - ./:/app:delegated
-            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+            - "80:80"
         networks:
-            - app_network
+            - traefik-public
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
 
-    mysql:
-        container_name: mysql
-        image: mariadb:10.3
+    site-nginx:
+        container_name: site-nginx
+        build:
+            context: .
+            dockerfile: ./docker/nginx/Dockerfile
+        networks:
+            - traefik-public
+            - default
+        volumes:
+            - ./:/app
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-nginx.rule=Host(`localhost`)
+            - traefik.http.routers.site-nginx.entrypoints=http
+            - traefik.http.services.site-nginx.loadbalancer.server.port=80
+
+    site-php-fpm:
+        container_name: site-php-fpm
+        build:
+            context: .
+            dockerfile: ./docker/php/fpm/Dockerfile
+        volumes:
+            - ./:/app
+
+    site-php-cli:
+        container_name: site-php-cli
+        build:
+            context: .
+            dockerfile: ./docker/php/cli/Dockerfile
+        volumes:
+            - ./:/app
+        network_mode: service:site-nginx
+
+    site-node-cli:
+        image: node:21-alpine
+        container_name: site-node-cli
+        user: "1000:1000"
+        volumes:
+            - ./:/app
+        working_dir: /app
+
+    site-mysql:
+        image: mariadb:10
+        container_name: site-mysql
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
             MYSQL_ROOT_PASSWORD: root
         ports:
-            - 3306:3306
+            - "3306:3306"
         volumes:
-            - mysql_data:/var/lib/mysql
+            - site-mysql:/var/lib/mysql
             - ./database/data/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+    site-backup:
+        container_name: site-backup
+        build:
+            context: .
+            dockerfile: ./docker/backup/Dockerfile
+        environment:
+            BACKUP_NAME: site-mysql
+            MYSQL_HOST: site-mysql
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            AWS_ACCESS_KEY_ID: aws_access_key_id
+            AWS_SECRET_ACCESS_KEY: aws_secret_access_key
+            AWS_DEFAULT_REGION: region
+            S3_ENDPOINT: http://site-backup-storage:9000
+            S3_BUCKET: backup
+        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && backup"]
+
+    site-backup-storage:
+        image: minio/minio
+        environment:
+            MINIO_ROOT_USER: aws_access_key_id
+            MINIO_ROOT_PASSWORD: aws_secret_access_key
         networks:
-            - app_network
+            - traefik-public
+            - default
+        volumes:
+            - site-backup-storage:/data
+        labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.http.routers.site-backup-storage.rule=Host(`backup-storage.localhost`)
+            - traefik.http.routers.site-backup-storage.entrypoints=http
+            - traefik.http.services.site-backup-storage.loadbalancer.server.port=9001
+        entrypoint: ["sh", "-c", "mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ':9001'"]
+
+volumes:
+    site-mysql:
+    site-backup-storage:
+
+networks:
+    default:
+    traefik-public:
+        name: traefik-public

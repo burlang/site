@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c28127453aaa6e676da03af5df7e328",
+    "content-hash": "23664504cc4c7019789129429b55ed28",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -5260,7 +5260,6 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1",
-        "ext-gd": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",

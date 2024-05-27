@@ -15,7 +15,7 @@ Burlang.ru
 make init
 ```
 
-### Open `http://127.0.0.1:80`
+### Open `http://localhost`
 
 Login: `admin`
 Password: `admin`
