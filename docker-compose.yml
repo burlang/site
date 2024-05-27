@@ -65,7 +65,7 @@ services:
             MYSQL_DATABASE: "${DB_DATABASE}"
             MYSQL_USER: "${DB_USERNAME}"
             MYSQL_PASSWORD: "${DB_PASSWORD}"
-            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
         ports:
             - "3306:3306"
         volumes:
@@ -79,22 +79,22 @@ services:
             dockerfile: ./docker/backup/Dockerfile
         environment:
             BACKUP_NAME: site-mysql
-            MYSQL_HOST: site-mysql
+            MYSQL_HOST: "${DB_HOST}"
             MYSQL_DATABASE: "${DB_DATABASE}"
             MYSQL_USER: "${DB_USERNAME}"
             MYSQL_PASSWORD: "${DB_PASSWORD}"
-            AWS_ACCESS_KEY_ID: aws_access_key_id
-            AWS_SECRET_ACCESS_KEY: aws_secret_access_key
-            AWS_DEFAULT_REGION: region
-            S3_ENDPOINT: http://site-backup-storage:9000
-            S3_BUCKET: backup
+            AWS_ACCESS_KEY_ID: "${BACKUP_AWS_ACCESS_KEY_ID}"
+            AWS_SECRET_ACCESS_KEY: "${BACKUP_AWS_SECRET_ACCESS_KEY}"
+            AWS_DEFAULT_REGION: "${BACKUP_AWS_DEFAULT_REGION}"
+            S3_ENDPOINT: "${BACKUP_S3_ENDPOINT}"
+            S3_BUCKET: "${BACKUP_S3_BUCKET}"
         command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && backup"]
 
     site-backup-storage:
         image: minio/minio
         environment:
-            MINIO_ROOT_USER: aws_access_key_id
-            MINIO_ROOT_PASSWORD: aws_secret_access_key
+            MINIO_ROOT_USER: "${BACKUP_AWS_ACCESS_KEY_ID}"
+            MINIO_ROOT_PASSWORD: "${BACKUP_AWS_SECRET_ACCESS_KEY}"
         networks:
             - traefik-public
             - default
