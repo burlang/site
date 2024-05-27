@@ -78,7 +78,7 @@ services:
             context: .
             dockerfile: ./docker/backup/Dockerfile
         environment:
-            BACKUP_NAME: site-mysql
+            BACKUP_NAME: "${BACKUP_NAME}"
             MYSQL_HOST: "${DB_HOST}"
             MYSQL_DATABASE: "${DB_DATABASE}"
             MYSQL_USER: "${DB_USERNAME}"
