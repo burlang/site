@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
  * @var LoginForm $model
  */
 
-$this->title = 'Авторизоваться';
+$this->title = 'Вход';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ])->passwordInput() ?>
 
                 <?= Html::submitButton(
-                    'Login',
+                    'Войти',
                     ['class' => 'btn btn-custom btn-block', 'tabindex' => '4']
                 ) ?>
 
