@@ -35,7 +35,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'layoutPath' => '@templates/views/layouts',
+    'layoutPath' => '@templates/layouts',
     'viewPath' => '@templates/views',
     'modules' => [
         'api' => [
