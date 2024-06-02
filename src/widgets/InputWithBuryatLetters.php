@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\widgets\InputWithBuryatLetters;
+namespace app\widgets;
 
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
