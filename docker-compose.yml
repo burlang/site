@@ -92,6 +92,7 @@ services:
 
     site-backup-storage:
         image: minio/minio
+        container_name: site-backup-storage
         environment:
             MINIO_ROOT_USER: "${BACKUP_AWS_ACCESS_KEY_ID}"
             MINIO_ROOT_PASSWORD: "${BACKUP_AWS_SECRET_ACCESS_KEY}"

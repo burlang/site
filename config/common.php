@@ -42,7 +42,6 @@ return [
             'class' => Module::class,
             'modules' => [
                 'v1' => app\api\v1\Module::class,
-                'viewPath' => '@templates/api/v1',
             ],
         ],
     ],
