@@ -24,7 +24,7 @@ docker-up:
 docker-down:
 	docker compose down --remove-orphans
 docker-shell:
-	docker exec -it site-php-cli /bin/bash
+	docker compose run --rm site-php-cli sh
 docker-down-clear:
 	docker compose down -v --volumes --remove-orphans
 docker-pull:
@@ -45,7 +45,8 @@ app-init: \
 app-check: \
 	app-composer-validate \
 	app-lint \
-	app-backup
+	app-backup \
+	app-tests
 
 app-fix: \
 	app-lint-fix
@@ -78,6 +79,8 @@ app-composer-validate:
 app-lint:
 	docker compose run --rm site-php-cli composer lint
 	docker compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
+app-tests:
+	docker compose run --rm site-php-cli composer tests
 
 app-lint-fix:
 	docker compose run --rm site-php-cli composer php-cs-fixer fix
