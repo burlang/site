@@ -13,6 +13,7 @@ use yii\web\NotFoundHttpException;
 
 class RussianWordController extends Controller
 {
+    /** @phpstan-ignore missingType.iterableValue */
     public function actionSearch(string $q): array
     {
         return RussianWord::find()
@@ -25,6 +26,7 @@ class RussianWordController extends Controller
     }
 
     /**
+     * @return array<string, array<array<string, string>>>
      * @throws NotFoundHttpException
      */
     public function actionTranslate(
@@ -45,6 +47,9 @@ class RussianWordController extends Controller
         }
     }
 
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function verbs(): array
     {
         return [

@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     public function actionList(): int
     {
+        /** @var User[] $users */
         $users = User::find()->all();
 
         foreach ($users as $user) {

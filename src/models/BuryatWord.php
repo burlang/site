@@ -26,12 +26,12 @@ use yii\db\ActiveRecord;
  */
 class BuryatWord extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'buryat_word';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name'], 'required'],
@@ -55,7 +55,10 @@ class BuryatWord extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -68,7 +71,7 @@ class BuryatWord extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

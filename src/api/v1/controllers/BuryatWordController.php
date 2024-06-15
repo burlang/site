@@ -13,6 +13,7 @@ use yii\web\NotFoundHttpException;
 
 class BuryatWordController extends Controller
 {
+    /** @phpstan-ignore missingType.iterableValue */
     public function actionSearch(string $q): array
     {
         return BuryatWord::find()
@@ -25,6 +26,7 @@ class BuryatWordController extends Controller
     }
 
     /**
+     * @return array<string, array<array<string, string>>>
      * @throws NotFoundHttpException
      */
     public function actionTranslate(
@@ -45,6 +47,9 @@ class BuryatWordController extends Controller
         }
     }
 
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function verbs(): array
     {
         return [

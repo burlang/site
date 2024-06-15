@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
+use yii\base\Model;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
@@ -13,7 +14,9 @@ class TextareaWithBuryatLetters extends InputWidget
     {
         if ($this->hasModel()) {
             $textarea = Html::activeTextArea($this->model, $this->attribute, $this->options);
-            $selector = strtolower($this->model->formName()) . '-' . $this->attribute;
+            /** @var Model $model */
+            $model = $this->model;
+            $selector = strtolower($model->formName()) . '-' . $this->attribute;
         } else {
             $textarea = Html::textArea($this->name, $this->value, $this->options);
             $selector = 'charts-textarea-' . $this->name;

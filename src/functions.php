@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-function env(string $name, ?string $default = null)
+function env(string $name, ?string $default = null): string
 {
     $value = false;
     if (isset($_ENV[$name])) {

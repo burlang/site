@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\models\BuryatName;
-use Yii;
+use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -34,9 +34,9 @@ class BuryatNameController extends Controller
         ];
     }
 
-    public function actionIndex(): string
+    public function actionIndex(CacheInterface $cache): string
     {
-        $letters = Yii::$app->cache->getOrSet('first-letters', static function () {
+        $letters = $cache->getOrSet('first-letters', static function () {
             return ArrayHelper::map(
                 BuryatName::find()
                     ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
@@ -62,8 +62,11 @@ class BuryatNameController extends Controller
             $namesQuery->where(['LEFT(name, 1)' => $letter]);
         }
 
+        $names = $namesQuery->column();
+        $nameGroups = array_chunk($names, max(1, (int)ceil(\count($names) / 4)));
+
         return $this->renderPartial('partials/list', [
-            'names' => $namesQuery->column(),
+            'nameGroups' => $nameGroups,
         ]);
     }
 

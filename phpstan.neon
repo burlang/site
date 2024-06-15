@@ -1,0 +1,19 @@
+parameters:
+    bootstrapFiles:
+        - vendor/yiisoft/yii2/Yii.php
+    level: 9
+    paths:
+        - bootstrap
+        - config
+        - resources
+        - src
+        - tests
+    ignoreErrors:
+        - '#rules\(\) return type has no value type specified in iterable type array#'
+        - '#behaviors\(\) return type has no value type specified in iterable type array#'
+        - '#actions\(\) return type has no value type specified in iterable type array#'
+        - '#has parameter \$params with no value type specified in iterable type array#'
+        - '#undefined property yii\\#'
+        - '#of static method yii\\#'
+        - '#Call to an undefined method yii\\#'
+        - '#Parameter \#1 \$data of method yii\\base\\Model\:\:load\(\) expects array\, mixed given\.#'

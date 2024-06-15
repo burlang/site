@@ -4,9 +4,9 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var array $buryatWords
- * @var array $russianWords
- * @var array $names
+ * @var array<string, int> $buryatWords
+ * @var array<string, int> $russianWords
+ * @var array<string, int> $names
  */
 
 $this->title = 'Статистика';

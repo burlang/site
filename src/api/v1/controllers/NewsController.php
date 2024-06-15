@@ -11,9 +11,13 @@ use yii\web\NotFoundHttpException;
 
 final class NewsController extends Controller
 {
+    /**
+     * @return array<int, array<string, string>>
+     */
     public function actionIndex(int $page = 1): array
     {
         $pageLimit = 5;
+        /** @var News[] $news */
         $news = News::find()
             ->active()
             ->offset(($page - 1) * $pageLimit)
@@ -37,10 +41,12 @@ final class NewsController extends Controller
     }
 
     /**
+     * @return array<string, string>
      * @throws NotFoundHttpException
      */
     public function actionGetNews(string $q): array
     {
+        /** @var News|null $news */
         $news = News::find()
             ->where(['slug' => trim($q)])
             ->active()
@@ -59,6 +65,9 @@ final class NewsController extends Controller
         ];
     }
 
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function verbs(): array
     {
         return [

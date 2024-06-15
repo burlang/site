@@ -11,7 +11,7 @@ use yii\helpers\Url;
 class PageMenu
 {
     /**
-     * @return array|string
+     * @return array<string, array<int|string, string>|bool|string>|string
      */
     public static function getItem(string $link)
     {

@@ -184,6 +184,7 @@ class BookController extends Controller
      */
     public function actionChapter(string $slug, string $chapterSlug): string
     {
+        /** @var BookChapter|null $chapter */
         $chapter = BookChapter::find()
             ->joinWith('book')
             ->where(['and', ['book.slug' => $slug], ['book_chapter.slug' => $chapterSlug]])

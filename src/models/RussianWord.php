@@ -26,12 +26,12 @@ use yii\db\ActiveRecord;
  */
 class RussianWord extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'russian_word';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name'], 'required'],
@@ -55,7 +55,10 @@ class RussianWord extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',

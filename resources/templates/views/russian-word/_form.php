@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /**
  * @var View $this
  * @var RussianWord $model
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  */
 ?>
 <div class="russian-word-form">

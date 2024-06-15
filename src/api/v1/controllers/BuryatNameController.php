@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller
 {
+    /** @phpstan-ignore missingType.iterableValue */
     public function actionIndex(): array
     {
         return BuryatName::find()
@@ -18,6 +19,7 @@ class BuryatNameController extends Controller
             ->all();
     }
 
+    /** @phpstan-ignore missingType.iterableValue */
     public function actionSearch(string $q): array
     {
         return BuryatName::find()
@@ -30,6 +32,7 @@ class BuryatNameController extends Controller
     }
 
     /**
+     * @return array<string, int|string>
      * @throws NotFoundHttpException
      */
     public function actionGetName(string $q): array
@@ -44,6 +47,9 @@ class BuryatNameController extends Controller
         ];
     }
 
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function verbs(): array
     {
         return [

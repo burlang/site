@@ -27,12 +27,12 @@ class User extends ActiveRecord
     public const ROLE_MODERATOR = 'moderator';
     public const ROLE_ADMIN = 'admin';
 
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'user';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             // username rules
@@ -64,7 +64,10 @@ class User extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -75,13 +78,16 @@ class User extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function roles(): array
     {
         return [

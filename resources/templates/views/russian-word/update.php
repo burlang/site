@@ -11,7 +11,7 @@ use yii\web\View;
  * @var View $this
  * @var RussianWord $model
  * @var RussianTranslation $translationForm
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  * @var DeviceDetectorInterface $deviceDetector
  */
 

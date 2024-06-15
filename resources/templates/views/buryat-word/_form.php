@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 /**
  * @var View $this
  * @var BuryatWord $model
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  */
 ?>
 <div class="buryat-word-form">

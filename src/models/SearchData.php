@@ -21,12 +21,12 @@ class SearchData extends ActiveRecord
     public const TYPE_BURYAT = 0;
     public const TYPE_RUSSIAN = 1;
 
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'search_data';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'type'], 'required'],
@@ -35,7 +35,10 @@ class SearchData extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -46,7 +49,7 @@ class SearchData extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

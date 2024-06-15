@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var BuryatTranslation $translationForm
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  * @var BuryatWord $model
  * @var DeviceDetectorInterface $deviceDetector
  */

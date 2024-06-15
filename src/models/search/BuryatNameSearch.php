@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 
 class BuryatNameSearch extends BuryatName
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             [['id', 'male', 'female'], 'integer'],

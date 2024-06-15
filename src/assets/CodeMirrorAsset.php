@@ -9,6 +9,7 @@ use yii\web\AssetBundle;
 class CodeMirrorAsset extends AssetBundle
 {
     public $sourcePath = '@bower/codemirror';
+    /** @var string[] */
     public $js = [
         'lib/codemirror.js',
         // markdown and gfm
@@ -20,6 +21,7 @@ class CodeMirrorAsset extends AssetBundle
         // for controls
         'addon/display/panel.js',
     ];
+    /** @var string[] */
     public $css = [
         'lib/codemirror.css',
     ];

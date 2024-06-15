@@ -27,6 +27,7 @@
         "friendsofphp/php-cs-fixer": "^3.57",
         "overtrue/phplint": "^9.3",
         "pestphp/pest": "^2.34",
+        "phpstan/phpstan": "^1.11",
         "roave/security-advisories": "dev-latest",
         "symfony/http-client": "^6.4"
     },
@@ -49,7 +50,8 @@
     "scripts": {
         "lint": "phplint",
         "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php",
-        "tests": "pest"
+        "tests": "pest",
+        "analyze": "phpstan analyse --memory-limit=512M"
     },
     "repositories": [
         {
