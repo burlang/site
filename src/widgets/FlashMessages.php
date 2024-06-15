@@ -10,6 +10,9 @@ use yii\bootstrap\Widget;
 
 class FlashMessages extends Widget
 {
+    /**
+     * @var array<string, string>
+     */
     public array $alertTypes = [
         'error' => 'alert-danger',
         'danger' => 'alert-danger',
@@ -18,6 +21,9 @@ class FlashMessages extends Widget
         'warning' => 'alert-warning',
     ];
 
+    /**
+     * @var array<string, string>
+     */
     public array $closeButton = [];
 
     public function init(): void

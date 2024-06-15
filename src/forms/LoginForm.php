@@ -29,6 +29,9 @@ class LoginForm extends Model
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function attributeLabels(): array
     {
         return [
@@ -37,7 +40,7 @@ class LoginForm extends Model
         ];
     }
 
-    public function validatePassword($attribute): void
+    public function validatePassword(string $attribute): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -47,7 +50,7 @@ class LoginForm extends Model
         }
     }
 
-    public function validateBlocked($attribute): void
+    public function validateBlocked(string $attribute): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -63,23 +66,24 @@ class LoginForm extends Model
     public function login(WebUser $webUser)
     {
         $user = $this->getUser();
-        if ($user) {
+        if ($user !== null) {
             $isLogged = $webUser->login(new AuthIdentity((int)$user->id), 3600 * 24);
             if ($isLogged) {
-                $this->getUser()->updateAttributes(['last_login_at' => time()]);
+                $user->updateAttributes(['last_login_at' => time()]);
             }
             return $isLogged;
         }
         return false;
     }
 
-    /**
-     * @return User|null
-     */
-    private function getUser()
+    private function getUser(): ?User
     {
         if ($this->user === false) {
-            $this->user = User::find()->where(['username' => $this->username])->one();
+            /** @var User|null $user */
+            $user = User::find()
+                ->where(['username' => $this->username])
+                ->one();
+            $this->user = $user;
         }
 
         return $this->user;

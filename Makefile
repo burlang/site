@@ -45,6 +45,7 @@ app-init: \
 app-check: \
 	app-composer-validate \
 	app-lint \
+	app-analyze \
 	app-backup \
 	app-tests
 
@@ -79,9 +80,10 @@ app-composer-validate:
 app-lint:
 	docker compose run --rm site-php-cli composer lint
 	docker compose run --rm site-php-cli composer php-cs-fixer fix -- --dry-run --diff
+app-analyze:
+	docker compose run --rm site-php-cli composer analyze
 app-tests:
 	docker compose run --rm site-php-cli composer tests
-
 app-lint-fix:
 	docker compose run --rm site-php-cli composer php-cs-fixer fix
 

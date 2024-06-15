@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 /**
  * @var RussianTranslation $translationForm
  * @var RussianWord $model
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  * @var DeviceDetectorInterface $deviceDetector
  */
 ?>

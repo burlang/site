@@ -7,7 +7,7 @@ use yii\web\View;
 /**
  * @var View $this
  * @var RussianWord $model
- * @var array $dictionaries
+ * @var array<int, string> $dictionaries
  */
 
 $this->title = 'Новое слово';

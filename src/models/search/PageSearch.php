@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 
 class PageSearch extends Page
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             [['id', 'active', 'static'], 'integer'],

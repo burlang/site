@@ -28,12 +28,12 @@ use yii\db\ActiveRecord;
  */
 class BuryatName extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'buryat_name';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'male', 'female'], 'required'],
@@ -59,7 +59,10 @@ class BuryatName extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -75,7 +78,7 @@ class BuryatName extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

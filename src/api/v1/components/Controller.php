@@ -9,7 +9,7 @@ use yii\helpers\ArrayHelper;
 
 class Controller extends \yii\rest\Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return ArrayHelper::merge(parent::behaviors(), [
             'corsFilter' => [

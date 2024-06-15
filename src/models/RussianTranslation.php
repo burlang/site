@@ -27,12 +27,12 @@ use yii\db\ActiveRecord;
  */
 class RussianTranslation extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'russian_translation';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['ruword_id', 'name'], 'required'],
@@ -62,7 +62,10 @@ class RussianTranslation extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
@@ -76,7 +79,7 @@ class RussianTranslation extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

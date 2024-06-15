@@ -5,20 +5,17 @@ declare(strict_types=1);
 use yii\helpers\Html;
 
 /**
- * @var string[] $names
+ * @var array<int, <int, string>> $nameGroups
  */
-
-$numberOfColumns = 4;
-$numberOfNamesPerColumn = (int)(ceil(count($names) / $numberOfColumns));
 ?>
-<?php if ($names): ?>
+<?php if (!empty($nameGroups)): ?>
     <div class="row">
-        <?php foreach (array_chunk($names, $numberOfNamesPerColumn) as $namesForColumn): ?>
+        <?php foreach ($nameGroups as $nameGroup): ?>
             <div class="col-md-3">
-                <?php foreach ($namesForColumn as $name): ?>
+                <?php foreach ($nameGroup as $name): ?>
                     <div>
                         <?= Html::a(
-                            $name,
+                            Html::encode($name),
                             ['view', 'name' => $name],
                             ['class' => 'btn btn-default mb-5']
                         ) ?>

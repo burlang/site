@@ -9,10 +9,9 @@ use yii\data\ActiveDataProvider;
 
 class RussianWordSearch extends RussianWord
 {
-    public function rules()
+    public function rules(): array
     {
         return [
-            [['id'], 'integer'],
             [['name'], 'safe'],
         ];
     }

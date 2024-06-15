@@ -30,12 +30,12 @@ use yii\db\ActiveRecord;
  */
 class News extends ActiveRecord
 {
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'news';
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['title', 'content', 'active'], 'required'],
@@ -60,7 +60,7 @@ class News extends ActiveRecord
         ];
     }
 
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -72,7 +72,10 @@ class News extends ActiveRecord
         ];
     }
 
-    public function attributeLabels()
+    /**
+     * @return array<string, string>
+     */
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',

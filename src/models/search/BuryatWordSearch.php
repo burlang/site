@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 
 class BuryatWordSearch extends BuryatWord
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             [['id'], 'integer'],

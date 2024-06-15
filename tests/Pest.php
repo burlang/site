@@ -1,5 +1,6 @@
 <?php
 
+use Pest\Expectation;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -27,7 +28,11 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 |
 */
 
+/**
+ * @var Expectation<mixed> $this
+ */
 expect()->extend('toBeOne', function () {
+    /** @var Expectation<int> $this */
     return $this->toBe(1);
 });
 
