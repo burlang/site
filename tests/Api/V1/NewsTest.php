@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('tests news list', function () {
     $response = httpClient()->request('GET', '/api/v1/news');
     expect($response->getStatusCode())->toBe(200);

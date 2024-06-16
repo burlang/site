@@ -33,6 +33,8 @@ return
             '@PhpCsFixer' => true,
             '@PhpCsFixer:risky' => true,
 
+            'declare_strict_types' => true,
+
             'ordered_imports' => ['imports_order' => ['class', 'function', 'const']],
 
             'concat_space' => ['spacing' => 'one'],

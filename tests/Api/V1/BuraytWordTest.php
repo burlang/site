@@ -1,6 +1,8 @@
 <?php
 
-it('tests buryat words search', function ($url) {
+declare(strict_types=1);
+
+it('tests buryat words search', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(200);
     expect($response->getContent())->toBeJson();

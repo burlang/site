@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('tests buryat names list', function () {
     $response = httpClient()->request('GET', '/api/v1/names');
     expect($response->getStatusCode())->toBe(200);
@@ -30,7 +32,7 @@ it('tests buryat name get', function ($url) {
         ]);
 })->with([
     '/v1/names/get-name?q=Абармид',
-    '/api/v1/names/get-name?q=Абармид'
+    '/api/v1/names/get-name?q=Абармид',
 ]);
 
 it('tests buryat name get for non-existent name', function ($url) {
@@ -38,5 +40,5 @@ it('tests buryat name get for non-existent name', function ($url) {
     expect($response->getStatusCode())->toBe(404);
 })->with([
     '/v1/names/get-name?q=non-existent-name',
-    '/api/v1/names/get-name?q=non-existent-name'
+    '/api/v1/names/get-name?q=non-existent-name',
 ]);

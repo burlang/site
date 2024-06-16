@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('tests russian words search', function ($url) {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(200);
