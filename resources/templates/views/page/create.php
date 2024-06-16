@@ -8,7 +8,6 @@ use yii\web\View;
  * @var View $this
  * @var Page $model
  */
-
 $this->title = 'Создать страницу';
 $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

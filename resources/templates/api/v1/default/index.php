@@ -7,7 +7,6 @@ use yii\widgets\Menu;
 /**
  * @var View $this
  */
-
 $this->title = 'Api v1';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -24,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'items' => [
                     ['label' => Url::to(['/api/v1/buryat-name/index'], true)],
                     ['label' => Url::to(['/api/v1/buryat-name/search', 'q' => 'begin_search_name'], true)],
-                    ['label' => Url::to(['/api/v1/buryat-name/get-name', 'q' => 'Name'], true)]
+                    ['label' => Url::to(['/api/v1/buryat-name/get-name', 'q' => 'Name'], true)],
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>
@@ -40,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Menu::widget([
                 'items' => [
                     ['label' => Url::to(['/api/v1/buryat-word/search', 'q' => 'begin_search_word'], true)],
-                    ['label' => Url::to(['/api/v1/buryat-word/translate', 'q' => 'Word'], true)]
+                    ['label' => Url::to(['/api/v1/buryat-word/translate', 'q' => 'Word'], true)],
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>
@@ -56,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Menu::widget([
                 'items' => [
                     ['label' => Url::to(['/api/v1/russian-word/search', 'q' => 'begin_search_word'], true)],
-                    ['label' => Url::to(['/api/v1/russian-word/translate', 'q' => 'Word'], true)]
+                    ['label' => Url::to(['/api/v1/russian-word/translate', 'q' => 'Word'], true)],
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>
@@ -72,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Menu::widget([
                 'items' => [
                     ['label' => Url::to(['/api/v1/news/index', 'page' => 1], true)],
-                    ['label' => Url::to(['/api/v1/news/get-news', 'q' => 'slug'], true)]
+                    ['label' => Url::to(['/api/v1/news/get-news', 'q' => 'slug'], true)],
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>

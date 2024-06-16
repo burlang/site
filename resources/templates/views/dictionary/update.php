@@ -8,7 +8,6 @@ use yii\web\View;
  * @var View $this
  * @var Dictionary $model
  */
-
 $this->title = 'Редактировать';
 $this->params['breadcrumbs'][] = ['label' => 'Словари', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];

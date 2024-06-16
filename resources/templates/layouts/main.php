@@ -16,7 +16,6 @@ use yii\widgets\Menu;
  * @var View $this
  * @var string $content
  */
-
 AppAsset::register($this);
 $route = Yii::$app->controller->getRoute();
 ?>
@@ -126,7 +125,7 @@ $route = Yii::$app->controller->getRoute();
                                 'url' => ['/statistics'],
                                 'visible' => Yii::$app->user->can('statistics_view'),
                             ],
-                        ]
+                        ],
                     ]
                     : '',
                 Yii::$app->user->isGuest

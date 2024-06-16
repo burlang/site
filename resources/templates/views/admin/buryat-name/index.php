@@ -17,7 +17,6 @@ use yii\widgets\Pjax;
  * @var ActiveDataProvider $dataProvider
  * @var DeviceDetectorInterface $deviceDetector
  */
-
 $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 $isDesktop = $deviceDetector->isDesktop();

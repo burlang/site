@@ -8,7 +8,6 @@ use yii\web\View;
  * @var View $this
  * @var BuryatName $model
  */
-
 $this->title = sprintf('Бурятское имя "%s"', $model->name);
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->name;

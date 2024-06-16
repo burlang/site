@@ -1,7 +1,6 @@
 <?php
 
 use app\models\Page;
-use app\widgets\Comments;
 use yii\bootstrap\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
@@ -11,7 +10,6 @@ use yii\web\View;
  * @var View $this
  * @var Page $model
  */
-
 $this->title = $model->title;
 if (Yii::$app->user->can('pages_management')) {
     $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];

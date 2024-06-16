@@ -8,8 +8,7 @@ use yii\web\View;
  * @var View $this
  * @var BookChapter $chapter
  */
-
-$this->title = 'Редактировать: ' .$chapter->title;
+$this->title = 'Редактировать: ' . $chapter->title;
 $this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $chapter->book->title, 'url' => ['view', 'slug' => $chapter->book->slug]];
 $this->params['breadcrumbs'][] = [

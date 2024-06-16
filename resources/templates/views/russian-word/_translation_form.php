@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{delete}',
                 'buttons' => [
-                    'delete' => function ($url, $model) {
+                    'delete' => static function ($url, $model) {
                         return Html::a(
                             Html::icon('trash'),
                             ['delete-translation', 'id' => $model->id],

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+
 ?>
 <div class="well" id="russian-words-form">
     <h3>

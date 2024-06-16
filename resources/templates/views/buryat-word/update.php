@@ -14,7 +14,6 @@ use yii\web\View;
  * @var array<int, string> $dictionaries
  * @var DeviceDetectorInterface $deviceDetector
  */
-
 $this->title = 'Редактировать: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские слова', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

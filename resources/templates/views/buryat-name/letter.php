@@ -10,7 +10,6 @@ use yii\web\View;
  * @var View $this
  * @var string $letter
  */
-
 $this->title = sprintf('Бурятские имена на букву "%s"', mb_strtoupper($letter));
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = sprintf('На букву "%s"', mb_strtoupper($letter));

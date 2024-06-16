@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 /**
  * @var string $q
- * @var RussianWord[]|BuryatWord[] $words
+ * @var BuryatWord[]|RussianWord[] $words
  */
 ?>
 <?php if ($q): ?>

@@ -8,7 +8,6 @@ use yii\web\View;
  * @var array<string, int> $russianWords
  * @var array<string, int> $names
  */
-
 $this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

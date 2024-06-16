@@ -9,7 +9,6 @@ use yii\web\View;
  * @var array<string, int> $letters
  * @var string[] $names
  */
-
 $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

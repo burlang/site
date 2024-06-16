@@ -13,7 +13,6 @@ use yii\widgets\ActiveForm;
  * @var News $model
  * @var ActiveForm $form
  */
-
 MarkdownEditorAsset::register($this);
 ?>
 <div class="news-form">

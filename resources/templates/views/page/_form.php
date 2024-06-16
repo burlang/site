@@ -12,7 +12,6 @@ use yii\widgets\ActiveForm;
  * @var Page $model
  * @var ActiveForm $form
  */
-
 MarkdownEditorAsset::register($this);
 ?>
 <div class="page-form">

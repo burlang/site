@@ -1,6 +1,5 @@
 <?php
 
-use app\widgets\Comments;
 use app\widgets\LastNews;
 use yii\web\View;
 

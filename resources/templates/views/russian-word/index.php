@@ -19,7 +19,6 @@ use yii\widgets\Pjax;
  * @var RussianWordSearch $searchModel
  * @var DeviceDetectorInterface $deviceDetector
  */
-
 $this->title = 'Русские слова';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -46,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 [
                     'label' => 'Переводы',
-                    'value' => function ($model) {
+                    'value' => static function ($model) {
                         /** @var RussianWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },

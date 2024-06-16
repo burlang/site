@@ -9,7 +9,6 @@ use yii\widgets\ActiveForm;
  * @var View $this
  * @var LoginForm $model
  */
-
 $this->title = 'Вход';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -24,11 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php $form = ActiveForm::begin(['id' => 'login-form']) ?>
 
                 <?= $form->field($model, 'username', [
-                    'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1']
+                    'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1'],
                 ]) ?>
 
                 <?= $form->field($model, 'password', [
-                    'inputOptions' => ['class' => 'form-control', 'tabindex' => '2']
+                    'inputOptions' => ['class' => 'form-control', 'tabindex' => '2'],
                 ])->passwordInput() ?>
 
                 <?= Html::submitButton(

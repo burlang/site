@@ -11,7 +11,6 @@ use yii\web\View;
  * @var View $this
  * @var ActiveDataProvider $dataProvider
  */
-
 $this->title = 'Словари';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

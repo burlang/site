@@ -10,7 +10,6 @@ use yii\web\View;
  * @var BookChapter $chapter
  * @var Book $book
  */
-
 $this->title = 'Добавить главу';
 $this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $book->title, 'url' => ['view', 'slug' => $book->slug]];

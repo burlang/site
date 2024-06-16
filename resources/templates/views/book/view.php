@@ -11,7 +11,6 @@ use yii\web\View;
  * @var View $this
  * @var Book $model
  */
-
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

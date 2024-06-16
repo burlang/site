@@ -12,7 +12,6 @@ use yii\web\View;
  * @var BuryatNameSearch $searchModel
  * @var ActiveDataProvider $dataProvider
  */
-
 $this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -27,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 [
                     'attribute' => 'type',
-                    'value' => function ($model) {
+                    'value' => static function ($model) {
                         return $model->type === SearchData::TYPE_RUSSIAN
                             ? 'Русское слово'
                             : 'Бурятское слово';

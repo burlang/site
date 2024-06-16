@@ -8,7 +8,6 @@ use yii\web\View;
 /**
  * @var View $this
  */
-
 $this->title = 'Контакты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

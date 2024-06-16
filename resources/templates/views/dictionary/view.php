@@ -9,7 +9,6 @@ use yii\widgets\DetailView;
  * @var View $this
  * @var Dictionary $model
  */
-
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Словари', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

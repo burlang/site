@@ -9,7 +9,6 @@ use yii\web\View;
  * @var RussianWord $model
  * @var array<int, string> $dictionaries
  */
-
 $this->title = 'Новое слово';
 $this->params['breadcrumbs'][] = ['label' => 'Русские слова', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

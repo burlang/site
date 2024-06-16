@@ -11,7 +11,6 @@ use yii\widgets\ListView;
  * @var ActiveDataProvider $dataProvider
  * @var DeviceDetectorInterface $deviceDetector
  */
-
 $this->title = 'Книги';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

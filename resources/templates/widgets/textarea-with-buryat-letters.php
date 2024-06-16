@@ -7,7 +7,6 @@ use yii\web\View;
  * @var string $textarea
  * @var string $selector
  */
-
 $this->registerJs("
     $('body').on('click', '.add-letter-{$selector}', function() {
         $('#{$selector}').sendkeys($(this).text());

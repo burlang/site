@@ -13,7 +13,6 @@ use yii\web\View;
  * @var PageSearch $searchModel
  * @var ActiveDataProvider $dataProvider
  */
-
 $this->title = 'Страницы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -50,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => ActionColumn::class,
                     'template' => '{view} {update} {delete}',
                     'buttons' => [
-                        'view' => function ($url, $model) {
+                        'view' => static function ($url, $model) {
                             return Html::a(
                                 Html::icon('eye-open'),
                                 ['view', 'link' => $model->link],
@@ -62,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]
                             );
                         },
-                        'delete' => function ($url, $model) {
+                        'delete' => static function ($url, $model) {
                             if (!$model->static) {
                                 return Html::a(
                                     Html::icon('trash'),

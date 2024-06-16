@@ -19,7 +19,6 @@ use yii\widgets\Pjax;
  * @var ActiveDataProvider $dataProvider
  * @var DeviceDetectorInterface $deviceDetector
  */
-
 $this->title = 'Бурятские слова';
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -47,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 [
                     'label' => 'Переводы',
-                    'value' => function ($model) {
+                    'value' => static function ($model) {
                         /** @var BuryatWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },

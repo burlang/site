@@ -9,7 +9,6 @@ use yii\web\View;
  * @var BuryatWord $model
  * @var array<int, string> $dictionaries
  */
-
 $this->title = 'Новое слово';
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские слова', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

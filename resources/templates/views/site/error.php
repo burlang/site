@@ -8,7 +8,6 @@ use yii\web\View;
  * @var string $name
  * @var string $message
  */
-
 $this->title = $name;
 ?>
 <div class="site-error">

@@ -1,7 +1,6 @@
 <?php
 
 use app\models\News;
-use app\widgets\Comments;
 use yii\bootstrap\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
@@ -11,7 +10,6 @@ use yii\web\View;
  * @var View $this
  * @var News $model
  */
-
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

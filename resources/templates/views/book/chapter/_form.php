@@ -12,7 +12,6 @@ use yii\widgets\ActiveForm;
  * @var BookChapter $chapter
  * @var ActiveForm $form
  */
-
 MarkdownEditorAsset::register($this);
 ?>
 <div class="book-form">
