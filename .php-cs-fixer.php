@@ -27,10 +27,7 @@ return
         ->setRules([
             '@PSR12' => true,
             '@PSR12:risky' => true,
-            '@DoctrineAnnotation' => true,
-            '@PHP80Migration' => true,
-            '@PHP80Migration:risky' => true,
-            '@PHPUnit84Migration:risky' => true,
+            '@PHP81Migration' => true,
             '@PhpCsFixer' => true,
             '@PhpCsFixer:risky' => true,
 
@@ -40,7 +37,9 @@ return
 
             'concat_space' => ['spacing' => 'one'],
             'cast_spaces' => ['space' => 'none'],
-            'binary_operator_spaces' => false,
+            'binary_operator_spaces' => [
+                'default' => 'single_space',
+            ],
 
             'phpdoc_to_comment' => false,
             'phpdoc_separation' => false,
@@ -55,10 +54,6 @@ return
             'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
 
             'fopen_flags' => ['b_mode' => true],
-
-            'php_unit_strict' => false,
-            'php_unit_test_class_requires_covers' => false,
-            'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
 
             'yoda_style' => false,
 

@@ -33,7 +33,7 @@ return [
         '@root' => dirname(__DIR__),
         '@templates' => '@root/resources/templates',
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'layoutPath' => '@templates/layouts',
     'viewPath' => '@templates/views',
