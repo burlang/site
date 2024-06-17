@@ -14,6 +14,7 @@ return
                     __DIR__ . '/bin',
                     __DIR__ . '/config',
                     __DIR__ . '/src',
+                    __DIR__ . '/tests',
                 ])
                 ->exclude([
                 ])
@@ -61,7 +62,7 @@ return
 
             'yoda_style' => false,
 
-            'static_lambda' => true,
+            'static_lambda' => false,
 
             'echo_tag_syntax' => ['format' => 'short'],
             'no_alternative_syntax' => false,

@@ -13,7 +13,7 @@ it('tests buryat words search', function ($url): void {
     '/api/v1/buryat-word/search?q=а',
 ]);
 
-it('tests buryat word translate', function ($url) {
+it('tests buryat word translate', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(200);
     expect($response->getContent())->toBeJson();
@@ -27,7 +27,7 @@ it('tests buryat word translate', function ($url) {
     '/api/v1/buryat-word/translate?q=аабаганаха',
 ]);
 
-it('tests buryat word translate for non-existent word', function ($url) {
+it('tests buryat word translate for non-existent word', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(404);
 })->with([

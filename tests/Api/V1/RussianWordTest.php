@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-it('tests russian words search', function ($url) {
+it('tests russian words search', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(200);
     expect($response->getContent())->toBeJson();
@@ -14,7 +14,7 @@ it('tests russian words search', function ($url) {
     '/api/v1/russian-word/search?q=а',
 ]);
 
-it('tests russian word translate', function ($url) {
+it('tests russian word translate', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(200);
     expect($response->getContent())->toBeJson();
@@ -30,7 +30,7 @@ it('tests russian word translate', function ($url) {
     '/api/v1/russian-word/translate?q=аббревиатура',
 ]);
 
-it('tests russian word translate for non-existent word', function ($url) {
+it('tests russian word translate for non-existent word', function ($url): void {
     $response = httpClient()->request('GET', $url);
     expect($response->getStatusCode())->toBe(404);
 })->with([
