@@ -10,17 +10,21 @@ $nav-border-divider: #0f4d5c;
 .navbar-inverse {
   background-color: #1e6887;
   border-bottom: 5px solid #247ba0;
+
   .navbar-nav {
-    > li > a {
+    >li>a {
       color: $nav-link-color;
       font-family: Verdana, Arial, sans-serif;
+
       &:hover,
       &:focus {
         color: $nav-link-color;
         background-color: $nav-item-bg-hover;
       }
     }
-    > .active > a {
+
+    >.active>a {
+
       &,
       &:hover,
       &:focus {
@@ -28,10 +32,12 @@ $nav-border-divider: #0f4d5c;
         background-color: $nav-item-bg-active;
       }
     }
-    > .open {
+
+    >.open {
       .dropdown-menu {
-        > .active {
-          > a {
+        >.active {
+          >a {
+
             &,
             &:hover,
             &:focus {
@@ -40,33 +46,41 @@ $nav-border-divider: #0f4d5c;
             }
           }
         }
-        > li > a {
+
+        >li>a {
           @media (max-width: 767px) {
             color: $nav-link-color;
           }
         }
+
         .divider {
           @media (max-width: 767px) {
             background-color: $nav-border-divider;
           }
         }
       }
-      > a {
+
+      >a {
+
         &,
         &:hover,
         &:focus {
           color: $nav-link-color;
           background-color: $nav-item-bg-hover;
         }
+
         .dropdown-menu {
-          > li > a {
+          >li>a {
+
             &:hover,
             &:focus {
               color: $nav-link-color;
               background-color: $nav-item-bg-hover;
             }
           }
-          > .active > a {
+
+          >.active>a {
+
             &,
             &:hover,
             &:focus {
@@ -78,20 +92,25 @@ $nav-border-divider: #0f4d5c;
       }
     }
   }
+
   .navbar-toggle {
     border: none;
+
     &:hover,
     &:focus {
       background-color: $nav-item-bg-active;
     }
   }
+
   .navbar-brand {
     font-family: Verdana, Arial, sans-serif;
     font-size: 21px;
     color: #fff;
     font-weight: bold;
   }
-  .navbar-collapse, .navbar-form {
+
+  .navbar-collapse,
+  .navbar-form {
     @media (max-width: 767px) {
       border-color: $nav-border-divider;
     }
@@ -99,15 +118,18 @@ $nav-border-divider: #0f4d5c;
 }
 
 .dropdown-menu {
-  > li {
-    > a {
+  >li {
+    >a {
+
       &:hover,
       &:focus {
         background-color: #e5e5e5;
       }
     }
   }
-  > .active > a {
+
+  >.active>a {
+
     &,
     &:hover,
     &:focus {
@@ -141,6 +163,7 @@ body.modal-open {
 
 a {
   color: #1e6887;
+
   &:hover,
   &:focus {
     color: #103848;
@@ -148,7 +171,10 @@ a {
 }
 
 .list-group-item.active {
-  &, &:hover, &:focus {
+
+  &,
+  &:hover,
+  &:focus {
     background-color: $nav-item-bg-active;
     border-color: $nav-item-bg-hover;
   }

@@ -3,9 +3,11 @@
   .well {
     background-color: #ecf0f1;
     border-color: #d7e0e2;
+
     h4 {
       font-size: 18px;
     }
+
     hr {
       border-color: #ddd;
     }
@@ -15,7 +17,8 @@
     padding-left: 15px;
   }
 
-  #russian-translation, #buryat-translation {
+  #russian-translation,
+  #buryat-translation {
     .alert {
       margin-bottom: 0;
     }

@@ -1,1 +1,189 @@
-function initEditor(l){l=$(l)[0];CodeMirror.fromTextArea(l,{mode:"gfm",theme:"default",extraKeys:{Enter:"newlineAndIndentContinueMarkdownList"},lineWrapping:!0,lineNumbers:!1,matchBrackets:!0,autoCloseBrackets:!0,autoCloseTags:!0,buttons:[{hotkey:"Ctrl-B",class:"bold btn btn-default",label:'<i class="glyphicon glyphicon-bold"></i>',callback:function(l){var e=l.getSelection();l.replaceSelection("**"+e+"**"),e||(e=l.getCursor(),l.setCursor(e.line,e.ch-2))}},{hotkey:"Ctrl-I",class:"italic btn btn-default",label:'<i class="glyphicon glyphicon-italic"></i>',callback:function(l){var e=l.getSelection();l.replaceSelection("*"+e+"*"),e||(e=l.getCursor(),l.setCursor(e.line,e.ch-1))}},{class:"block-code btn btn-default",label:"CODE",callback:function(l){var e=prompt("Language")||"",t=l.getSelection();l.replaceSelection("```"+e+"\n"+t+"\n```\n"),t||(e=l.getCursor(),l.setCursor(e.line-2,0))}},{class:"quote btn btn-default",label:'<i class="glyphicon glyphicon-menu-right"></i>',callback:function(l){l.replaceSelection("> "+l.getSelection())}},{class:"ul btn btn-default",label:"UL",callback:function(l){l.replaceSelection("- "+l.getSelection())}},{class:"ol btn btn-default",label:"OL",callback:function(l){l.replaceSelection("1. "+l.getSelection())}},{class:"a btn btn-default",label:'<i class="glyphicon glyphicon-link"></i>',callback:function(l){var e=l.getSelection(),t="",c="",t=(e.match(/^https?:\/\//)?c=e:t=e,l.replaceSelection("["+t+"]("+c+")"),l.getCursor());e?c?l.setCursor(t.line,t.ch-(3+c.length)):l.setCursor(t.line,t.ch-1):l.setCursor(t.line,t.ch-3)}},{class:"img btn btn-default",label:'<i class="glyphicon glyphicon-picture"></i>',callback:function(l){var e,t=l.getSelection();t?l.replaceSelection("![]("+t+")"):(t=prompt("Add image url")||"",l.replaceSelection("![]("+t+")"),e=l.getCursor(),""==t&&l.setCursor(e.line,e.ch-1))}},{class:"img btn btn-default",label:'<i class="glyphicon glyphicon-resize-small"></i>',callback:function(l){$(".CodeMirror").css("height","auto")}},{class:"img btn btn-default",label:'<i class="glyphicon glyphicon-minus"></i>',callback:function(l){l.replaceSelection("- - -\n")}},{class:"btn btn-default",label:"Ү",callback:function(l){l.replaceSelection("Ү")}},{class:"btn btn-default",label:"ү",callback:function(l){l.replaceSelection("ү")}},{class:"btn btn-default",label:"Һ",callback:function(l){l.replaceSelection("Һ")}},{class:"btn btn-default",label:"һ",callback:function(l){l.replaceSelection("һ")}},{class:"btn btn-default",label:"Ө",callback:function(l){l.replaceSelection("Ө")}},{class:"btn btn-default",label:"ө",callback:function(l){l.replaceSelection("ө")}}]})}jQuery(function(l){CodeMirror.findModeByName("php").mime="text/x-php"}),$(document).ready(function(){$("#markdown-editor").length&&initEditor($("#markdown-editor"))});
+jQuery(function ($) {
+  CodeMirror.findModeByName('php').mime = 'text/x-php';
+});
+
+function initEditor(el) {
+  el = $(el)[0];
+  var editor = CodeMirror.fromTextArea(el, {
+    mode: 'gfm',
+    theme: 'default',
+    extraKeys: {
+      "Enter": 'newlineAndIndentContinueMarkdownList',
+    },
+    lineWrapping: true,
+    lineNumbers: false,
+    matchBrackets: true,
+    autoCloseBrackets: true,
+    autoCloseTags: true,
+    buttons: [
+      {
+        hotkey: 'Ctrl-B',
+        class: 'bold btn btn-default',
+        label: '<i class="glyphicon glyphicon-bold"></i>',
+        callback: function (cm) {
+          var selection = cm.getSelection();
+          cm.replaceSelection('**' + selection + '**');
+          if (!selection) {
+            var cursorPos = cm.getCursor();
+            cm.setCursor(cursorPos.line, cursorPos.ch - 2);
+          }
+        }
+      },
+      {
+        hotkey: 'Ctrl-I',
+        class: 'italic btn btn-default',
+        label: '<i class="glyphicon glyphicon-italic"></i>',
+        callback: function (cm) {
+          var selection = cm.getSelection();
+          cm.replaceSelection('*' + selection + '*');
+          if (!selection) {
+            var cursorPos = cm.getCursor();
+            cm.setCursor(cursorPos.line, cursorPos.ch - 1);
+          }
+        }
+      },
+      {
+        class: 'block-code btn btn-default',
+        label: 'CODE',
+        callback: function (cm) {
+          var language = prompt('Language') || '';
+
+          var selection = cm.getSelection();
+          cm.replaceSelection("```" + language + "\n" + selection + "\n```\n");
+          if (!selection) {
+            var cursorPos = cm.getCursor();
+            cm.setCursor(cursorPos.line - 2, 0);
+          }
+        }
+      },
+      {
+        class: 'quote btn btn-default',
+        label: '<i class="glyphicon glyphicon-menu-right"></i>',
+        callback: function (cm) {
+          cm.replaceSelection("> " + cm.getSelection());
+        }
+      },
+      {
+        class: 'ul btn btn-default',
+        label: 'UL',
+        callback: function (cm) {
+          cm.replaceSelection("- " + cm.getSelection());
+        }
+      },
+      {
+        class: 'ol btn btn-default',
+        label: 'OL',
+        callback: function (cm) {
+          cm.replaceSelection("1. " + cm.getSelection());
+        }
+      },
+      {
+        class: 'a btn btn-default',
+        label: '<i class="glyphicon glyphicon-link"></i>',
+        callback: function (cm) {
+          var selection = cm.getSelection();
+          var text = '';
+          var link = '';
+
+          if (selection.match(/^https?:\/\//)) {
+            link = selection;
+          } else {
+            text = selection;
+          }
+          cm.replaceSelection('[' + text + '](' + link + ')');
+
+          var cursorPos = cm.getCursor();
+          if (!selection) {
+            cm.setCursor(cursorPos.line, cursorPos.ch - 3);
+          } else if (link) {
+            cm.setCursor(cursorPos.line, cursorPos.ch - (3 + link.length));
+          } else {
+            cm.setCursor(cursorPos.line, cursorPos.ch - 1);
+          }
+        }
+      },
+      {
+        class: 'img btn btn-default',
+        label: '<i class="glyphicon glyphicon-picture"></i>',
+        callback: function (cm) {
+
+          var selection = cm.getSelection();
+
+          if (!selection) {
+            var url = prompt('Add image url') || '';
+            cm.replaceSelection('![](' + url + ')');
+
+            var cursorPos = cm.getCursor();
+            if (url == '') {
+              cm.setCursor(cursorPos.line, cursorPos.ch - 1);
+            }
+          } else {
+            cm.replaceSelection('![](' + selection + ')');
+          }
+        }
+      },
+      {
+        class: 'img btn btn-default',
+        label: '<i class="glyphicon glyphicon-resize-small"></i>',
+        callback: function (cm) {
+          $('.CodeMirror').css('height', 'auto');
+        }
+      },
+      {
+        class: 'img btn btn-default',
+        label: '<i class="glyphicon glyphicon-minus"></i>',
+        callback: function (cm) {
+          cm.replaceSelection("- - -\n");
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'Ү',
+        callback: function (cm) {
+          cm.replaceSelection('Ү');
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'ү',
+        callback: function (cm) {
+          cm.replaceSelection('ү');
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'Һ',
+        callback: function (cm) {
+          cm.replaceSelection('Һ');
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'һ',
+        callback: function (cm) {
+          cm.replaceSelection('һ');
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'Ө',
+        callback: function (cm) {
+          cm.replaceSelection('Ө');
+        }
+      },
+      {
+        class: 'btn btn-default',
+        label: 'ө',
+        callback: function (cm) {
+          cm.replaceSelection('ө');
+        }
+      }
+    ]
+  });
+}
+
+$(document).ready(function () {
+  if ($('#markdown-editor').length) {
+    initEditor($('#markdown-editor'));
+  }
+});

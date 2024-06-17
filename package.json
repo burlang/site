@@ -1,19 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "gulp build"
+    "build": "sass resources/assets/styles/main.scss public/build/css/main.css --no-source-map"
   },
   "devDependencies": {
-    "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-uglify": "^3.0.0",
     "sass": "^1.0.0"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 5%",
-    "Firefox ESR"
-  ]
+  }
 }
