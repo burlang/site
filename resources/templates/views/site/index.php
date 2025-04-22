@@ -7,7 +7,7 @@ use yii\web\View;
  * @var View $this
  */
 $this->registerJs(
-<<<'JS'
+    <<<'JS'
 document.getElementById('dictionary-search-form').addEventListener('click', function(event) {
     if (event.target && event.target.classList.contains('bur-letter')) {
         var burSearch = document.getElementById('bur-search');
@@ -32,12 +32,15 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
             <div id="dictionary-search-form">
                 <?= $this->render('partials/buryat_words_form') ?>
             </div>
+            <div class="text-center mt-20 mb-10">
+                Альтернативная версия: <a href="https://buryat-lang.ru" target="_blank" rel="noopener noreferrer">buryat-lang.ru</a>
+            </div>
             <hr>
             <div class="text-center mt-20 mb-10">
                 <a href="https://apps.apple.com/ru/app/burlang/id1669964114" target="_blank" rel="noopener noreferrer">
                     <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="AppStore" height="40">
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=burlang.ru"  target="_blank" rel="noopener noreferrer">
+                <a href="https://play.google.com/store/apps/details?id=burlang.ru" target="_blank" rel="noopener noreferrer">
                     <img src="<?= Yii::getAlias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="40">
                 </a>
             </div>
