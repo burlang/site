@@ -46,8 +46,9 @@ app-check: \
 	app-composer-validate \
 	app-lint \
 	app-analyze \
-	app-backup \
-	app-tests
+	app-tests \
+	app-backup
+
 
 app-fix: \
 	app-lint-fix

@@ -1,10 +1,10 @@
-@import "partials/common";
-@import "partials/bootstrap";
-@import "partials/helper";
-@import "partials/buttons";
-@import "partials/htmx";
+@use "partials/common";
+@use "partials/bootstrap";
+@use "partials/helper";
+@use "partials/buttons";
+@use "partials/htmx";
 
-@import "partials/home";
-@import "partials/buryat-names";
-@import "partials/news";
-@import "partials/books";
+@use "partials/home";
+@use "partials/buryat-names";
+@use "partials/news";
+@use "partials/books";
