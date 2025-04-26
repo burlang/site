@@ -63,6 +63,8 @@ app-composer-install:
 	docker compose run --rm site-php-cli composer install
 app-composer-update:
 	docker compose run --rm site-php-cli composer update
+app-composer-outdated:
+	docker compose run --rm site-php-cli composer outdated
 app-wait-mysql:
 	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 app-migrate:
@@ -73,6 +75,8 @@ app-assets-install:
 	docker compose run --rm site-node-cli yarn install
 app-assets-update:
 	docker compose run --rm site-node-cli yarn upgrade
+app-assets-outdated:
+	docker compose run --rm site-node-cli yarn outdated
 app-assets-build:
 	docker compose run --rm site-node-cli yarn build
 
