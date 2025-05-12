@@ -23,5 +23,6 @@ class MarkdownEditorAsset extends AssetBundle
         JqueryAsset::class,
         CodeMirrorAsset::class,
         CodeMirrorButtonsAsset::class,
+        SendKeysAsset::class,
     ];
 }
