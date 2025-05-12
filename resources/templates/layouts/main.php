@@ -1,7 +1,6 @@
 <?php
 
 use app\assets\AppAsset;
-use app\components\PageMenu;
 use app\models\User;
 use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
@@ -88,9 +87,6 @@ $route = Yii::$app->controller->getRoute();
                     'active' => $route === 'site/contacts',
                 ],
 
-                PageMenu::getItem('services'),
-                PageMenu::getItem('about'),
-
                 Yii::$app->user->can(User::ROLE_MODERATOR)
                     ? [
                         'label' => 'Управление',
@@ -114,11 +110,6 @@ $route = Yii::$app->controller->getRoute();
                                 'label' => 'Словари',
                                 'url' => ['/dictionary/index'],
                                 'visible' => Yii::$app->user->can('dictionaries_management'),
-                            ],
-                            [
-                                'label' => 'Страницы',
-                                'url' => ['/page/index'],
-                                'visible' => Yii::$app->user->can('pages_management'),
                             ],
                             [
                                 'label' => 'Статистика',

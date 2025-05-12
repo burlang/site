@@ -17,9 +17,6 @@ return [
     'buryat-names/letter/<letter:\w{1}>' => 'buryat-name/letter',
     'buryat-name/<name>' => 'buryat-name/view',
 
-    'page/<action:(create|update|delete|index)>' => 'page/<action>',
-    'page/<link:[\w-]+>' => 'page/view',
-
     'contacts' => 'site/contacts',
 
     'login' => 'auth/login',
