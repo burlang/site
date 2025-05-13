@@ -172,6 +172,9 @@ $route = Yii::$app->controller->getRoute();
         </div>
     </footer>
     <?php $this->endBody() ?>
+    <?php if (YII_ENV_PROD): ?>
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <?php endif; ?>
 </body>
 
 </html>
