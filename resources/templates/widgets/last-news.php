@@ -12,11 +12,7 @@ use yii\helpers\Html;
     <?php foreach ($lastNews as $news): ?>
         <div class="news-item" style="<?= $news->isNew() ? 'background-color: #ffeb99' : '' ?>">
             <h2>
-                <?= Html::a(
-                    Html::encode($news->title),
-                    ['/news/view', 'slug' => $news->slug],
-                    ['style' => $news->isNew() ? 'color: #103848' : '']
-                ) ?>
+                <?= Html::a(Html::encode($news->title), ['/news/view', 'slug' => $news->slug]) ?>
             </h2>
             <p><?= Yii::$app->formatter->asDate($news->created_at) ?></p>
             <div class="description">
