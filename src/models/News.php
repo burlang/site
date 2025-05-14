@@ -105,4 +105,9 @@ class News extends ActiveRecord
     {
         return new NewsQuery(static::class);
     }
+
+    public function isNew(): bool
+    {
+        return $this->created_at > strtotime('-1 month');
+    }
 }
