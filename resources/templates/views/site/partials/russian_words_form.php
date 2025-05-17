@@ -29,6 +29,7 @@ use yii\widgets\ActiveForm;
     ]) ?>
     <input type="search" name="q" placeholder="Введите русское слово" required="required"
            autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!==13);"
+           autofocus
            hx-get="<?= Url::to(['/site/find-russian-words']) ?>"
            hx-trigger="keyup changed delay:500ms, search"
            hx-target="#russian-words"

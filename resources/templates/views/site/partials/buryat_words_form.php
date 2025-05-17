@@ -35,6 +35,7 @@ use yii\widgets\ActiveForm;
             <input name="q" type="search" required="required" autocomplete="off"
                 id="bur-search" class="form-control input-lg"
                 placeholder="Введите бурятское слово"
+                autofocus
                 onkeydown="return (event.keyCode!==13);"
                 hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
                 hx-trigger="keyup changed delay:500ms, search"
