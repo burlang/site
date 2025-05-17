@@ -18,7 +18,7 @@ use yii\widgets\Menu;
 AppAsset::register($this);
 $route = Yii::$app->controller->getRoute();
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 
@@ -27,119 +27,117 @@ $route = Yii::$app->controller->getRoute();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="shortcut icon" href="<?= Yii::getAlias('@web/favicon.ico') ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= Yii::getAlias('@web/favicon.png') ?>">
+    <link rel="shortcut icon" href="<?= Yii::getAlias("@web/favicon.ico") ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= Yii::getAlias("@web/favicon.png") ?>">
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
 
-    <?php $this->head() ?>
+    <?php $this->head(); ?>
     <?php $this->registerMetaTag([
-        'name' => 'keywords',
-        'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь',
-    ]) ?>
+        "name" => "keywords",
+        "content" =>
+            "burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь",
+    ]); ?>
     <?php $this->registerMetaTag([
-        'name' => 'description',
-        'content' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
-    ]) ?>
+        "name" => "description",
+        "content" => "Русско-Бурятский, Бурятско-Русский электронный словарь",
+    ]); ?>
 
-    <?php if (isset($this->blocks['head'])) : ?>
-        <?= $this->blocks['head'] ?>
-    <?php endif ?>
+    <?php if (isset($this->blocks["head"])): ?>
+        <?= $this->blocks["head"] ?>
+    <?php endif; ?>
 </head>
 
 <body>
-    <?php $this->beginBody() ?>
+    <?php $this->beginBody(); ?>
     <div class="wrap">
         <?php NavBar::begin([
-            'brandLabel' => Yii::$app->name,
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                'class' => 'navbar-inverse navbar-fixed-top',
-            ],
-        ]) ?>
+            "brandLabel" => Yii::$app->name,
+            "brandUrl" => Yii::$app->homeUrl,
+            "options" => ["class" => "navbar-inverse navbar-fixed-top"],
+        ]); ?>
         <?= Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => [
+            "options" => ["class" => "navbar-nav navbar-right"],
+            "items" => [
                 [
-                    'label' => 'Словарь',
-                    'url' => Yii::$app->homeUrl,
-                    'active' => $route === 'site/index',
+                    "label" => "Словарь",
+                    "url" => Yii::$app->homeUrl,
+                    "active" => $route === "site/index",
                 ],
                 [
-                    'label' => 'Бурятские имена',
-                    'url' => ['/buryat-name/index'],
-                    'active' => StringHelper::startsWith($route, 'buryat-name/'),
+                    "label" => "Бурятские имена",
+                    "url" => ["/buryat-name/index"],
+                    "active" => StringHelper::startsWith($route, "buryat-name/"),
                 ],
                 [
-                    'label' => 'Книги',
-                    'url' => ['/book/index'],
-                    'active' => StringHelper::startsWith($route, 'book/'),
+                    "label" => "Книги",
+                    "url" => ["/book/index"],
+                    "active" => StringHelper::startsWith($route, "book/"),
                 ],
                 [
-                    'label' => 'Новости',
-                    'url' => ['/news/index'],
-                    'active' => StringHelper::startsWith($route, 'news/'),
+                    "label" => "Новости",
+                    "url" => ["/news/index"],
+                    "active" => StringHelper::startsWith($route, "news/"),
                 ],
                 [
-                    'label' => 'Контакты',
-                    'url' => ['/site/contacts'],
-                    'active' => $route === 'site/contacts',
+                    "label" => "Контакты",
+                    "url" => ["/site/contacts"],
+                    "active" => $route === "site/contacts",
                 ],
-
                 Yii::$app->user->can(User::ROLE_MODERATOR)
                     ? [
-                        'label' => 'Управление',
-                        'items' => [
+                        "label" => "Управление",
+                        "items" => [
                             [
-                                'label' => 'Бурятские имена',
-                                'url' => ['/admin/buryat-name/index'],
-                                'visible' => Yii::$app->user->can('buryat_names_management'),
+                                "label" => "Бурятские имена",
+                                "url" => ["/admin/buryat-name/index"],
+                                "visible" => Yii::$app->user->can("buryat_names_management"),
                             ],
                             [
-                                'label' => 'Бурятские слова',
-                                'url' => ['/buryat-word/index'],
-                                'visible' => Yii::$app->user->can('buryat_words_management'),
+                                "label" => "Бурятские слова",
+                                "url" => ["/buryat-word/index"],
+                                "visible" => Yii::$app->user->can("buryat_words_management"),
                             ],
                             [
-                                'label' => 'Русские слова',
-                                'url' => ['/russian-word/index'],
-                                'visible' => Yii::$app->user->can('russian_words_management'),
+                                "label" => "Русские слова",
+                                "url" => ["/russian-word/index"],
+                                "visible" => Yii::$app->user->can("russian_words_management"),
                             ],
                             [
-                                'label' => 'Словари',
-                                'url' => ['/dictionary/index'],
-                                'visible' => Yii::$app->user->can('dictionaries_management'),
+                                "label" => "Словари",
+                                "url" => ["/dictionary/index"],
+                                "visible" => Yii::$app->user->can("dictionaries_management"),
                             ],
                             [
-                                'label' => 'Статистика',
-                                'url' => ['/statistics'],
-                                'visible' => Yii::$app->user->can('statistics_view'),
+                                "label" => "Статистика",
+                                "url" => ["/statistics"],
+                                "visible" => Yii::$app->user->can("statistics_view"),
                             ],
                         ],
                     ]
-                    : '',
+                    : "",
                 Yii::$app->user->isGuest
-                    ? ['label' => 'Войти', 'url' => ['/auth/login']]
+                    ? ["label" => "Войти", "url" => ["/auth/login"]]
                     : [
-                        'label' => BootstrapHtml::icon('user'),
-                        'encode' => false,
-                        'items' => [
+                        "label" => BootstrapHtml::icon("user"),
+                        "encode" => false,
+                        "items" => [
                             [
-                                'label' => 'Выйти',
-                                'url' => ['/auth/logout'],
-                                'linkOptions' => ['data-method' => 'post'],
+                                "label" => "Выйти",
+                                "url" => ["/auth/logout"],
+                                "linkOptions" => ["data-method" => "post"],
                             ],
                         ],
-                        'options' => [
-                            'id' => 'dropdown-profile',
+                        "options" => [
+                            "id" => "dropdown-profile",
                         ],
                     ],
             ],
         ]) ?>
-        <?php NavBar::end() ?>
+        <?php NavBar::end(); ?>
         <div class="container">
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]) ?>
+            <?= Breadcrumbs::widget(["links" => $this->params["breadcrumbs"] ?? []]) ?>
             <?= $content ?>
         </div>
     </div>
@@ -148,34 +146,34 @@ $route = Yii::$app->controller->getRoute();
             <div class="row">
                 <div class="col-sm-4">
                     <?= Menu::widget([
-                        'items' => [
+                        "items" => [
                             [
-                                'label' => 'Github',
-                                'url' => 'https://github.com/burlang',
+                                "label" => "Github",
+                                "url" => "https://github.com/burlang",
                             ],
                             [
-                                'label' => 'Api',
-                                'url' => ['/api/v1'],
+                                "label" => "Api",
+                                "url" => ["/api/v1"],
                             ],
                         ],
-                        'options' => [
-                            'class' => 'list-inline',
+                        "options" => [
+                            "class" => "list-inline",
                         ],
                     ]) ?>
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="label label-default">
-                        &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
+                        &copy; <?= Yii::$app->name ?> 2013 - <?= date("Y") ?>
                     </span>
                 </div>
             </div>
         </div>
     </footer>
-    <?php $this->endBody() ?>
-    <?php if (YII_ENV_PROD): ?>
+    <?php $this->endBody(); ?>
+    <?php if (env('APP_ENV') === 'prod'): ?>
         <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <?php endif; ?>
 </body>
 
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>
