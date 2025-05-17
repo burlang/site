@@ -28,14 +28,21 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
 ?>
 <div class="site-index">
     <div class="row mt-10">
-        <div class="col-sm-8">
+        <div class="col-sm-8 mb-10">
             <div id="dictionary-search-form">
                 <?= $this->render('partials/buryat_words_form') ?>
             </div>
+            <?= $this->render('_buryat_word_bot') ?>
             <div class="text-center mt-20 mb-10">
                 Альтернативная версия: <a href="https://buryat-lang.ru" target="_blank" rel="noopener noreferrer">buryat-lang.ru</a>
             </div>
-            <hr>
+        </div>
+        <div class="col-sm-4">
+            <?= LastNews::widget() ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 mb-10">
             <div class="text-center mt-20 mb-10">
                 <a href="https://apps.apple.com/ru/app/burlang/id1669964114" target="_blank" rel="noopener noreferrer">
                     <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="AppStore" height="40">
@@ -44,9 +51,6 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
                     <img src="<?= Yii::getAlias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="40">
                 </a>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <?= LastNews::widget() ?>
         </div>
     </div>
 </div>
