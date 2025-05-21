@@ -64,7 +64,7 @@ app-composer-install:
 app-composer-update:
 	docker compose run --rm site-php-cli composer update
 app-composer-outdated:
-	docker compose run --rm site-php-cli composer outdated
+	docker compose run --rm site-php-cli composer outdated --direct
 app-wait-mysql:
 	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 app-migrate:
