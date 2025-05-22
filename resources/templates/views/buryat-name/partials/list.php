@@ -5,7 +5,7 @@ declare(strict_types=1);
 use yii\helpers\Html;
 
 /**
- * @var array<int, <int, string>> $nameGroups
+ * @var array<int, array<int, string>> $nameGroups
  */
 ?>
 <?php if (!empty($nameGroups)): ?>

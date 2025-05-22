@@ -27,7 +27,7 @@
         "friendsofphp/php-cs-fixer": "^3.57",
         "overtrue/phplint": "^9.3",
         "pestphp/pest": "^2.34",
-        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan": "^2.1",
         "roave/security-advisories": "dev-latest",
         "symfony/http-client": "^6.4"
     },
