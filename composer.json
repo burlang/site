@@ -16,7 +16,7 @@
         "bower-asset/bililiterange": "~4.0",
         "bower-asset/codemirror": "~5.9.0",
         "bower-asset/codemirror-buttons": "~1.0.5",
-        "mobiledetect/mobiledetectlib": "~2.8.45",
+        "mobiledetect/mobiledetectlib": "^4.8",
         "npm-asset/htmx.org": "^1.9.12",
         "vlucas/phpdotenv": "^5.6",
         "yiisoft/yii2": "~2.0.49",
