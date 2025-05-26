@@ -1,5 +1,6 @@
 <?php
 
+use app\assets\SendKeysAsset;
 use yii\web\View;
 
 /**
@@ -7,6 +8,7 @@ use yii\web\View;
  * @var View $this
  */
 
+SendKeysAsset::register($this);
 $this->registerJs(<<<'JS'
     $('button.add-input-letter').on('click', function () {
         let $this = $(this);

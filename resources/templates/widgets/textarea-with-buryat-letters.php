@@ -1,5 +1,6 @@
 <?php
 
+use app\assets\SendKeysAsset;
 use yii\web\View;
 
 /**
@@ -7,6 +8,8 @@ use yii\web\View;
  * @var string $textarea
  * @var string $selector
  */
+
+SendKeysAsset::register($this);
 $this->registerJs("
     $('body').on('click', '.add-letter-{$selector}', function() {
         $('#{$selector}').sendkeys($(this).text());

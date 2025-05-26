@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
-use app\assets\SendKeysAsset;
 use yii\base\Model;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
@@ -13,8 +12,6 @@ class TextareaWithBuryatLetters extends InputWidget
 {
     public function run(): string
     {
-        SendKeysAsset::register($this->view);
-
         if ($this->hasModel()) {
             $textarea = Html::activeTextArea($this->model, $this->attribute, $this->options);
             /** @var Model $model */
