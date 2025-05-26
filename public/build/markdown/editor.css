@@ -3,6 +3,7 @@
 .CodeMirror-buttonsPanel button {
     margin-right: 0.4em;
     margin-bottom: 0.4em;
+    padding-top: 0.6em;
 }
 
 .CodeMirror {
