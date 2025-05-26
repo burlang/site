@@ -1,7 +1,12 @@
 <?php
+
+use yii\web\View;
+
 /**
  * @var string $textInput
+ * @var View $this
  */
+
 $this->registerJs(<<<'JS'
     $('button.add-input-letter').on('click', function () {
         let $this = $(this);
