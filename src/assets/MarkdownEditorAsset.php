@@ -12,6 +12,7 @@ class MarkdownEditorAsset extends AssetBundle
     public $baseUrl = '@web/build/markdown';
     /** @var string[] */
     public $js = [
+        'buttons.js',
         'editor.js',
     ];
     /** @var string[] */
@@ -22,7 +23,6 @@ class MarkdownEditorAsset extends AssetBundle
     public $depends = [
         JqueryAsset::class,
         CodeMirrorAsset::class,
-        CodeMirrorButtonsAsset::class,
         SendKeysAsset::class,
     ];
 }

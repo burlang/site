@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51bbee6c654db4200e0ec1eb5547afe6",
+    "content-hash": "2a102f813d4ca44e452d401c98f095e1",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -56,27 +56,6 @@
                 "reference": "ec73f71ee6d04cc5c257f098bfcf693460be1866"
             },
             "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/codemirror-buttons",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:samdark/codemirror-buttons.git",
-                "reference": "2a0a0bfaa8041f59860a3ad4165bba04d987110b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/samdark/codemirror-buttons/zipball/2a0a0bfaa8041f59860a3ad4165bba04d987110b",
-                "reference": "2a0a0bfaa8041f59860a3ad4165bba04d987110b"
-            },
-            "require": {
-                "bower-asset/codemirror": "*"
-            },
-            "type": "bower-asset",
-            "license": [
-                "BSD"
-            ]
         },
         {
             "name": "bower-asset/inputmask",

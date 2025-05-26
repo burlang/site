@@ -15,7 +15,6 @@
         "ext-zip": "*",
         "bower-asset/bililiterange": "~4.0",
         "bower-asset/codemirror": "~5.9.0",
-        "bower-asset/codemirror-buttons": "~1.0.5",
         "mobiledetect/mobiledetectlib": "^4.8",
         "npm-asset/htmx.org": "^2.0",
         "vlucas/phpdotenv": "^5.6",
