@@ -36,12 +36,6 @@ return [
         'ruleName' => null,
         'data' => null,
     ],
-    'pages_management' => [
-        'type' => Item::TYPE_PERMISSION,
-        'description' => 'Управление страницами',
-        'ruleName' => null,
-        'data' => null,
-    ],
     'dictionaries_management' => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление словарями',
@@ -89,7 +83,6 @@ return [
         'children' => [
             'moderator',
             'news_management',
-            'pages_management',
             'statistics_view',
             'dictionaries_delete',
         ],
