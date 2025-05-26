@@ -2,6 +2,14 @@
 /**
  * @var string $textInput
  */
+$this->registerJs(<<<'JS'
+    $('button.add-input-letter').on('click', function () {
+        let $this = $(this);
+        let $input = $this.parent('span').siblings('input');
+        $input.val($input.val() + $this.text());
+    });
+JS
+);
 ?>
 <div class="input-group">
     <?= $textInput ?>
