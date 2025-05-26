@@ -21,7 +21,7 @@ MarkdownEditorAsset::register($this);
     <?= $form->field($model, 'active')->checkbox() ?>
     <?= $form->field($model, 'title')->widget(InputWithBuryatLetters::class, ['options' => ['maxlength' => true]]) ?>
     <?= $form->field($model, 'description')->widget(TextareaWithBuryatLetters::class, ['options' => ['rows' => 5]]) ?>
-    <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
+    <?= $form->field($model, 'content')->textarea(['class' => 'markdown-editor']) ?>
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord

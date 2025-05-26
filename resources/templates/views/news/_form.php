@@ -27,7 +27,7 @@ MarkdownEditorAsset::register($this);
         TextareaWithBuryatLetters::class,
         ['options' => ['rows' => 5]]
     ) ?>
-    <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
+    <?= $form->field($model, 'content')->textarea(['class' => 'markdown-editor']) ?>
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord

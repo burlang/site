@@ -21,7 +21,7 @@ MarkdownEditorAsset::register($this);
         InputWithBuryatLetters::class,
         ['options' => ['maxlength' => true]]
     ) ?>
-    <?= $form->field($chapter, 'content')->textarea(['id' => 'markdown-editor']) ?>
+    <?= $form->field($chapter, 'content')->textarea(['class' => 'markdown-editor']) ?>
     <div class="form-group">
         <?= Html::submitButton(
             $chapter->isNewRecord
