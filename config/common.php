@@ -14,7 +14,6 @@ use yii\grid\ActionColumn;
 use yii\log\Dispatcher;
 use yii\log\FileTarget;
 use yii\rbac\ManagerInterface;
-use yii\symfonymailer\Mailer;
 use yii\web\AssetManager;
 use yii\web\UrlManager;
 use yii\web\View;
@@ -48,7 +47,6 @@ return [
     'components' => [
         'urlManager' => UrlManager::class,
         'db' => Connection::class,
-        'mailer' => Mailer::class,
         'assetManager' => AssetManager::class,
         'authManager' => ManagerInterface::class,
         'log' => Dispatcher::class,
@@ -70,11 +68,6 @@ return [
                 'password' => env('MYSQL_PASSWORD'),
                 'charset' => 'utf8',
                 'enableSchemaCache' => true,
-            ],
-            Mailer::class => [
-                'class' => Mailer::class,
-                'viewPath' => '@app/resources/mail',
-                'useFileTransport' => false,
             ],
             AssetManager::class => [
                 'class' => AssetManager::class,
