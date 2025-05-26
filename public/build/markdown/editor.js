@@ -238,11 +238,6 @@
 
     $(document).ready(() => {
         CodeMirror.findModeByName('php').mime = 'text/x-php';
-
-        $('#markdown-editor').each(function() {
-            initMarkdownEditor(this);
-        });
-
         $('.markdown-editor').each(function() {
             initMarkdownEditor(this);
         });
