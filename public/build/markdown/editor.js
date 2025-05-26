@@ -124,13 +124,6 @@ function initEditor(el) {
       },
       {
         class: 'img btn btn-default',
-        label: '<i class="glyphicon glyphicon-resize-small"></i>',
-        callback: function (cm) {
-          $('.CodeMirror').css('height', 'auto');
-        }
-      },
-      {
-        class: 'img btn btn-default',
         label: '<i class="glyphicon glyphicon-minus"></i>',
         callback: function (cm) {
           cm.replaceSelection("- - -\n");
