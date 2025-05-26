@@ -11,15 +11,14 @@ use yii\web\YiiAsset;
 
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@root/resources/assets/app';
     /** @var string[] */
     public $css = [
-        'build/css/main.css',
+        'css/main.css',
     ];
     /** @var string[] */
     public $js = [
-        'build/js/main.js',
+        'js/main.js',
     ];
     /** @var array<string, int> */
     public $jsOptions = [
