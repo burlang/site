@@ -23,6 +23,5 @@ class MarkdownEditorAsset extends AssetBundle
     public $depends = [
         JqueryAsset::class,
         CodeMirrorAsset::class,
-        SendKeysAsset::class,
     ];
 }
