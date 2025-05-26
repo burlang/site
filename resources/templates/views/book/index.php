@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?php if (Yii::$app->user->can('book_management')): ?>
+    <?php if (Yii::$app->user->can('books_management')): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать книгу',

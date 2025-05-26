@@ -12,7 +12,7 @@ use yii\web\View;
 <?php if (!$model->active): ?>
     <p><span class="label label-default">Неактивный</span></p>
 <?php endif ?>
-<?php if (Yii::$app->user->can('book_management')): ?>
+<?php if (Yii::$app->user->can('books_management')): ?>
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' Редактировать',

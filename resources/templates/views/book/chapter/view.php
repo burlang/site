@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= ChaptersMenu::widget(['book' => $chapter->book, 'activeId' => $chapter->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
-            <?php if (Yii::$app->user->can('book_management')): ?>
+            <?php if (Yii::$app->user->can('books_management')): ?>
                 <p>
                     <?= Html::a(
                         Html::icon('pencil') . ' Редактировать главу',
