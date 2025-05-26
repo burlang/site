@@ -66,9 +66,9 @@ app-composer-outdated:
 app-wait-mysql:
 	docker compose run --rm site-php-cli wait-for-it site-mysql:3306 -t 30
 app-migrate:
-	docker compose run --rm site-php-cli php bin/app.php migrate --interactive=0
+	docker compose run --rm site-php-cli php bin/console migrate --interactive=0
 app-clear-cache:
-	docker compose run --rm site-php-cli php bin/app.php cache/flush-all
+	docker compose run --rm site-php-cli php bin/console cache/flush-all
 
 app-composer-validate:
 	docker compose run --rm site-php-cli composer validate
