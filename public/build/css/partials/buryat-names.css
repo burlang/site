@@ -1,0 +1,13 @@
+/* buryat-name/list */
+.buryat-name-list .list-letter li {
+  margin-bottom: 10px;
+}
+
+.buryat-name-list .list-letter li .badge {
+  background-color: #ccc;
+  color: #555;
+}
+
+.buryat-name-list .list-name li {
+  margin-bottom: 10px;
+}

@@ -50,14 +50,6 @@ services:
             - ./:/app
         network_mode: service:site-nginx
 
-    site-node-cli:
-        image: node:21-alpine
-        container_name: site-node-cli
-        user: "1000:1000"
-        volumes:
-            - ./:/app
-        working_dir: /app
-
     site-mysql:
         image: mariadb:10
         container_name: site-mysql

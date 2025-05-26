@@ -14,7 +14,6 @@ restart: down up
 ps: docker-ps
 update-deps: \
 	app-composer-update \
-	app-assets-update \
 	restart
 
 check: app-check
@@ -37,7 +36,6 @@ docker-ps:
 app-init: \
 	app-permissions \
 	app-composer-install \
-	app-assets-install \
 	app-wait-mysql \
 	app-migrate \
 	app-clear-cache
@@ -71,14 +69,6 @@ app-migrate:
 	docker compose run --rm site-php-cli php bin/app.php migrate --interactive=0
 app-clear-cache:
 	docker compose run --rm site-php-cli php bin/app.php cache/flush-all
-app-assets-install:
-	docker compose run --rm site-node-cli yarn install
-app-assets-update:
-	docker compose run --rm site-node-cli yarn upgrade
-app-assets-outdated:
-	docker compose run --rm site-node-cli yarn outdated
-app-assets-build:
-	docker compose run --rm site-node-cli yarn build
 
 app-composer-validate:
 	docker compose run --rm site-php-cli composer validate

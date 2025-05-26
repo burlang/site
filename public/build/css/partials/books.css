@@ -1,3 +1,4 @@
+/* Books styles */
 .book-item {
   border: 1px outset #ccc;
   height: 350px;
@@ -7,10 +8,10 @@
   text-align: center;
   border-radius: 4px;
   background-color: #fafafa;
+}
 
-  h2 {
-    font-size: 21px;
-  }
+.book-item h2 {
+  font-size: 21px;
 }
 
 .book-item-mobile {
@@ -20,13 +21,13 @@
   box-sizing: border-box;
   border-radius: 4px;
   background-color: #fafafa;
+}
 
-  h2 {
-    font-size: 19px;
-    margin-top: 0;
-  }
+.book-item-mobile h2 {
+  font-size: 19px;
+  margin-top: 0;
+}
 
-  p {
-    margin-bottom: 0;
-  }
+.book-item-mobile p {
+  margin-bottom: 0;
 }

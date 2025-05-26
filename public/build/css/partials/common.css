@@ -9,10 +9,10 @@ body {
   height: auto;
   margin: 0 auto -60px;
   padding: 0 0 60px;
+}
 
-  >.container {
-    padding: 70px 15px 20px;
-  }
+.wrap > .container {
+  padding: 70px 15px 20px;
 }
 
 .footer {
@@ -41,35 +41,27 @@ a.desc:after {
 }
 
 a.asc:after {
-  content:
-    /*"\e113"*/
-    "\e151";
+  content: "\e151";
 }
 
 a.desc:after {
-  content:
-    /*"\e114"*/
-    "\e152";
+  content: "\e152";
 }
 
-.sort-numerical {
-  a.asc:after {
-    content: "\e153";
-  }
-
-  a.desc:after {
-    content: "\e154";
-  }
+.sort-numerical a.asc:after {
+  content: "\e153";
 }
 
-.sort-ordinal {
-  a.asc:after {
-    content: "\e155";
-  }
+.sort-numerical a.desc:after {
+  content: "\e154";
+}
 
-  a.desc:after {
-    content: "\e156";
-  }
+.sort-ordinal a.asc:after {
+  content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+  content: "\e156";
 }
 
 .grid-view th {

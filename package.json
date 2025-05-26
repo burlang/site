@@ -1,9 +1,0 @@
-{
-  "private": true,
-  "scripts": {
-    "build": "sass resources/assets/styles/main.scss public/build/css/main.css --no-source-map"
-  },
-  "devDependencies": {
-    "sass": "^1.0.0"
-  }
-}
