@@ -4,23 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6129a34e1ecff8ed62a2a4c247adab6e",
+    "content-hash": "f3e5cb77416b46a87ec18fbb1b90c939",
     "packages": [
-        {
-            "name": "bower-asset/bililiterange",
-            "version": "v4.01",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:dwachss/bililiteRange.git",
-                "reference": "2dfc12a5e0126f0ca76b85ec2247a93d13bda053"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dwachss/bililiteRange/zipball/2dfc12a5e0126f0ca76b85ec2247a93d13bda053",
-                "reference": "2dfc12a5e0126f0ca76b85ec2247a93d13bda053"
-            },
-            "type": "bower-asset"
-        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.4.1",

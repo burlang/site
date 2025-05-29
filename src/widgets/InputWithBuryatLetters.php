@@ -17,8 +17,11 @@ final class InputWithBuryatLetters extends InputWidget
             ? Html::activeTextInput($this->model, $this->attribute, $this->options)
             : Html::textInput($this->name, $this->value, $this->options);
 
+        $widgetId = $this->getId() . '-wrapper';
+
         return $this->render('@templates/widgets/input-with-buryat-letters', [
             'textInput' => $textInput,
+            'widgetId' => $widgetId,
         ]);
     }
 }

@@ -13,7 +13,6 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-zip": "*",
-        "bower-asset/bililiterange": "~4.0",
         "bower-asset/codemirror": "~5.9.0",
         "mobiledetect/mobiledetectlib": "^4.8",
         "npm-asset/htmx.org": "^2.0",

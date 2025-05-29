@@ -1,4 +1,4 @@
-(function($) {
+(() => {
     'use strict';
 
     const EDITOR_CONFIG = {
@@ -60,7 +60,6 @@
     const insertCodeBlock = (cm) => {
         const selection = cm.getSelection();
         const language = selection ? '' : (prompt('Enter language (optional):') || '');
-
         cm.replaceSelection(`\`\`\`${language}\n${selection}\n\`\`\`\n`);
 
         if (!selection) {
@@ -205,9 +204,6 @@
             return null;
         }
 
-        const $element = $(element);
-        const textArea = $element[0];
-
         registerCustomCommands();
 
         const editorConfig = {
@@ -215,14 +211,15 @@
             buttons: createEditorButtons()
         };
 
-        const editor = CodeMirror.fromTextArea(textArea, editorConfig);
+        const editor = CodeMirror.fromTextArea(element, editorConfig);
 
         editor.on('change', () => {
-            textArea.value = editor.getValue();
-            $(textArea).trigger('change');
+            element.value = editor.getValue();
+            const changeEvent = new Event('change', { bubbles: true });
+            element.dispatchEvent(changeEvent);
         });
 
-        textArea.setAttribute('data-editor-initialized', 'true');
+        element.setAttribute('data-editor-initialized', 'true');
 
         return editor;
     };
@@ -230,17 +227,14 @@
     window.MarkdownEditor = {
         init: initMarkdownEditor,
         initAll: () => {
-            $('.markdown-editor').each(function() {
-                initMarkdownEditor(this);
-            });
+            document.querySelectorAll('.markdown-editor').forEach(initMarkdownEditor);
         }
     };
 
-    $(document).ready(() => {
-        CodeMirror.findModeByName('php').mime = 'text/x-php';
-        $('.markdown-editor').each(function() {
-            initMarkdownEditor(this);
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        if (CodeMirror.findModeByName('php')) {
+            CodeMirror.findModeByName('php').mime = 'text/x-php';
+        }
+        document.querySelectorAll('.markdown-editor').forEach(initMarkdownEditor);
     });
-
-})(jQuery);
+})();
