@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3e5cb77416b46a87ec18fbb1b90c939",
+    "content-hash": "ad8f8389e335b4fa90d28f978eb32f0c",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -26,21 +26,6 @@
             "license": [
                 "MIT"
             ]
-        },
-        {
-            "name": "bower-asset/codemirror",
-            "version": "5.9.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:components/codemirror.git",
-                "reference": "ec73f71ee6d04cc5c257f098bfcf693460be1866"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/codemirror/zipball/ec73f71ee6d04cc5c257f098bfcf693460be1866",
-                "reference": "ec73f71ee6d04cc5c257f098bfcf693460be1866"
-            },
-            "type": "bower-asset"
         },
         {
             "name": "bower-asset/inputmask",
@@ -368,6 +353,18 @@
                 }
             ],
             "time": "2024-12-10T15:32:06+00:00"
+        },
+        {
+            "name": "npm-asset/codemirror",
+            "version": "6.65.7",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/codemirror/-/codemirror-6.65.7.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "npm-asset/htmx.org",

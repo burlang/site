@@ -8,7 +8,7 @@ use yii\web\AssetBundle;
 
 class CodeMirrorAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/codemirror';
+    public $sourcePath = '@npm/codemirror';
     /** @var string[] */
     public $js = [
         'lib/codemirror.js',
