@@ -1,4 +1,4 @@
-<div class="mt-20 mb-10" style="border: 1px solid #ddd; padding: 6px; border-radius: 5px;">
+<div class="mt-20 mb-10" style="border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
     <div class="media">
         <div class="media-left">
             <a href="https://t.me/BuryatWordBot" target="_blank" rel="noopener noreferrer">
@@ -11,8 +11,10 @@
                     Тelegram-бот «Буряад үгэ»
                 </a>
             </h4>
-            <div class="text-muted">
-                Каждый день присылает одно новое бурятское слово с переводом, примером использования и красивой картинкой.
+            <div>
+                <div class="text-muted mb-5">
+                    Каждый день присылает одно новое бурятское слово с переводом, аудиопроизношением, примером использования и красивой картинкой.
+                </div>
                 <a href="https://t.me/BuryatWordBot" target="_blank" rel="noopener noreferrer">
                     https://t.me/BuryatWordBot
                 </a>
