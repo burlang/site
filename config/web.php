@@ -11,8 +11,11 @@ use yii\web\Response;
 use yii\web\Session;
 use yii\web\User;
 
+/** @var array<string, mixed> */
+$common = require __DIR__ . '/common.php';
+
 return ArrayHelper::merge(
-    require __DIR__ . '/common.php',
+    $common,
     [
         'components' => [
             'user' => User::class,

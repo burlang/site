@@ -6,8 +6,11 @@ use yii\console\controllers\MigrateController;
 use yii\console\ErrorHandler;
 use yii\helpers\ArrayHelper;
 
+/** @var array<string, mixed> */
+$common = require __DIR__ . '/common.php';
+
 return ArrayHelper::merge(
-    require __DIR__ . '/common.php',
+    $common,
     [
         'controllerNamespace' => 'app\commands',
         'controllerMap' => [

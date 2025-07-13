@@ -86,11 +86,13 @@ class BuryatName extends ActiveRecord
         ];
     }
 
+    /** @return ActiveQuery<User> */
     public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);

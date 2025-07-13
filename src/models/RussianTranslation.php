@@ -87,21 +87,25 @@ class RussianTranslation extends ActiveRecord
         ];
     }
 
+    /** @return ActiveQuery<RussianWord> */
     public function getRussianWord(): ActiveQuery
     {
         return $this->hasOne(RussianWord::class, ['id' => 'ruword_id']);
     }
 
+    /** @return ActiveQuery<Dictionary> */
     public function getDictionary(): ActiveQuery
     {
         return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);

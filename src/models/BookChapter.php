@@ -96,16 +96,19 @@ class BookChapter extends ActiveRecord
         ];
     }
 
+    /** @return ActiveQuery<Book> */
     public function getBook(): ActiveQuery
     {
         return $this->hasOne(Book::class, ['id' => 'book_id']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);

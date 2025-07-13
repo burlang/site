@@ -79,21 +79,25 @@ class BuryatWord extends ActiveRecord
         ];
     }
 
+    /** @return ActiveQuery<Dictionary> */
     public function getDictionary(): ActiveQuery
     {
         return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
+    /** @return ActiveQuery<User> */
     public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 
+    /** @return ActiveQuery<BuryatTranslation> */
     public function getTranslations(): ActiveQuery
     {
         return $this->hasMany(BuryatTranslation::class, ['burword_id' => 'id']);

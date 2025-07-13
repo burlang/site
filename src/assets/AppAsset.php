@@ -20,11 +20,11 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/main.js',
     ];
-    /** @var array<string, int> */
+    /** @var array{depends?: array<class-string>, position?: int, appendTimestamp?: bool} */
     public $jsOptions = [
         'position' => View::POS_END,
     ];
-    /** @var string[] */
+    /** @var array<class-string> */
     public $depends = [
         YiiAsset::class,
         BootstrapAsset::class,

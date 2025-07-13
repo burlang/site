@@ -61,6 +61,7 @@ class LoginForm extends Model
     }
 
     /**
+     * @param WebUser<AuthIdentity> $webUser
      * @return bool whether the user is logged in successfully
      */
     public function login(WebUser $webUser)

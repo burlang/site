@@ -19,7 +19,7 @@ class MarkdownEditorAsset extends AssetBundle
     public $css = [
         'editor.css',
     ];
-    /** @var string[] */
+    /** @var array<class-string> */
     public $depends = [
         JqueryAsset::class,
         CodeMirrorAsset::class,

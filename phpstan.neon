@@ -9,9 +9,6 @@ parameters:
         - src
         - tests
     ignoreErrors:
-        - '#rules\(\) return type has no value type specified in iterable type array#'
-        - '#behaviors\(\) return type has no value type specified in iterable type array#'
-        - '#actions\(\) return type has no value type specified in iterable type array#'
         - '#has parameter \$params with no value type specified in iterable type array#'
         - '#undefined property yii\\#'
         - '#of static method yii\\#'
