@@ -33,7 +33,7 @@ a.desc:after {
   position: relative;
   top: 1px;
   display: inline-block;
-  font-family: 'Glyphicons Halflings', serif;
+  font-family: "Glyphicons Halflings", serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
@@ -80,4 +80,15 @@ a.desc:after {
   border-left: 3px solid #eed3d7;
   padding: 10px 20px;
   margin: 0 0 15px 0;
+}
+
+.image-responsive-container .img-responsive {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .image-responsive-container .img-responsive {
+    max-width: 50%;
+  }
 }
