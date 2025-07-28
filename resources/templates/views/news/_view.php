@@ -16,10 +16,8 @@ use yii\helpers\Html;
             <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
-    <p><?= Yii::$app->formatter->asDate($model->created_at) ?></p>
+    <p><?= formatDate($model->created_at) ?></p>
     <div class="description">
         <?= nl2br(Html::encode($model->description)) ?>
     </div>
 </div>
-
-

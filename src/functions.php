@@ -29,3 +29,13 @@ function isGuest(): bool
 {
     return Yii::$app->user->isGuest;
 }
+
+function isAdmin(): bool
+{
+    return Yii::$app->user->can('admin');
+}
+
+function formatDate(int|string|DateTime|DateTimeInterface|null $value, string|null $format = null): string
+{
+    return Yii::$app->formatter->asDate($value, $format);
+}

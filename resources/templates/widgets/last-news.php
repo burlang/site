@@ -14,7 +14,7 @@ use yii\helpers\Html;
             <h2>
                 <?= Html::a(Html::encode($news->title), ['/news/view', 'slug' => $news->slug]) ?>
             </h2>
-            <p><?= Yii::$app->formatter->asDate($news->created_at) ?></p>
+            <p><?= formatDate($news->created_at) ?></p>
             <div class="description">
                 <?= nl2br(Html::encode($news->description)) ?>
             </div>
