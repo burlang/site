@@ -117,7 +117,7 @@ $route = Yii::$app->controller->getRoute();
                         ],
                     ]
                     : "",
-                Yii::$app->user->isGuest
+                isGuest()
                     ? ["label" => "Войти", "url" => ["/auth/login"]]
                     : [
                         "label" => BootstrapHtml::icon("user"),

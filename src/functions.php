@@ -24,3 +24,8 @@ function can(string $permission): bool
 {
     return Yii::$app->user->can($permission);
 }
+
+function isGuest(): bool
+{
+    return Yii::$app->user->isGuest;
+}
