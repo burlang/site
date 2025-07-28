@@ -6,6 +6,7 @@ namespace app\controllers;
 
 use app\components\AuthIdentity;
 use app\forms\LoginForm;
+use yii\base\Security;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -41,13 +42,13 @@ class AuthController extends Controller
     /**
      * @param User<AuthIdentity> $user
      */
-    public function actionLogin(User $user): Response|string
+    public function actionLogin(User $user, Security $security): Response|string
     {
         if (!$user->isGuest) {
             return $this->goHome();
         }
 
-        $model = new LoginForm();
+        $model = new LoginForm($security);
         if (
             $model->load($this->request->post())
             && $model->validate()

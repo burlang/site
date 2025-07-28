@@ -6,8 +6,8 @@ namespace app\forms;
 
 use app\components\AuthIdentity;
 use app\models\User;
-use Yii;
 use yii\base\Model;
+use yii\base\Security;
 use yii\web\User as WebUser;
 
 class LoginForm extends Model
@@ -17,6 +17,14 @@ class LoginForm extends Model
 
     /** @var false|User|null */
     private $user = false;
+
+    private Security $security;
+
+    public function __construct(Security $security, array $config = [])
+    {
+        parent::__construct($config);
+        $this->security = $security;
+    }
 
     public function rules(): array
     {
@@ -44,7 +52,7 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            if (!$user || !Yii::$app->security->validatePassword($this->password, $user->password_hash)) {
+            if (!$user || !$this->security->validatePassword($this->password, $user->password_hash)) {
                 $this->addError($attribute, 'Неверное имя пользователя или пароль.');
             }
         }
