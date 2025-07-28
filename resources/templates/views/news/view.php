@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
-    <?php if (Yii::$app->user->can('news_management')): ?>
+    <?php if (can('news_management')): ?>
         <p>
             <?= Html::a(
                 Html::icon('pencil') . ' Редактировать',

@@ -85,34 +85,34 @@ $route = Yii::$app->controller->getRoute();
                     "url" => ["/site/contacts"],
                     "active" => $route === "site/contacts",
                 ],
-                Yii::$app->user->can(User::ROLE_MODERATOR)
+                can(User::ROLE_MODERATOR)
                     ? [
                         "label" => "Управление",
                         "items" => [
                             [
                                 "label" => "Бурятские имена",
                                 "url" => ["/admin/buryat-name/index"],
-                                "visible" => Yii::$app->user->can("buryat_names_management"),
+                                "visible" => can("buryat_names_management"),
                             ],
                             [
                                 "label" => "Бурятские слова",
                                 "url" => ["/buryat-word/index"],
-                                "visible" => Yii::$app->user->can("buryat_words_management"),
+                                "visible" => can("buryat_words_management"),
                             ],
                             [
                                 "label" => "Русские слова",
                                 "url" => ["/russian-word/index"],
-                                "visible" => Yii::$app->user->can("russian_words_management"),
+                                "visible" => can("russian_words_management"),
                             ],
                             [
                                 "label" => "Словари",
                                 "url" => ["/dictionary/index"],
-                                "visible" => Yii::$app->user->can("dictionaries_management"),
+                                "visible" => can("dictionaries_management"),
                             ],
                             [
                                 "label" => "Статистика",
                                 "url" => ["/statistics"],
-                                "visible" => Yii::$app->user->can("statistics_view"),
+                                "visible" => can("statistics_view"),
                             ],
                         ],
                     ]

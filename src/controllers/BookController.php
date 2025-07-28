@@ -68,7 +68,7 @@ class BookController extends Controller
     public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $query = Book::find()->orderBy('created_at DESC');
-        if (!Yii::$app->user->can('books_management')) {
+        if (!can('books_management')) {
             $query->where(['active' => 1]);
         }
         $dataProvider = new ActiveDataProvider([
@@ -87,7 +87,7 @@ class BookController extends Controller
     public function actionView(string $slug): string
     {
         $model = Book::findOne(['slug' => $slug]);
-        if (!$model || (!$model->active && !Yii::$app->user->can('books_management'))) {
+        if (!$model || (!$model->active && !can('books_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
@@ -190,7 +190,7 @@ class BookController extends Controller
             ->where(['and', ['book.slug' => $slug], ['book_chapter.slug' => $chapterSlug]])
             ->one();
 
-        if (!$chapter || (!$chapter->book->active && !Yii::$app->user->can('books_management'))) {
+        if (!$chapter || (!$chapter->book->active && !can('books_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('chapter/view', [
