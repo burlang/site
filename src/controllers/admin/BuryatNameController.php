@@ -7,13 +7,13 @@ namespace app\controllers\admin;
 use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
-use Yii;
 use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\web\Session;
 
 class BuryatNameController extends Controller
 {
@@ -103,13 +103,13 @@ class BuryatNameController extends Controller
      * @throws NotFoundHttpException
      * @throws Exception
      */
-    public function actionDelete(int $id): Response
+    public function actionDelete(Session $session, int $id): Response
     {
         $name = $this->getName($id);
         if (!$name->delete()) {
             throw new Exception('Не удалось удалить Имя');
         }
-        Yii::$app->session->setFlash('success', 'Имя удалено');
+        $session->setFlash('success', 'Имя удалено');
         return $this->redirect(['index']);
     }
 

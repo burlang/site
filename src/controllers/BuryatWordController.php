@@ -9,7 +9,6 @@ use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\Dictionary;
 use app\models\search\BuryatWordSearch;
-use Yii;
 use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -17,6 +16,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\web\Session;
 
 class BuryatWordController extends Controller
 {
@@ -64,10 +64,7 @@ class BuryatWordController extends Controller
         ]);
     }
 
-    /**
-     * @return Response|string
-     */
-    public function actionCreate()
+    public function actionCreate(Session $session): Response|string
     {
         $word = new BuryatWord();
 
@@ -78,7 +75,7 @@ class BuryatWordController extends Controller
         );
 
         if ($word->load($this->request->post()) && $word->save()) {
-            Yii::$app->session->setFlash('success', 'Слово добавлено');
+            $session->setFlash('success', 'Слово добавлено');
             return $this->redirect(['update', 'id' => $word->id]);
         }
         return $this->render('create', [
@@ -88,11 +85,13 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(DeviceDetectorInterface $deviceDetector, int $id)
-    {
+    public function actionUpdate(
+        DeviceDetectorInterface $deviceDetector,
+        Session $session,
+        int $id
+    ): Response|string {
         $word = $this->getWord($id);
 
         $dictionaries = ArrayHelper::map(
@@ -104,12 +103,12 @@ class BuryatWordController extends Controller
         $translationForm = new BuryatTranslation();
         $translationForm->burword_id = $word->id;
         if ($translationForm->load($this->request->post()) && $translationForm->save()) {
-            Yii::$app->session->setFlash('success', 'Перевод добавлен');
+            $session->setFlash('success', 'Перевод добавлен');
             return $this->refresh();
         }
 
         if ($word->load($this->request->post()) && $word->save()) {
-            Yii::$app->session->setFlash('success', 'Данные обновлены');
+            $session->setFlash('success', 'Данные обновлены');
             return $this->refresh();
         }
         return $this->render('update', [
@@ -124,14 +123,14 @@ class BuryatWordController extends Controller
      * @throws Exception
      * @throws NotFoundHttpException
      */
-    public function actionDelete(int $id): Response
+    public function actionDelete(Session $session, int $id): Response
     {
         $word = $this->getWord($id);
         if (!$word->delete()) {
             throw new Exception('Не удалось удалить Слово');
         }
 
-        Yii::$app->session->setFlash('success', 'Слово удалено');
+        $session->setFlash('success', 'Слово удалено');
 
         return $this->redirect(['index']);
     }
@@ -140,14 +139,14 @@ class BuryatWordController extends Controller
      * @throws Exception
      * @throws NotFoundHttpException
      */
-    public function actionDeleteTranslation(int $id): Response
+    public function actionDeleteTranslation(Session $session, int $id): Response
     {
         $translation = $this->getTranslation($id);
         if (!$translation->delete()) {
             throw new Exception('Не удалось удалить перевод');
         }
 
-        Yii::$app->session->setFlash('success', 'Перевод удален');
+        $session->setFlash('success', 'Перевод удален');
 
         return $this->redirect(['update', 'id' => $translation->burword_id]);
     }

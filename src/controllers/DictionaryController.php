@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\models\Dictionary;
-use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
 use yii\filters\AccessControl;

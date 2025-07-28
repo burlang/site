@@ -7,7 +7,6 @@ namespace app\controllers;
 use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\Book;
 use app\models\BookChapter;
-use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
 use yii\db\StaleObjectException;

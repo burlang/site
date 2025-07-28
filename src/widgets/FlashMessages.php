@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\widgets;
 
-use Yii;
 use yii\bootstrap\Alert;
 use yii\bootstrap\Widget;
+use yii\web\Session;
 
 class FlashMessages extends Widget
 {
@@ -25,13 +25,19 @@ class FlashMessages extends Widget
      * @var array<string, string>
      */
     public array $closeButton = [];
+    private Session $session;
+
+    public function __construct(Session $session, array $config = [])
+    {
+        parent::__construct($config);
+        $this->session = $session;
+    }
 
     public function init(): void
     {
         parent::init();
 
-        $session = Yii::$app->session;
-        $flashes = $session->getAllFlashes();
+        $flashes = $this->session->getAllFlashes();
         $appendCss = isset($this->options['class']) ? ' ' . $this->options['class'] : '';
 
         foreach ($flashes as $type => $data) {
@@ -46,7 +52,7 @@ class FlashMessages extends Widget
                         'options' => $this->options,
                     ]);
                 }
-                $session->removeFlash($type);
+                $this->session->removeFlash($type);
             }
         }
     }
