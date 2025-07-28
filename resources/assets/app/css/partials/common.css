@@ -89,6 +89,6 @@ a.desc:after {
 
 @media (min-width: 768px) {
   .image-responsive-container .img-responsive {
-    max-width: 50%;
+    max-width: 75%;
   }
 }
