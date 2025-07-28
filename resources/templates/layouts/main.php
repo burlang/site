@@ -1,12 +1,11 @@
 <?php
 
 use app\assets\AppAsset;
-use app\models\User;
+use app\enums\RoleEnum;
 use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
-use yii\helpers\StringHelper;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
@@ -84,7 +83,7 @@ AppAsset::register($this);
                     "url" => ["/site/contacts"],
                     "active" => isRouteActive("site/contacts"),
                 ],
-                can(User::ROLE_MODERATOR)
+                can(RoleEnum::MODERATOR->value)
                     ? [
                         "label" => "Управление",
                         "items" => [

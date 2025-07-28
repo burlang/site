@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
+
+use yii\console\Application as ConsoleApplication;
 use yii\helpers\StringHelper;
+use yii\web\Application as WebApplication;
 
 function env(string $name, ?string $default = null): string
 {
@@ -21,7 +24,7 @@ function env(string $name, ?string $default = null): string
     throw new RuntimeException(sprintf('Undefined env: "%s"', $name));
 }
 
-function app(): \yii\console\Application|\yii\web\Application
+function app(): ConsoleApplication|WebApplication
 {
     return Yii::$app;
 }
@@ -34,11 +37,6 @@ function can(string $permission): bool
 function isGuest(): bool
 {
     return Yii::$app->user->isGuest;
-}
-
-function isAdmin(): bool
-{
-    return Yii::$app->user->can('admin');
 }
 
 function formatDate(null|DateTime|DateTimeInterface|int|string $value, ?string $format = null): string

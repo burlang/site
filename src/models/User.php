@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\enums\RoleEnum;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
@@ -23,10 +24,6 @@ use yii\db\ActiveRecord;
  */
 class User extends ActiveRecord
 {
-    public const ROLE_USER = 'user';
-    public const ROLE_MODERATOR = 'moderator';
-    public const ROLE_ADMIN = 'admin';
-
     public static function tableName(): string
     {
         return 'user';
@@ -60,7 +57,7 @@ class User extends ActiveRecord
             // role rules
             ['role', 'required'],
             ['role', 'string', 'max' => 60],
-            ['role', 'in', 'range' => array_keys(self::roles())],
+            ['role', 'in', 'range' => array_column(RoleEnum::cases(), 'value')],
         ];
     }
 
@@ -82,18 +79,6 @@ class User extends ActiveRecord
     {
         return [
             TimestampBehavior::class,
-        ];
-    }
-
-    /**
-     * @return array<string, string>
-     */
-    public static function roles(): array
-    {
-        return [
-            self::ROLE_USER => 'Пользователь',
-            self::ROLE_MODERATOR => 'Модератор',
-            self::ROLE_ADMIN => 'Администратор',
         ];
     }
 

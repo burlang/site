@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use app\enums\RoleEnum;
 use yii\rbac\Item;
 
 return [
@@ -56,14 +57,14 @@ return [
     ],
 
     // roles
-    'user' => [
+    RoleEnum::USER->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Пользователь',
         'children' => [],
         'ruleName' => null,
         'data' => null,
     ],
-    'moderator' => [
+    RoleEnum::MODERATOR->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Модератор',
         'children' => [
@@ -77,7 +78,7 @@ return [
         'ruleName' => null,
         'data' => null,
     ],
-    'admin' => [
+    RoleEnum::ADMIN->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => [

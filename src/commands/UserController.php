@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\commands;
 
+use app\enums\RoleEnum;
 use app\models\User;
 use yii\console\Controller;
 use yii\console\ExitCode;
@@ -35,7 +36,7 @@ class UserController extends Controller
             return ExitCode::DATAERR;
         }
 
-        $user->role = $this->select('Select role:', User::roles());
+        $user->role = $this->select('Select role:', RoleEnum::labels());
         if (!$user->save()) {
             $this->stderr("Failed to save user: {$username}\n", Console::FG_RED);
             return ExitCode::UNSPECIFIED_ERROR;
