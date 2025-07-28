@@ -14,7 +14,7 @@ class m160902_142630_add_unique_name_buryat_name_table extends Migration
      */
     public function safeUp()
     {
-        Yii::$app->db->createCommand('DELETE FROM buryat_name WHERE id=970')->execute();
+        $this->db->createCommand('DELETE FROM buryat_name WHERE id=970')->execute();
         $this->createIndex('name', $this->tableName, 'name', true);
     }
 

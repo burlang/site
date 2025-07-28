@@ -19,7 +19,7 @@ class m160903_021332_add_index_unique_russian_word_table extends Migration
      */
     public function safeUp()
     {
-        $connection = Yii::$app->db;
+        $connection = $this->db;
         $words = $connection->createCommand(
             'SELECT name FROM russian_word GROUP BY name HAVING COUNT(*) > 1'
         )->queryAll();
