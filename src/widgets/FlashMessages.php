@@ -25,12 +25,13 @@ class FlashMessages extends Widget
      * @var array<string, string>
      */
     public array $closeButton = [];
+
     private Session $session;
 
     public function __construct(Session $session, array $config = [])
     {
-        parent::__construct($config);
         $this->session = $session;
+        parent::__construct($config);
     }
 
     public function init(): void
