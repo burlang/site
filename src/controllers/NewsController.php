@@ -15,7 +15,7 @@ use yii\web\Response;
 
 class NewsController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [
@@ -97,10 +97,9 @@ class NewsController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): Response|string
     {
         $news = $this->getNews($id);
         if ($news->load($this->request->post()) && $news->save()) {

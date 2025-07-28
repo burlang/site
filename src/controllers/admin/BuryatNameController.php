@@ -17,7 +17,7 @@ use yii\web\Session;
 
 class BuryatNameController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [
@@ -70,10 +70,7 @@ class BuryatNameController extends Controller
         ]);
     }
 
-    /**
-     * @return Response|string
-     */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $buryatName = new BuryatName();
         if ($buryatName->load($this->request->post()) && $buryatName->save()) {
@@ -85,10 +82,9 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): Response|string
     {
         $buryatName = $this->getName($id);
         if ($buryatName->load($this->request->post()) && $buryatName->save()) {

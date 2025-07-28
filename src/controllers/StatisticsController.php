@@ -17,7 +17,7 @@ use yii\web\Controller;
 
 class StatisticsController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [

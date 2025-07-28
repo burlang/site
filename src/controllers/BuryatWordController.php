@@ -20,7 +20,7 @@ use yii\web\Session;
 
 class BuryatWordController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [

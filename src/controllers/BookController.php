@@ -18,7 +18,7 @@ use yii\web\Response;
 
 class BookController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [
@@ -94,10 +94,7 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * @return Response|string
-     */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $model = new Book();
         if ($model->load($this->request->post()) && $model->save()) {
@@ -109,10 +106,9 @@ class BookController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): Response|string
     {
         $book = $this->getBook($id);
         if ($book->load($this->request->post()) && $book->save()) {
@@ -138,10 +134,9 @@ class BookController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionChapterCreate(int $id)
+    public function actionChapterCreate(int $id): Response|string
     {
         $book = $this->getBook($id);
         $chapter = new BookChapter(['book_id' => $id]);
@@ -159,10 +154,9 @@ class BookController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionChapterUpdate(int $id)
+    public function actionChapterUpdate(int $id): Response|string
     {
         $chapter = $this->getChapter($id);
 

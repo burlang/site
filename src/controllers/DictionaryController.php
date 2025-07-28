@@ -80,10 +80,9 @@ class DictionaryController extends Controller
     }
 
     /**
-     * @return Response|string
      * @throws NotFoundHttpException
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): Response|string
     {
         $dictionary = $this->getDictionary($id);
 

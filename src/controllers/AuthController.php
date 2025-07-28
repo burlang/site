@@ -14,7 +14,7 @@ use yii\web\User;
 
 class AuthController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
