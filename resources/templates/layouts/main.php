@@ -16,7 +16,6 @@ use yii\widgets\Menu;
  * @var string $content
  */
 AppAsset::register($this);
-$route = Yii::$app->controller->getRoute();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -63,27 +62,27 @@ $route = Yii::$app->controller->getRoute();
                 [
                     "label" => "Словарь",
                     "url" => app()->homeUrl,
-                    "active" => $route === "site/index",
+                    "active" => isRouteActive("site/index"),
                 ],
                 [
                     "label" => "Бурятские имена",
                     "url" => ["/buryat-name/index"],
-                    "active" => StringHelper::startsWith($route, "buryat-name/"),
+                    "active" => isRoutePrefixActive("buryat-name/"),
                 ],
                 [
                     "label" => "Книги",
                     "url" => ["/book/index"],
-                    "active" => StringHelper::startsWith($route, "book/"),
+                    "active" => isRoutePrefixActive("book/"),
                 ],
                 [
                     "label" => "Новости",
                     "url" => ["/news/index"],
-                    "active" => StringHelper::startsWith($route, "news/"),
+                    "active" => isRoutePrefixActive("news/"),
                 ],
                 [
                     "label" => "Контакты",
                     "url" => ["/site/contacts"],
-                    "active" => $route === "site/contacts",
+                    "active" => isRouteActive("site/contacts"),
                 ],
                 can(User::ROLE_MODERATOR)
                     ? [

@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use yii\helpers\StringHelper;
 
 function env(string $name, ?string $default = null): string
 {
@@ -43,4 +44,16 @@ function isAdmin(): bool
 function formatDate(null|DateTime|DateTimeInterface|int|string $value, ?string $format = null): string
 {
     return Yii::$app->formatter->asDate($value, $format);
+}
+
+function isRouteActive(string $targetRoute): bool
+{
+    $route = Yii::$app->controller->getRoute();
+    return $route === $targetRoute;
+}
+
+function isRoutePrefixActive(string $routePrefix): bool
+{
+    $route = Yii::$app->controller->getRoute();
+    return StringHelper::startsWith($route, $routePrefix);
 }

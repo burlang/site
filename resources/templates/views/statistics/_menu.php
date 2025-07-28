@@ -12,12 +12,12 @@ use yii\widgets\Menu;
         [
             'label' => 'Данные',
             'url' => ['index'],
-            'active' => Yii::$app->controller->action?->id === 'index',
+            'active' => isRouteActive('statistics/index'),
         ],
         [
             'label' => 'Поиск',
             'url' => ['search'],
-            'active' => Yii::$app->controller->action?->id === 'search',
+            'active' => isRouteActive('statistics/search'),
         ],
     ],
     'options' => [
