@@ -24,7 +24,7 @@ document.getElementById('dictionary-search-form').addEventListener('click', func
 JS,
     View::POS_END
 );
-$this->title = Yii::$app->name . ' - Русско-Бурятский, Бурятско-Русский электронный словарь';
+$this->title = app()->name . ' - Русско-Бурятский, Бурятско-Русский электронный словарь';
 ?>
 <div class="site-index">
     <div class="row mt-10">

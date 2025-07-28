@@ -20,10 +20,10 @@ $route = Yii::$app->controller->getRoute();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= app()->language ?>">
 
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= app()->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -37,7 +37,7 @@ $route = Yii::$app->controller->getRoute();
     <?php $this->registerMetaTag([
         "name" => "keywords",
         "content" =>
-            "burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь",
+        "burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь",
     ]); ?>
     <?php $this->registerMetaTag([
         "name" => "description",
@@ -53,8 +53,8 @@ $route = Yii::$app->controller->getRoute();
     <?php $this->beginBody(); ?>
     <div class="wrap">
         <?php NavBar::begin([
-            "brandLabel" => Yii::$app->name,
-            "brandUrl" => Yii::$app->homeUrl,
+            "brandLabel" => app()->name,
+            "brandUrl" => app()->homeUrl,
             "options" => ["class" => "navbar-inverse navbar-fixed-top"],
         ]); ?>
         <?= Nav::widget([
@@ -62,7 +62,7 @@ $route = Yii::$app->controller->getRoute();
             "items" => [
                 [
                     "label" => "Словарь",
-                    "url" => Yii::$app->homeUrl,
+                    "url" => app()->homeUrl,
                     "active" => $route === "site/index",
                 ],
                 [
@@ -163,7 +163,7 @@ $route = Yii::$app->controller->getRoute();
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="label label-default">
-                        &copy; <?= Yii::$app->name ?> 2013 - <?= date("Y") ?>
+                        &copy; <?= app()->name ?> 2013 - <?= date("Y") ?>
                     </span>
                 </div>
             </div>

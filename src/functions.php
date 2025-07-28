@@ -20,6 +20,11 @@ function env(string $name, ?string $default = null): string
     throw new RuntimeException(sprintf('Undefined env: "%s"', $name));
 }
 
+function app(): \yii\console\Application|\yii\web\Application
+{
+    return Yii::$app;
+}
+
 function can(string $permission): bool
 {
     return Yii::$app->user->can($permission);
