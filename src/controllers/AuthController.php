@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\components\AuthIdentity;
 use app\forms\LoginForm;
-use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
+use yii\web\User;
 
 class AuthController extends Controller
 {
@@ -38,18 +39,19 @@ class AuthController extends Controller
     }
 
     /**
-     * @return Response|string
+     * @param User<AuthIdentity> $user
      */
-    public function actionLogin()
+    public function actionLogin(User $user): Response|string
     {
-        if (!isGuest()) {
+        if (!$user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        if ($model->load($this->request->post())
+        if (
+            $model->load($this->request->post())
             && $model->validate()
-            && $model->login(Yii::$app->user)
+            && $model->login($user)
         ) {
             return $this->goBack();
         }
@@ -60,9 +62,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function actionLogout(): Response
+    /**
+     * @param User<AuthIdentity> $user
+     */
+    public function actionLogout(User $user): Response
     {
-        Yii::$app->user->logout();
+        $user->logout();
         return $this->goHome();
     }
 }
