@@ -26,8 +26,8 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="shortcut icon" href="<?= Yii::getAlias("@web/favicon.ico") ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= Yii::getAlias("@web/favicon.png") ?>">
+    <link rel="shortcut icon" href="<?= alias("@web/favicon.ico") ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= alias("@web/favicon.png") ?>">
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>

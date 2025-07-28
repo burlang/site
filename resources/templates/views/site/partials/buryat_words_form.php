@@ -19,11 +19,11 @@ use yii\widgets\ActiveForm;
             hx-target="#buryat-words-form"
             hx-swap="outerHTML"
         >
-            <img src="<?= Yii::getAlias('@web/icon/arrow-left-right.svg') ?>" alt="switch">
+            <img src="<?= alias('@web/icon/arrow-left-right.svg') ?>" alt="switch">
         </button>
         Русский словарь
         <span class="htmx-indicator">
-            <img src="<?= Yii::getAlias('@web/icon/loader.svg') ?>" alt="Поиск...">
+            <img src="<?= alias('@web/icon/loader.svg') ?>" alt="Поиск...">
         </span>
     </h3>
     <hr>

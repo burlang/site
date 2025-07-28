@@ -29,6 +29,11 @@ function app(): ConsoleApplication|WebApplication
     return Yii::$app;
 }
 
+function alias(string $value): string
+{
+    return Yii::getAlias($value);
+}
+
 function can(string $permission): bool
 {
     return app()->user->can($permission);

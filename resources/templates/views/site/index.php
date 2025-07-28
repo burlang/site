@@ -45,10 +45,10 @@ $this->title = app()->name . ' - Русско-Бурятский, Бурятск
         <div class="col-sm-8 mb-10">
             <div class="text-center mt-20 mb-10">
                 <a href="https://apps.apple.com/ru/app/burlang/id1669964114" target="_blank" rel="noopener noreferrer">
-                    <img src="<?= Yii::getAlias('@web/icon/app-store.svg') ?>" alt="AppStore" height="40">
+                    <img src="<?= alias('@web/icon/app-store.svg') ?>" alt="AppStore" height="40">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=burlang.ru" target="_blank" rel="noopener noreferrer">
-                    <img src="<?= Yii::getAlias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="40">
+                    <img src="<?= alias('@web/icon/google-play.svg') ?>" alt="GooglePlay" height="40">
                 </a>
             </div>
         </div>
