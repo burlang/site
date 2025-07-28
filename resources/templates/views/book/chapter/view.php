@@ -1,5 +1,7 @@
 <?php
 
+
+use app\enums\PermissionEnum;
 use app\models\BookChapter;
 use app\widgets\ChaptersMenu;
 use yii\bootstrap\Html;
@@ -26,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= ChaptersMenu::widget(['book' => $chapter->book, 'activeId' => $chapter->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
-            <?php if (can('books_management')): ?>
+            <?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
                 <p>
                     <?= Html::a(
                         Html::icon('pencil') . ' Редактировать главу',

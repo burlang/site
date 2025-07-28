@@ -1,6 +1,8 @@
 <?php
 
+
 use app\components\DeviceDetector\DeviceDetectorInterface;
+use app\enums\PermissionEnum;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\web\View;
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?php if (can('books_management')): ?>
+    <?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать книгу',

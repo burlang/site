@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\enums\PermissionEnum;
 use app\models\Dictionary;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
@@ -34,12 +35,12 @@ class DictionaryController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'view', 'update', 'create'],
-                        'roles' => ['dictionaries_management'],
+                        'roles' => [PermissionEnum::DICTIONARIES_MANAGEMENT->value],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['delete'],
-                        'roles' => ['dictionaries_delete'],
+                        'roles' => [PermissionEnum::DICTIONARIES_DELETE->value],
                     ],
                 ],
             ],

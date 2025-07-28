@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
+use app\enums\PermissionEnum;
 
 /**
  * @var View $this
@@ -90,27 +91,27 @@ AppAsset::register($this);
                             [
                                 "label" => "Бурятские имена",
                                 "url" => ["/admin/buryat-name/index"],
-                                "visible" => can("buryat_names_management"),
+                                "visible" => can(PermissionEnum::BURYAT_NAMES_MANAGEMENT->value),
                             ],
                             [
                                 "label" => "Бурятские слова",
                                 "url" => ["/buryat-word/index"],
-                                "visible" => can("buryat_words_management"),
+                                "visible" => can(PermissionEnum::BURYAT_WORDS_MANAGEMENT->value),
                             ],
                             [
                                 "label" => "Русские слова",
                                 "url" => ["/russian-word/index"],
-                                "visible" => can("russian_words_management"),
+                                "visible" => can(PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value),
                             ],
                             [
                                 "label" => "Словари",
                                 "url" => ["/dictionary/index"],
-                                "visible" => can("dictionaries_management"),
+                                "visible" => can(PermissionEnum::DICTIONARIES_MANAGEMENT->value),
                             ],
                             [
                                 "label" => "Статистика",
                                 "url" => ["/statistics"],
-                                "visible" => can("statistics_view"),
+                                "visible" => can(PermissionEnum::STATISTICS_VIEW->value),
                             ],
                         ],
                     ]

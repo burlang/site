@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
+use app\enums\PermissionEnum;
 use app\models\Book;
 use yii\bootstrap\Html;
 
@@ -22,7 +25,7 @@ use yii\bootstrap\Html;
         ) ?>
     <?php endforeach ?>
 </div>
-<?php if (can('books_management')): ?>
+<?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' Добавить главу',

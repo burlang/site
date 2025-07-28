@@ -1,5 +1,7 @@
 <?php
 
+
+use app\enums\PermissionEnum;
 use app\models\Book;
 use yii\bootstrap\Html;
 use yii\web\View;
@@ -12,7 +14,7 @@ use yii\web\View;
 <?php if (!$model->active): ?>
     <p><span class="label label-default">Неактивный</span></p>
 <?php endif ?>
-<?php if (can('books_management')): ?>
+<?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' Редактировать',

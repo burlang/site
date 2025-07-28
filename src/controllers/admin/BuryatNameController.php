@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controllers\admin;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
+use app\enums\PermissionEnum;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
 use yii\db\Exception;
@@ -42,7 +43,7 @@ class BuryatNameController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => ['buryat_names_management'],
+                        'roles' => [PermissionEnum::BURYAT_NAMES_MANAGEMENT->value],
                     ],
                 ],
             ],

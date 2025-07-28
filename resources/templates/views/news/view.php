@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
+use app\enums\PermissionEnum;
 use app\models\News;
 use yii\bootstrap\Html;
 use yii\helpers\HtmlPurifier;
@@ -21,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
-    <?php if (can('news_management')): ?>
+    <?php if (can(PermissionEnum::NEWS_MANAGEMENT->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('pencil') . ' Редактировать',

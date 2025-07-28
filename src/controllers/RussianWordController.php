@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
+use app\enums\PermissionEnum;
 use app\models\Dictionary;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
@@ -45,7 +46,7 @@ class RussianWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => ['russian_words_management'],
+                        'roles' => [PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value],
                     ],
                 ],
             ],

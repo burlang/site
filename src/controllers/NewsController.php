@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\enums\PermissionEnum;
 use app\models\News;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
@@ -46,7 +47,7 @@ class NewsController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => ['news_management'],
+                        'roles' => [PermissionEnum::NEWS_MANAGEMENT->value],
                     ],
                 ],
             ],
@@ -56,7 +57,7 @@ class NewsController extends Controller
     public function actionIndex(): string
     {
         $query = News::find()->orderBy('created_at DESC');
-        if (!can('news_management')) {
+        if (!can(PermissionEnum::NEWS_MANAGEMENT->value)) {
             $query->where(['active' => 1]);
         }
         $dataProvider = new ActiveDataProvider([
@@ -74,7 +75,7 @@ class NewsController extends Controller
     public function actionView(string $slug): string
     {
         $news = News::findOne(['slug' => $slug]);
-        if (!$news || (!$news->active && !can('news_management'))) {
+        if (!$news || (!$news->active && !can(PermissionEnum::NEWS_MANAGEMENT->value))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [

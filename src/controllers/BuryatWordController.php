@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\components\DeviceDetector\DeviceDetectorInterface;
+use app\enums\PermissionEnum;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\Dictionary;
@@ -45,7 +46,7 @@ class BuryatWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => ['buryat_words_management'],
+                        'roles' => [PermissionEnum::BURYAT_WORDS_MANAGEMENT->value],
                     ],
                 ],
             ],

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\enums\PermissionEnum;
 use app\models\BuryatName;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
@@ -36,7 +37,7 @@ class StatisticsController extends Controller
                             'index',
                             'search',
                         ],
-                        'roles' => ['statistics_view'],
+                        'roles' => [PermissionEnum::STATISTICS_VIEW->value],
                     ],
                 ],
             ],
