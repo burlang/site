@@ -31,27 +31,27 @@ function app(): ConsoleApplication|WebApplication
 
 function can(string $permission): bool
 {
-    return Yii::$app->user->can($permission);
+    return app()->user->can($permission);
 }
 
 function isGuest(): bool
 {
-    return Yii::$app->user->isGuest;
+    return app()->user->isGuest;
 }
 
 function formatDate(null|DateTime|DateTimeInterface|int|string $value, ?string $format = null): string
 {
-    return Yii::$app->formatter->asDate($value, $format);
+    return app()->formatter->asDate($value, $format);
 }
 
 function isRouteActive(string $targetRoute): bool
 {
-    $route = Yii::$app->controller->getRoute();
+    $route = app()->controller->getRoute();
     return $route === $targetRoute;
 }
 
 function isRoutePrefixActive(string $routePrefix): bool
 {
-    $route = Yii::$app->controller->getRoute();
+    $route = app()->controller->getRoute();
     return StringHelper::startsWith($route, $routePrefix);
 }

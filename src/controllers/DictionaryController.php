@@ -16,7 +16,7 @@ use yii\web\Response;
 
 class DictionaryController extends Controller
 {
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [
@@ -65,10 +65,7 @@ class DictionaryController extends Controller
         ]);
     }
 
-    /**
-     * @return Response|string
-     */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $dictionary = new Dictionary();
 

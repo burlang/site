@@ -83,10 +83,7 @@ class NewsController extends Controller
         ]);
     }
 
-    /**
-     * @return Response|string
-     */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $news = new News();
         if ($news->load($this->request->post()) && $news->save()) {
