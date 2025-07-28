@@ -89,7 +89,7 @@ class NewsController extends Controller
     public function actionCreate()
     {
         $news = new News();
-        if ($news->load(Yii::$app->request->post()) && $news->save()) {
+        if ($news->load($this->request->post()) && $news->save()) {
             return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('create', [
@@ -104,7 +104,7 @@ class NewsController extends Controller
     public function actionUpdate(int $id)
     {
         $news = $this->getNews($id);
-        if ($news->load(Yii::$app->request->post()) && $news->save()) {
+        if ($news->load($this->request->post()) && $news->save()) {
             return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('update', [

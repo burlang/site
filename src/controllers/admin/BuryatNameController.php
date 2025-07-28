@@ -52,7 +52,7 @@ class BuryatNameController extends Controller
     public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $searchModel = new BuryatNameSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -76,7 +76,7 @@ class BuryatNameController extends Controller
     public function actionCreate()
     {
         $buryatName = new BuryatName();
-        if ($buryatName->load(Yii::$app->request->post()) && $buryatName->save()) {
+        if ($buryatName->load($this->request->post()) && $buryatName->save()) {
             return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('create', [
@@ -91,7 +91,7 @@ class BuryatNameController extends Controller
     public function actionUpdate(int $id)
     {
         $buryatName = $this->getName($id);
-        if ($buryatName->load(Yii::$app->request->post()) && $buryatName->save()) {
+        if ($buryatName->load($this->request->post()) && $buryatName->save()) {
             return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('update', [

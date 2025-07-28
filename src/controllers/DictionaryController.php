@@ -72,7 +72,7 @@ class DictionaryController extends Controller
     {
         $dictionary = new Dictionary();
 
-        if ($dictionary->load(Yii::$app->request->post()) && $dictionary->save()) {
+        if ($dictionary->load($this->request->post()) && $dictionary->save()) {
             return $this->redirect(['view', 'id' => $dictionary->id]);
         }
         return $this->render('create', [
@@ -88,7 +88,7 @@ class DictionaryController extends Controller
     {
         $dictionary = $this->getDictionary($id);
 
-        if ($dictionary->load(Yii::$app->request->post()) && $dictionary->save()) {
+        if ($dictionary->load($this->request->post()) && $dictionary->save()) {
             return $this->redirect(['view', 'id' => $dictionary->id]);
         }
         return $this->render('update', [

@@ -55,7 +55,7 @@ class BuryatWordController extends Controller
     public function actionIndex(DeviceDetectorInterface $deviceDetector): string
     {
         $searchModel = new BuryatWordSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -77,7 +77,7 @@ class BuryatWordController extends Controller
             'name'
         );
 
-        if ($word->load(Yii::$app->request->post()) && $word->save()) {
+        if ($word->load($this->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', 'Слово добавлено');
             return $this->redirect(['update', 'id' => $word->id]);
         }
@@ -103,12 +103,12 @@ class BuryatWordController extends Controller
 
         $translationForm = new BuryatTranslation();
         $translationForm->burword_id = $word->id;
-        if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
+        if ($translationForm->load($this->request->post()) && $translationForm->save()) {
             Yii::$app->session->setFlash('success', 'Перевод добавлен');
             return $this->refresh();
         }
 
-        if ($word->load(Yii::$app->request->post()) && $word->save()) {
+        if ($word->load($this->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', 'Данные обновлены');
             return $this->refresh();
         }

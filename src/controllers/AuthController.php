@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post())
+        if ($model->load($this->request->post())
             && $model->validate()
             && $model->login(Yii::$app->user)
         ) {
