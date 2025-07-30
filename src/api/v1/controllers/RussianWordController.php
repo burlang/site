@@ -8,7 +8,6 @@ use app\api\v1\components\Controller;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\models\SearchData;
-use app\services\SearchDataService;
 use yii\web\NotFoundHttpException;
 
 class RussianWordController extends Controller
@@ -29,14 +28,12 @@ class RussianWordController extends Controller
      * @return array<string, array<array<string, string>>>
      * @throws NotFoundHttpException
      */
-    public function actionTranslate(
-        SearchDataService $searchDataService,
-        string $q
-    ): array {
+    public function actionTranslate(string $q): array
+    {
         $q = trim($q);
         $word = RussianWord::findOne(['name' => $q]);
         if (!$word) {
-            $searchDataService->add($q, SearchData::TYPE_RUSSIAN);
+            SearchData::store($q, SearchData::TYPE_RUSSIAN);
             throw new NotFoundHttpException('Слово не найдено');
         }
 

@@ -8,7 +8,6 @@ use app\api\v1\components\Controller;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\SearchData;
-use app\services\SearchDataService;
 use yii\web\NotFoundHttpException;
 
 class BuryatWordController extends Controller
@@ -30,13 +29,12 @@ class BuryatWordController extends Controller
      * @throws NotFoundHttpException
      */
     public function actionTranslate(
-        SearchDataService $searchDataService,
         string $q
     ): array {
         $q = trim($q);
         $word = BuryatWord::findOne(['name' => $q]);
         if (!$word) {
-            $searchDataService->add($q, SearchData::TYPE_BURYAT);
+            SearchData::store($q, SearchData::TYPE_BURYAT);
             throw new NotFoundHttpException('Слово не найдено');
         }
         return [

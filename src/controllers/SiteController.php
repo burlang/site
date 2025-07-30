@@ -6,6 +6,7 @@ namespace app\controllers;
 
 use app\models\BuryatWord;
 use app\models\RussianWord;
+use app\models\SearchData;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ErrorAction;
@@ -70,6 +71,10 @@ class SiteController extends Controller
             ->limit(self::SEARCH_LIMIT)
             ->all();
 
+        if (!$words) {
+            SearchData::store($q, SearchData::TYPE_RUSSIAN);
+        }
+
         return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
@@ -85,6 +90,10 @@ class SiteController extends Controller
             ->orderBy('name')
             ->limit(self::SEARCH_LIMIT)
             ->all();
+
+        if (!$words) {
+            SearchData::store($q, SearchData::TYPE_BURYAT);
+        }
 
         return $this->renderPartial('partials/words', [
             'q' => $q,
