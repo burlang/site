@@ -33,18 +33,19 @@ class RussianWordController extends Controller
         SearchDataService $searchDataService,
         string $q
     ): array {
-        try {
-            $word = $this->getWord($q);
-            return [
-                'translations' => array_map(
-                    static fn (RussianTranslation $translation) => ['value' => $translation->name],
-                    $word->translations
-                ),
-            ];
-        } catch (NotFoundHttpException $exception) {
+        $q = trim($q);
+        $word = RussianWord::findOne(['name' => $q]);
+        if (!$word) {
             $searchDataService->add($q, SearchData::TYPE_RUSSIAN);
-            throw $exception;
+            throw new NotFoundHttpException('Слово не найдено');
         }
+
+        return [
+            'translations' => array_map(
+                static fn (RussianTranslation $translation) => ['value' => $translation->name],
+                $word->translations
+            ),
+        ];
     }
 
     /**
@@ -56,17 +57,5 @@ class RussianWordController extends Controller
             'search' => ['GET'],
             'translate' => ['GET'],
         ];
-    }
-
-    /**
-     * @throws NotFoundHttpException
-     */
-    private function getWord(string $name): RussianWord
-    {
-        $word = RussianWord::findOne(['name' => $name]);
-        if (!$word) {
-            throw new NotFoundHttpException('Слово не найдено');
-        }
-        return $word;
     }
 }

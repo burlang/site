@@ -33,18 +33,18 @@ class BuryatWordController extends Controller
         SearchDataService $searchDataService,
         string $q
     ): array {
-        try {
-            $word = $this->getWord($q);
-            return [
-                'translations' => array_map(
-                    static fn (BuryatTranslation $translation) => ['value' => $translation->name],
-                    $word->translations
-                ),
-            ];
-        } catch (NotFoundHttpException $exception) {
+        $q = trim($q);
+        $word = BuryatWord::findOne(['name' => $q]);
+        if (!$word) {
             $searchDataService->add($q, SearchData::TYPE_BURYAT);
-            throw $exception;
+            throw new NotFoundHttpException('Слово не найдено');
         }
+        return [
+            'translations' => array_map(
+                static fn (BuryatTranslation $translation) => ['value' => $translation->name],
+                $word->translations
+            ),
+        ];
     }
 
     /**
@@ -56,17 +56,5 @@ class BuryatWordController extends Controller
             'search' => ['GET'],
             'translate' => ['GET'],
         ];
-    }
-
-    /**
-     * @throws NotFoundHttpException
-     */
-    private function getWord(string $value): BuryatWord
-    {
-        $word = BuryatWord::findOne(['name' => $value]);
-        if (!$word) {
-            throw new NotFoundHttpException('Слово не найдено');
-        }
-        return $word;
     }
 }
