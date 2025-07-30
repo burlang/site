@@ -15,13 +15,13 @@ $this->title = 'Словари';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dictionary-index">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title); ?></h1>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' Добавить словарь',
             ['create'],
             ['class' => 'btn btn-success']
-        ) ?>
+        ); ?>
     </p>
     <div class="table-responsive">
         <?= GridView::widget([

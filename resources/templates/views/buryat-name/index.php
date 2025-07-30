@@ -13,7 +13,7 @@ $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-list">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title); ?></h1>
     <hr>
     <?php if ($letters): ?>
         <ul class="list-inline list-letter">
@@ -26,13 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             'class' => 'btn btn-default btn-lg',
                             'style' => 'width: 85px;',
                         ]
-                    ) ?>
+                    ); ?>
                 </li>
-            <?php endforeach ?>
+            <?php endforeach; ?>
         </ul>
-    <?php endif ?>
+    <?php endif; ?>
     <hr>
-    <div hx-get="<?= Url::to(['/buryat-name/list']) ?>" hx-trigger="load">
+    <div hx-get="<?= Url::to(['/buryat-name/list']); ?>" hx-trigger="load">
         <p class="text-center">Загрузка имен...</p>
     </div>
 </div>

@@ -18,8 +18,8 @@ $this->params['breadcrumbs'][] = [
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="book-update">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title); ?></h1>
     <?= $this->render('_form', [
         'chapter' => $chapter,
-    ]) ?>
+    ]); ?>
 </div>

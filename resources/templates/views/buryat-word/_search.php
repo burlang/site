@@ -19,9 +19,9 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="panel-body">
             <?php $form = ActiveForm::begin(['action' => ['index'], 'method' => 'get']); ?>
-            <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class) ?>
-            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
+            <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class); ?>
+            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']); ?>
+            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']); ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

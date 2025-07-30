@@ -14,8 +14,8 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 's
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="news-update">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
     <?= $this->render('_form', [
         'model' => $model,
-    ]) ?>
+    ]); ?>
 </div>

@@ -20,15 +20,15 @@ MarkdownEditorAsset::register($this);
     <?= $form->field($chapter, 'title')->widget(
         InputWithBuryatLetters::class,
         ['options' => ['maxlength' => true]]
-    ) ?>
-    <?= $form->field($chapter, 'content')->textarea(['class' => 'markdown-editor']) ?>
+    ); ?>
+    <?= $form->field($chapter, 'content')->textarea(['class' => 'markdown-editor']); ?>
     <div class="form-group">
         <?= Html::submitButton(
             $chapter->isNewRecord
                 ? Html::icon('plus') . ' Создать'
                 : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $chapter->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
-        ) ?>
+        ); ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

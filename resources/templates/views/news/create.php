@@ -13,8 +13,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index'
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-create">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
     <?= $this->render('_form', [
         'model' => $model,
-    ]) ?>
+    ]); ?>
 </div>

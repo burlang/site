@@ -7,27 +7,26 @@ use yii\web\View;
  * @var string $textInput
  * @var string $widgetId
  */
-
 $js = <<<JS
-    $('#$widgetId button.add-input-letter').on('click', function () {
-        let \$this = \$(this);
-        let \$input = \$this.parent('span').siblings('input');
-        let input = \$input[0];
+        $('#{$widgetId} button.add-input-letter').on('click', function () {
+            let \$this = \$(this);
+            let \$input = \$this.parent('span').siblings('input');
+            let input = \$input[0];
 
-        let textToInsert = \$this.text();
-        let end = input.selectionEnd;
-        let start = input.selectionStart;
+            let textToInsert = \$this.text();
+            let end = input.selectionEnd;
+            let start = input.selectionStart;
 
-        input.setRangeText(textToInsert, start, end, 'end');
+            input.setRangeText(textToInsert, start, end, 'end');
 
-        input.focus();
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-    });
-JS;
+            input.focus();
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+    JS;
 $this->registerJs($js, View::POS_READY);
 ?>
-<div class="input-group" id="<?= $widgetId ?>">
-    <?= $textInput ?>
+<div class="input-group" id="<?= $widgetId; ?>">
+    <?= $textInput; ?>
     <span class="input-group-btn">
         <button type="button" class="btn btn-default add-input-letter">ү</button>
         <button type="button" class="btn btn-default add-input-letter">һ</button>

@@ -11,9 +11,9 @@ use yii\web\View;
 $this->title = 'Редактировать: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Редактировать'
+$this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="buryat-name-update">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= $this->render('_form', ['model' => $model]) ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= $this->render('_form', ['model' => $model]); ?>
 </div>

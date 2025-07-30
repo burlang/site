@@ -16,19 +16,19 @@ $this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
     <?php if (can(PermissionEnum::NEWS_MANAGEMENT->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать новость',
                 ['create'],
                 ['class' => 'btn btn-success']
-            ) ?>
+            ); ?>
         </p>
-    <?php endif ?>
+    <?php endif; ?>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
         'itemView' => '_view',
-    ]) ?>
+    ]); ?>
 </div>

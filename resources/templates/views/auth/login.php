@@ -17,23 +17,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
+                <h3 class="panel-title"><?= Html::encode($this->title); ?></h3>
             </div>
             <div class="panel-body">
-                <?php $form = ActiveForm::begin(['id' => 'login-form']) ?>
+                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                 <?= $form->field($model, 'username', [
                     'inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1'],
-                ]) ?>
+                ]); ?>
 
                 <?= $form->field($model, 'password', [
                     'inputOptions' => ['class' => 'form-control', 'tabindex' => '2'],
-                ])->passwordInput() ?>
+                ])->passwordInput(); ?>
 
                 <?= Html::submitButton(
                     'Войти',
                     ['class' => 'btn btn-custom btn-block', 'tabindex' => '4']
-                ) ?>
+                ); ?>
 
                 <?php ActiveForm::end(); ?>
             </div>

@@ -24,14 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="buryat-word-index">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= FlashMessages::widget() ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= FlashMessages::widget(); ?>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' Добавить слово',
             ['create'],
             ['class' => 'btn btn-success']
-        ) ?>
+        ); ?>
     </p>
     <?= $this->render('_search', ['model' => $searchModel]); ?>
     <?php Pjax::begin(); ?>

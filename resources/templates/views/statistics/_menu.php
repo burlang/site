@@ -23,5 +23,5 @@ use yii\widgets\Menu;
     'options' => [
         'class' => 'nav nav-tabs',
     ],
-]) ?>
+]); ?>
 <br>

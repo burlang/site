@@ -13,6 +13,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'u
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-create">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= $this->render('_form', ['model' => $model]) ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= $this->render('_form', ['model' => $model]); ?>
 </div>

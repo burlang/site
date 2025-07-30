@@ -14,9 +14,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Русские слова', 'url' 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-create">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
     <?= $this->render('_form', [
         'model' => $model,
         'dictionaries' => $dictionaries,
-    ]) ?>
+    ]); ?>
 </div>

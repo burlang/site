@@ -18,12 +18,12 @@ use yii\helpers\Html;
                             Html::encode($name),
                             ['view', 'name' => $name],
                             ['class' => 'btn btn-default mb-5']
-                        ) ?>
+                        ); ?>
                     </div>
-                <?php endforeach ?>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach ?>
+        <?php endforeach; ?>
     </div>
 <?php else: ?>
     <h3>Имена не найдены</h3>
-<?php endif ?>
+<?php endif; ?>

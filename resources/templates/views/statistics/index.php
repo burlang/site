@@ -12,8 +12,8 @@ $this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statistics-index">
-    <h1 class="hidden-xs"><?= $this->title ?></h1>
-    <?= $this->render('_menu') ?>
+    <h1 class="hidden-xs"><?= $this->title; ?></h1>
+    <?= $this->render('_menu'); ?>
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -22,11 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <span class="badge"><?= $buryatWords['amount'] ?></span>
+                        <span class="badge"><?= $buryatWords['amount']; ?></span>
                         Количество
                     </li>
                     <li class="list-group-item">
-                        <span class="badge"><?= $buryatWords['amountTranslations'] ?></span>
+                        <span class="badge"><?= $buryatWords['amountTranslations']; ?></span>
                         Количество переводов
                     </li>
                 </ul>
@@ -39,11 +39,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <span class="badge"><?= $russianWords['amount'] ?></span>
+                        <span class="badge"><?= $russianWords['amount']; ?></span>
                         Количество
                     </li>
                     <li class="list-group-item">
-                        <span class="badge"><?= $russianWords['amountTranslations'] ?></span>
+                        <span class="badge"><?= $russianWords['amountTranslations']; ?></span>
                         Количество переводов
                     </li>
                 </ul>
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <span class="badge"><?= $names['amount'] ?></span>
+                        <span class="badge"><?= $names['amount']; ?></span>
                         Количество
                     </li>
                 </ul>

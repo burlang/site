@@ -2,7 +2,7 @@
     <div class="media">
         <div class="media-left">
             <a href="https://t.me/BuryatWordBot" target="_blank" rel="noopener noreferrer">
-                <img src="<?= alias('@web/img/telegram.svg') ?>" class="media-object" alt="BuryatWordBot" height="70">
+                <img src="<?= alias('@web/img/telegram.svg'); ?>" class="media-object" alt="BuryatWordBot" height="70">
             </a>
         </div>
         <div class="media-body" style="padding-top: 5px;">

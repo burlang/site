@@ -57,30 +57,30 @@ use yii\widgets\ActiveForm;
                 ],
             ],
         ],
-    ]) ?>
+    ]); ?>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">Добавить перевод</h4>
     </div>
     <div class="panel-body">
-        <?php $form = ActiveForm::begin() ?>
+        <?php $form = ActiveForm::begin(); ?>
         <div class="row">
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'name')
-                    ->widget(InputWithBuryatLetters::class) ?>
+                    ->widget(InputWithBuryatLetters::class); ?>
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')
-                    ->dropDownList($dictionaries, ['prompt' => '-']) ?>
+                    ->dropDownList($dictionaries, ['prompt' => '-']); ?>
             </div>
         </div>
         <?= $form->field($translationForm, 'ruword_id')
-            ->hiddenInput(['value' => $model->id])->label(false) ?>
+            ->hiddenInput(['value' => $model->id])->label(false); ?>
         <?= Html::submitButton(
             Html::icon('plus') . ' Добавить',
             ['class' => 'btn btn-success']
-        ) ?>
-        <?php ActiveForm::end() ?>
+        ); ?>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

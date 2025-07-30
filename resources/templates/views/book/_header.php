@@ -1,6 +1,5 @@
 <?php
 
-
 use app\enums\PermissionEnum;
 use app\models\Book;
 use yii\bootstrap\Html;
@@ -13,14 +12,14 @@ use yii\web\View;
 ?>
 <?php if (!$model->active): ?>
     <p><span class="label label-default">Неактивный</span></p>
-<?php endif ?>
+<?php endif; ?>
 <?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' Редактировать',
             ['update', 'id' => $model->id],
             ['class' => 'btn btn-primary']
-        ) ?>
+        ); ?>
         <?= Html::a(
             Html::icon('trash') . ' Удалить',
             ['delete', 'id' => $model->id],
@@ -31,6 +30,6 @@ use yii\web\View;
                     'method' => 'post',
                 ],
             ]
-        ) ?>
+        ); ?>
     </p>
-<?php endif ?>
+<?php endif; ?>

@@ -10,31 +10,31 @@ use yii\widgets\ActiveForm;
     <h3>
         Русско
         <button class="btn btn-default btn-sm"
-                hx-get="<?= Url::to(['site/buryat-words-form']) ?>"
+                hx-get="<?= Url::to(['site/buryat-words-form']); ?>"
                 hx-trigger="click"
                 hx-target="#russian-words-form"
                 hx-swap="outerHTML"
         >
-            <img src="<?= alias('@web/icon/arrow-left-right.svg') ?>" alt="">
+            <img src="<?= alias('@web/icon/arrow-left-right.svg'); ?>" alt="">
         </button>
         Бурятский словарь
         <span class="htmx-indicator">
-            <img src="<?= alias('@web/icon/loader.svg') ?>" alt="Поиск...">
+            <img src="<?= alias('@web/icon/loader.svg'); ?>" alt="Поиск...">
         </span>
     </h3>
     <hr>
     <?php $form = ActiveForm::begin([
         'action' => ['/site/find-russian-words'],
         'method' => 'get',
-    ]) ?>
+    ]); ?>
     <input type="search" name="q" placeholder="Введите русское слово" required="required"
            autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!==13);"
            autofocus
-           hx-get="<?= Url::to(['/site/find-russian-words']) ?>"
+           hx-get="<?= Url::to(['/site/find-russian-words']); ?>"
            hx-trigger="keyup changed delay:500ms, search"
            hx-target="#russian-words"
            hx-indicator=".htmx-indicator"
     >
-    <?php ActiveForm::end() ?>
+    <?php ActiveForm::end(); ?>
     <div id="russian-words"></div>
 </div>

@@ -16,15 +16,15 @@ $this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-view">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= $this->render('_header', ['model' => $model]) ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= $this->render('_header', ['model' => $model]); ?>
     <div class="row">
         <div class="col-sm-3">
-            <?= ChaptersMenu::widget(['book' => $model]) ?>
+            <?= ChaptersMenu::widget(['book' => $model]); ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <div class="image-responsive-container">
-                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')); ?>
             </div>
         </div>
     </div>

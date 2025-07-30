@@ -16,8 +16,8 @@ $this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statistics-search">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= $this->render('_menu') ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= $this->render('_menu'); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,

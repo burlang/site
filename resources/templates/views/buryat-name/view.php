@@ -13,19 +13,19 @@ $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'u
 $this->params['breadcrumbs'][] = $model->name;
 ?>
 <div class="buryat-name-view">
-    <h1><?= Html::encode($model->name) ?></h1>
+    <h1><?= Html::encode($model->name); ?></h1>
     <div class="alert alert-success mb-0">
-        <h4><strong><?= $model->description ?></strong></h4>
+        <h4><strong><?= $model->description; ?></strong></h4>
         <?php if ($model->note): ?>
-            <p><?= $model->note ?></p>
-        <?php endif ?>
+            <p><?= $model->note; ?></p>
+        <?php endif; ?>
         <div class="mt-10">
             <?php if ($model->male): ?>
                 <span class="label label-default">Мужское имя</span>
-            <?php endif ?>
+            <?php endif; ?>
             <?php if ($model->female): ?>
                 <span class="label label-default">Женское имя</span>
-            <?php endif ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

@@ -22,16 +22,16 @@ $this->params['breadcrumbs'][] = $this->title;
 $isDesktop = $deviceDetector->isDesktop();
 ?>
 <div class="buryat-name-index">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= FlashMessages::widget() ?>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
+    <?= FlashMessages::widget(); ?>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' Добавить имя',
             ['create'],
             ['class' => 'btn btn-success']
-        ) ?>
+        ); ?>
     </p>
-    <?= $this->render('_search', ['model' => $searchModel]) ?>
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
     <?php Pjax::begin(); ?>
     <div class="table-responsive">
         <?= GridView::widget([

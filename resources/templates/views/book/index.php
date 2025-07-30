@@ -1,6 +1,5 @@
 <?php
 
-
 use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\enums\PermissionEnum;
 use yii\bootstrap\Html;
@@ -17,16 +16,16 @@ $this->title = 'Книги';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
-    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
     <?php if (can(PermissionEnum::BOOKS_MANAGEMENT->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать книгу',
                 ['create'],
                 ['class' => 'btn btn-success']
-            ) ?>
+            ); ?>
         </p>
-    <?php endif ?>
+    <?php endif; ?>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
@@ -35,5 +34,5 @@ $this->params['breadcrumbs'][] = $this->title;
         'pager' => [
             'maxButtonCount' => $deviceDetector->isDesktop() ? 10 : 5,
         ],
-    ]) ?>
+    ]); ?>
 </div>

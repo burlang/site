@@ -13,6 +13,7 @@ return
                 ->in([
                     __DIR__ . '/bin',
                     __DIR__ . '/config',
+                    __DIR__ . '/resources',
                     __DIR__ . '/src',
                     __DIR__ . '/tests',
                 ])
@@ -61,4 +62,6 @@ return
 
             'echo_tag_syntax' => ['format' => 'short'],
             'no_alternative_syntax' => false,
+
+            'single_quote' => true,
         ]);

@@ -13,13 +13,13 @@ $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'u
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-view">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title); ?></h1>
     <div>
         <?= Html::a(
             Html::icon('pencil') . ' Редактировать',
             ['update', 'id' => $model->id],
             ['class' => 'btn btn-primary']
-        ) ?>
+        ); ?>
         <?= Html::a(
             Html::icon('trash') . ' Удалить',
             ['delete', 'id' => $model->id],
@@ -30,20 +30,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     'method' => 'post',
                 ],
             ]
-        ) ?>
+        ); ?>
     </div>
     <div class="alert alert-success mt-10">
-        <h4><strong><?= $model->description ?></strong></h4>
+        <h4><strong><?= $model->description; ?></strong></h4>
         <?php if ($model->note): ?>
-            <p><?= $model->note ?></p>
-        <?php endif ?>
+            <p><?= $model->note; ?></p>
+        <?php endif; ?>
         <div class="mt-10">
             <?php if ($model->male): ?>
                 <span class="label label-default">Мужское имя</span>
-            <?php endif ?>
+            <?php endif; ?>
             <?php if ($model->female): ?>
                 <span class="label label-default">Женское имя</span>
-            <?php endif ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

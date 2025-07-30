@@ -1,6 +1,7 @@
 <?php
 
 use app\assets\AppAsset;
+use app\enums\PermissionEnum;
 use app\enums\RoleEnum;
 use yii\bootstrap\Html as BootstrapHtml;
 use yii\bootstrap\Nav;
@@ -9,7 +10,6 @@ use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
-use app\enums\PermissionEnum;
 
 /**
  * @var View $this
@@ -19,32 +19,31 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= app()->language ?>">
+<html lang="<?= app()->language; ?>">
 
 <head>
-    <meta charset="<?= app()->charset ?>">
+    <meta charset="<?= app()->charset; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="shortcut icon" href="<?= alias("@web/favicon.ico") ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= alias("@web/favicon.png") ?>">
+    <link rel="shortcut icon" href="<?= alias('@web/favicon.ico'); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= alias('@web/favicon.png'); ?>">
 
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?= Html::csrfMetaTags(); ?>
+    <title><?= Html::encode($this->title); ?></title>
 
     <?php $this->head(); ?>
     <?php $this->registerMetaTag([
-        "name" => "keywords",
-        "content" =>
-        "burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь",
+        'name' => 'keywords',
+        'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь',
     ]); ?>
     <?php $this->registerMetaTag([
-        "name" => "description",
-        "content" => "Русско-Бурятский, Бурятско-Русский электронный словарь",
+        'name' => 'description',
+        'content' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     ]); ?>
 
-    <?php if (isset($this->blocks["head"])): ?>
-        <?= $this->blocks["head"] ?>
+    <?php if (isset($this->blocks['head'])): ?>
+        <?= $this->blocks['head']; ?>
     <?php endif; ?>
 </head>
 
@@ -52,92 +51,92 @@ AppAsset::register($this);
     <?php $this->beginBody(); ?>
     <div class="wrap">
         <?php NavBar::begin([
-            "brandLabel" => app()->name,
-            "brandUrl" => app()->homeUrl,
-            "options" => ["class" => "navbar-inverse navbar-fixed-top"],
+            'brandLabel' => app()->name,
+            'brandUrl' => app()->homeUrl,
+            'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
         ]); ?>
         <?= Nav::widget([
-            "options" => ["class" => "navbar-nav navbar-right"],
-            "items" => [
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
                 [
-                    "label" => "Словарь",
-                    "url" => app()->homeUrl,
-                    "active" => isRouteActive("site/index"),
+                    'label' => 'Словарь',
+                    'url' => app()->homeUrl,
+                    'active' => isRouteActive('site/index'),
                 ],
                 [
-                    "label" => "Бурятские имена",
-                    "url" => ["/buryat-name/index"],
-                    "active" => isRoutePrefixActive("buryat-name/"),
+                    'label' => 'Бурятские имена',
+                    'url' => ['/buryat-name/index'],
+                    'active' => isRoutePrefixActive('buryat-name/'),
                 ],
                 [
-                    "label" => "Книги",
-                    "url" => ["/book/index"],
-                    "active" => isRoutePrefixActive("book/"),
+                    'label' => 'Книги',
+                    'url' => ['/book/index'],
+                    'active' => isRoutePrefixActive('book/'),
                 ],
                 [
-                    "label" => "Новости",
-                    "url" => ["/news/index"],
-                    "active" => isRoutePrefixActive("news/"),
+                    'label' => 'Новости',
+                    'url' => ['/news/index'],
+                    'active' => isRoutePrefixActive('news/'),
                 ],
                 [
-                    "label" => "Контакты",
-                    "url" => ["/site/contacts"],
-                    "active" => isRouteActive("site/contacts"),
+                    'label' => 'Контакты',
+                    'url' => ['/site/contacts'],
+                    'active' => isRouteActive('site/contacts'),
                 ],
                 can(RoleEnum::MODERATOR->value)
                     ? [
-                        "label" => "Управление",
-                        "items" => [
+                        'label' => 'Управление',
+                        'items' => [
                             [
-                                "label" => "Бурятские имена",
-                                "url" => ["/admin/buryat-name/index"],
-                                "visible" => can(PermissionEnum::BURYAT_NAMES_MANAGEMENT->value),
+                                'label' => 'Бурятские имена',
+                                'url' => ['/admin/buryat-name/index'],
+                                'visible' => can(PermissionEnum::BURYAT_NAMES_MANAGEMENT->value),
                             ],
                             [
-                                "label" => "Бурятские слова",
-                                "url" => ["/buryat-word/index"],
-                                "visible" => can(PermissionEnum::BURYAT_WORDS_MANAGEMENT->value),
+                                'label' => 'Бурятские слова',
+                                'url' => ['/buryat-word/index'],
+                                'visible' => can(PermissionEnum::BURYAT_WORDS_MANAGEMENT->value),
                             ],
                             [
-                                "label" => "Русские слова",
-                                "url" => ["/russian-word/index"],
-                                "visible" => can(PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value),
+                                'label' => 'Русские слова',
+                                'url' => ['/russian-word/index'],
+                                'visible' => can(PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value),
                             ],
                             [
-                                "label" => "Словари",
-                                "url" => ["/dictionary/index"],
-                                "visible" => can(PermissionEnum::DICTIONARIES_MANAGEMENT->value),
+                                'label' => 'Словари',
+                                'url' => ['/dictionary/index'],
+                                'visible' => can(PermissionEnum::DICTIONARIES_MANAGEMENT->value),
                             ],
                             [
-                                "label" => "Статистика",
-                                "url" => ["/statistics"],
-                                "visible" => can(PermissionEnum::STATISTICS_VIEW->value),
+                                'label' => 'Статистика',
+                                'url' => ['/statistics'],
+                                'visible' => can(PermissionEnum::STATISTICS_VIEW->value),
                             ],
                         ],
                     ]
-                    : "",
+                    : '',
                 isGuest()
-                    ? ["label" => "Войти", "url" => ["/auth/login"]]
+                    ? ['label' => 'Войти', 'url' => ['/auth/login']]
                     : [
-                        "label" => BootstrapHtml::icon("user"),
-                        "encode" => false,
-                        "items" => [
+                        'label' => BootstrapHtml::icon('user'),
+                        'encode' => false,
+                        'items' => [
                             [
-                                "label" => "Выйти",
-                                "url" => ["/auth/logout"],
-                                "linkOptions" => ["data-method" => "post"],
+                                'label' => 'Выйти',
+                                'url' => ['/auth/logout'],
+                                'linkOptions' => ['data-method' => 'post'],
                             ],
                         ],
-                        "options" => [
-                            "id" => "dropdown-profile",
+                        'options' => [
+                            'id' => 'dropdown-profile',
                         ],
                     ],
             ],
-        ]) ?>
+        ]); ?>
         <?php NavBar::end(); ?>
         <div class="container">
-            <?= Breadcrumbs::widget(["links" => $this->params["breadcrumbs"] ?? []]) ?>
-            <?= $content ?>
+            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]); ?>
+            <?= $content; ?>
         </div>
     </div>
     <footer class="footer">
@@ -145,24 +144,24 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <?= Menu::widget([
-                        "items" => [
+                        'items' => [
                             [
-                                "label" => "Github",
-                                "url" => "https://github.com/burlang",
+                                'label' => 'Github',
+                                'url' => 'https://github.com/burlang',
                             ],
                             [
-                                "label" => "Api",
-                                "url" => ["/api/v1"],
+                                'label' => 'Api',
+                                'url' => ['/api/v1'],
                             ],
                         ],
-                        "options" => [
-                            "class" => "list-inline",
+                        'options' => [
+                            'class' => 'list-inline',
                         ],
-                    ]) ?>
+                    ]); ?>
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="label label-default">
-                        &copy; <?= app()->name ?> 2013 - <?= date("Y") ?>
+                        &copy; <?= app()->name; ?> 2013 - <?= date('Y'); ?>
                     </span>
                 </div>
             </div>

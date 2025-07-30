@@ -24,10 +24,10 @@ use yii\widgets\ActiveForm;
             ]); ?>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class) ?>
+                    <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class); ?>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'description') ?>
+                    <?= $form->field($model, 'description'); ?>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
@@ -35,19 +35,19 @@ use yii\widgets\ActiveForm;
                             <?= $form->field($model, 'male')->dropDownList(
                                 ['0' => 'Нет', '1' => 'Да'],
                                 ['prompt' => '']
-                            ) ?>
+                            ); ?>
                         </div>
                         <div class="col-sm-6 col-xs-6">
                             <?= $form->field($model, 'female')->dropDownList(
                                 ['0' => 'Нет', '1' => 'Да'],
                                 ['prompt' => '']
-                            ) ?>
+                            ); ?>
                         </div>
                     </div>
                 </div>
             </div>
-            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
+            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']); ?>
+            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']); ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

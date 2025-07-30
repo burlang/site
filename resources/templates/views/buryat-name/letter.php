@@ -14,8 +14,8 @@ $this->title = sprintf('Бурятские имена на букву "%s"', mb_
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = sprintf('На букву "%s"', mb_strtoupper($letter));
 ?>
-<h1><?= Html::encode($this->title) ?></h1>
+<h1><?= Html::encode($this->title); ?></h1>
 <hr>
-<div hx-get="<?= Url::to(['/buryat-name/list', 'letter' => $letter]) ?>" hx-trigger="load">
+<div hx-get="<?= Url::to(['/buryat-name/list', 'letter' => $letter]); ?>" hx-trigger="load">
     <p class="text-center">Загрузка имен...</p>
 </div>
