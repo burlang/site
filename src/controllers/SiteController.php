@@ -66,7 +66,7 @@ class SiteController extends Controller
         $q = trim($q);
         $words = RussianWord::find()
             ->with('translations')
-            ->filterWhere(['like', 'name', $q . '%', false])
+            ->filterWhere(['like', 'name', "$q%", false])
             ->orderBy('name')
             ->limit(self::SEARCH_LIMIT)
             ->all();
@@ -86,7 +86,7 @@ class SiteController extends Controller
         $q = trim($q);
         $words = BuryatWord::find()
             ->with('translations')
-            ->filterWhere(['like', 'name', $q . '%', false])
+            ->filterWhere(['like', 'name', "$q%", false])
             ->orderBy('name')
             ->limit(self::SEARCH_LIMIT)
             ->all();
