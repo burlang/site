@@ -84,7 +84,10 @@ use yii\widgets\ActiveForm;
             const container = getResultsContainer();
             const spinner = document.createElement('div');
             spinner.id = LOADING_SPINNER_ID;
-            spinner.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;';
+            const isMobile = window.innerWidth <= 768;
+            const topPosition = isMobile ? '30px' : '50%';
+            const transform = isMobile ? 'translateX(-50%)' : 'translate(-50%, -50%)';
+            spinner.style.cssText = `position: absolute; top: ${topPosition}; left: 50%; transform: ${transform}; z-index: 1000;`;
             spinner.innerHTML = spinnerSVG;
 
             container.style.position = 'relative';

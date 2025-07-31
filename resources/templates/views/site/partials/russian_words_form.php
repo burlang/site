@@ -47,7 +47,7 @@ use yii\widgets\ActiveForm;
         const SEARCH_INPUT_ID = 'rus-search';
         const RESULTS_CONTAINER_ID = 'russian-words';
         const LOADING_SPINNER_ID = 'loading-spinner';
-        
+
 
         const spinnerSVG = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: spin 1s linear infinite;">
                     <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="12 6"/>
@@ -75,7 +75,10 @@ use yii\widgets\ActiveForm;
             const container = getResultsContainer();
             const spinner = document.createElement('div');
             spinner.id = LOADING_SPINNER_ID;
-            spinner.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;';
+            const isMobile = window.innerWidth <= 768;
+            const topPosition = isMobile ? '30px' : '50%';
+            const transform = isMobile ? 'translateX(-50%)' : 'translate(-50%, -50%)';
+            spinner.style.cssText = `position: absolute; top: ${topPosition}; left: 50%; transform: ${transform}; z-index: 1000;`;
             spinner.innerHTML = spinnerSVG;
 
             container.style.position = 'relative';
