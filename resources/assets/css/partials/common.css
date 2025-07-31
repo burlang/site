@@ -82,13 +82,15 @@ a.desc:after {
   margin: 0 0 15px 0;
 }
 
-.image-responsive-container .img-responsive {
+.image-responsive-container img {
   display: block;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .image-responsive-container .img-responsive {
+  .image-responsive-container img {
     max-width: 75%;
   }
 }

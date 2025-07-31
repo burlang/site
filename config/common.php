@@ -70,7 +70,7 @@ return [
             ],
             AssetManager::class => [
                 'class' => AssetManager::class,
-                'appendTimestamp' => true,
+                'forceCopy' => env('APP_ENV') === 'dev',
             ],
             ManagerInterface::class => [
                 'class' => AuthManager::class,
@@ -80,7 +80,7 @@ return [
             ],
             Dispatcher::class => [
                 'class' => Dispatcher::class,
-                'traceLevel' => YII_DEBUG ? 3 : 0,
+                'traceLevel' => env('APP_DEBUG') ? 3 : 0,
                 'targets' => [
                     [
                         'class' => FileTarget::class,
