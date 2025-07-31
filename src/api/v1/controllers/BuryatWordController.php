@@ -34,7 +34,7 @@ class BuryatWordController extends Controller
         $q = trim($q);
         $word = BuryatWord::findOne(['name' => $q]);
         if (!$word) {
-            SearchData::store($q, SearchData::TYPE_BURYAT);
+            SearchData::add($q, SearchData::TYPE_BURYAT);
             throw new NotFoundHttpException('Слово не найдено');
         }
         return [

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\db\Exception;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "search_data".
@@ -32,6 +33,7 @@ class SearchData extends ActiveRecord
         return [
             [['name', 'type'], 'required'],
             [['type', 'created_at', 'updated_at'], 'integer'],
+            ['type', 'in', 'range' => [self::TYPE_BURYAT, self::TYPE_RUSSIAN]],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -57,15 +59,24 @@ class SearchData extends ActiveRecord
         ];
     }
 
-    public static function store(string $word, int $type): void
+    public static function add(string $name, int $type): void
     {
         $model = new self();
-        $model->name = \strlen($word) > 255
-            ? mb_substr($word, 0, 254)
-            : $word;
+        $model->name = \strlen($name) > 255
+            ? mb_substr($name, 0, 254)
+            : $name;
         $model->type = $type;
         if (!$model->save()) {
-            throw new Exception('Не удалось добавить данные');
+            Yii::error(
+                \sprintf(
+                    'Failed to save search data: "%s". Errors: (%s)',
+                    $model->name,
+                    json_encode(
+                        ArrayHelper::flatten($model->getErrors()),
+                        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                    )
+                )
+            );
         }
     }
 }

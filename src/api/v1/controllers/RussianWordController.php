@@ -33,7 +33,7 @@ class RussianWordController extends Controller
         $q = trim($q);
         $word = RussianWord::findOne(['name' => $q]);
         if (!$word) {
-            SearchData::store($q, SearchData::TYPE_RUSSIAN);
+            SearchData::add($q, SearchData::TYPE_RUSSIAN);
             throw new NotFoundHttpException('Слово не найдено');
         }
 

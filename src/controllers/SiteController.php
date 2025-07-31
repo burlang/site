@@ -72,7 +72,7 @@ class SiteController extends Controller
             ->all();
 
         if (!$words) {
-            SearchData::store($q, SearchData::TYPE_RUSSIAN);
+            SearchData::add($q, SearchData::TYPE_RUSSIAN);
         }
 
         return $this->renderPartial('partials/words', [
@@ -92,7 +92,7 @@ class SiteController extends Controller
             ->all();
 
         if (!$words) {
-            SearchData::store($q, SearchData::TYPE_BURYAT);
+            SearchData::add($q, SearchData::TYPE_BURYAT);
         }
 
         return $this->renderPartial('partials/words', [
