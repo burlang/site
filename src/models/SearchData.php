@@ -69,8 +69,11 @@ class SearchData extends ActiveRecord
         if (!$model->save()) {
             Yii::error(
                 \sprintf(
-                    'Failed to save search data: "%s". Errors: (%s)',
-                    $model->name,
+                    'Failed to save SearchData. Attributes: (%s). Errors: (%s).',
+                    json_encode(
+                        $model->getAttributes(),
+                        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                    ),
                     json_encode(
                         ArrayHelper::flatten($model->getErrors()),
                         JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
