@@ -17,7 +17,7 @@ class BuryatWordController extends Controller
     {
         return BuryatWord::find()
             ->select(['value' => 'name'])
-            ->filterWhere(['like', 'name', $q . '%', false])
+            ->filterWhere(['like', 'name', "{$q}%", false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()

@@ -17,7 +17,7 @@ class RussianWordController extends Controller
     {
         return RussianWord::find()
             ->select(['value' => 'name'])
-            ->filterWhere(['like', 'name', $q . '%', false])
+            ->filterWhere(['like', 'name', "{$q}%", false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
