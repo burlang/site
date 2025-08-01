@@ -16,6 +16,9 @@ class RussianWordSearch extends RussianWord
         ];
     }
 
+    /**
+     * @param array<string, mixed> $params
+     */
     public function search(array $params): ActiveDataProvider
     {
         $query = RussianWord::find();

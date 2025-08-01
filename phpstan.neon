@@ -9,5 +9,4 @@ parameters:
         - src
         - tests
     ignoreErrors:
-        - '#has parameter \$params with no value type specified in iterable type array#'
         - '#Parameter \#1 \$data of method yii\\base\\Model\:\:load\(\) expects array\, mixed given\.#'

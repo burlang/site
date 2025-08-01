@@ -17,6 +17,9 @@ class BuryatWordSearch extends BuryatWord
         ];
     }
 
+    /**
+     * @param array<string, mixed> $params
+     */
     public function search(array $params): ActiveDataProvider
     {
         $query = BuryatWord::find();
