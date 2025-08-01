@@ -86,7 +86,7 @@ class NewsController extends Controller
     public function actionCreate(): Response|string
     {
         $news = new News();
-        if ($news->load($this->request->post()) && $news->save()) {
+        if ($news->load((array)$this->request->post()) && $news->save()) {
             return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('create', [
@@ -100,7 +100,7 @@ class NewsController extends Controller
     public function actionUpdate(int $id): Response|string
     {
         $news = $this->getNews($id);
-        if ($news->load($this->request->post()) && $news->save()) {
+        if ($news->load((array)$this->request->post()) && $news->save()) {
             return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('update', [

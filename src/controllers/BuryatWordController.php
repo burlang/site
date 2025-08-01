@@ -75,7 +75,7 @@ class BuryatWordController extends Controller
             'name'
         );
 
-        if ($word->load($this->request->post()) && $word->save()) {
+        if ($word->load((array)$this->request->post()) && $word->save()) {
             $session->setFlash('success', 'Слово добавлено');
             return $this->redirect(['update', 'id' => $word->id]);
         }
@@ -103,12 +103,12 @@ class BuryatWordController extends Controller
 
         $translationForm = new BuryatTranslation();
         $translationForm->burword_id = $word->id;
-        if ($translationForm->load($this->request->post()) && $translationForm->save()) {
+        if ($translationForm->load((array)$this->request->post()) && $translationForm->save()) {
             $session->setFlash('success', 'Перевод добавлен');
             return $this->refresh();
         }
 
-        if ($word->load($this->request->post()) && $word->save()) {
+        if ($word->load((array)$this->request->post()) && $word->save()) {
             $session->setFlash('success', 'Данные обновлены');
             return $this->refresh();
         }

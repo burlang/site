@@ -8,5 +8,3 @@ parameters:
         - resources
         - src
         - tests
-    ignoreErrors:
-        - '#Parameter \#1 \$data of method yii\\base\\Model\:\:load\(\) expects array\, mixed given\.#'

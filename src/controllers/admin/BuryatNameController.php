@@ -74,7 +74,7 @@ class BuryatNameController extends Controller
     public function actionCreate(): Response|string
     {
         $buryatName = new BuryatName();
-        if ($buryatName->load($this->request->post()) && $buryatName->save()) {
+        if ($buryatName->load((array)$this->request->post()) && $buryatName->save()) {
             return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('create', [
@@ -88,7 +88,7 @@ class BuryatNameController extends Controller
     public function actionUpdate(int $id): Response|string
     {
         $buryatName = $this->getName($id);
-        if ($buryatName->load($this->request->post()) && $buryatName->save()) {
+        if ($buryatName->load((array)$this->request->post()) && $buryatName->save()) {
             return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('update', [

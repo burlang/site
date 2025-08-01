@@ -50,7 +50,7 @@ class AuthController extends Controller
 
         $model = new LoginForm($security);
         if (
-            $model->load($this->request->post())
+            $model->load((array)$this->request->post())
             && $model->validate()
             && $model->login($user)
         ) {

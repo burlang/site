@@ -97,7 +97,7 @@ class BookController extends Controller
     public function actionCreate(): Response|string
     {
         $model = new Book();
-        if ($model->load($this->request->post()) && $model->save()) {
+        if ($model->load((array)$this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'slug' => $model->slug]);
         }
         return $this->render('create', [
@@ -111,7 +111,7 @@ class BookController extends Controller
     public function actionUpdate(int $id): Response|string
     {
         $book = $this->getBook($id);
-        if ($book->load($this->request->post()) && $book->save()) {
+        if ($book->load((array)$this->request->post()) && $book->save()) {
             return $this->redirect(['view', 'slug' => $book->slug]);
         }
         return $this->render('update', [
@@ -140,7 +140,7 @@ class BookController extends Controller
     {
         $book = $this->getBook($id);
         $chapter = new BookChapter(['book_id' => $id]);
-        if ($chapter->load($this->request->post()) && $chapter->save()) {
+        if ($chapter->load((array)$this->request->post()) && $chapter->save()) {
             return $this->redirect([
                 'chapter',
                 'slug' => $book->slug,
@@ -160,7 +160,7 @@ class BookController extends Controller
     {
         $chapter = $this->getChapter($id);
 
-        if ($chapter->load($this->request->post()) && $chapter->save()) {
+        if ($chapter->load((array)$this->request->post()) && $chapter->save()) {
             return $this->redirect([
                 'chapter',
                 'slug' => $chapter->book->slug,
