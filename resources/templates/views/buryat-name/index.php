@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php foreach ($letters as $letter => $amount): ?>
                 <li class="mb-5">
                     <?= Html::a(
-                        $letter . ' ' . Html::tag('span', $amount, ['class' => 'badge']),
+                        $letter . ' ' . Html::tag('span', (string)$amount, ['class' => 'badge']),
                         ['/buryat-name/letter', 'letter' => $letter],
                         [
                             'class' => 'btn btn-default btn-lg',

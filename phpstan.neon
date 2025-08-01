@@ -11,5 +11,4 @@ parameters:
     ignoreErrors:
         - '#has parameter \$params with no value type specified in iterable type array#'
         - '#undefined property yii\\#'
-        - '#of static method yii\\#'
         - '#Parameter \#1 \$data of method yii\\base\\Model\:\:load\(\) expects array\, mixed given\.#'

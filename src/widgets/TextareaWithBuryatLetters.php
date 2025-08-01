@@ -13,13 +13,13 @@ class TextareaWithBuryatLetters extends InputWidget
     public function run(): string
     {
         if ($this->hasModel()) {
-            $textarea = Html::activeTextArea($this->model, $this->attribute, $this->options);
             /** @var Model $model */
             $model = $this->model;
+            $textarea = Html::activeTextArea($model, (string)$this->attribute, $this->options);
             $selector = strtolower($model->formName()) . '-' . $this->attribute;
         } else {
-            $textarea = Html::textArea($this->name, $this->value, $this->options);
-            $selector = 'charts-textarea-' . $this->name;
+            $textarea = Html::textArea((string)$this->name, $this->value, $this->options);
+            $selector = "charts-textarea-{$this->name}";
         }
 
         $this->options['class'] = 'form-control';
