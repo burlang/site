@@ -19,10 +19,10 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= app()->language; ?>">
+<html lang="<?= webApp()->language; ?>">
 
 <head>
-    <meta charset="<?= app()->charset; ?>">
+    <meta charset="<?= webApp()->charset; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -51,8 +51,8 @@ AppAsset::register($this);
     <?php $this->beginBody(); ?>
     <div class="wrap">
         <?php NavBar::begin([
-            'brandLabel' => app()->name,
-            'brandUrl' => app()->homeUrl,
+            'brandLabel' => webApp()->name,
+            'brandUrl' => webApp()->homeUrl,
             'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
         ]); ?>
         <?= Nav::widget([
@@ -60,7 +60,7 @@ AppAsset::register($this);
             'items' => [
                 [
                     'label' => 'Словарь',
-                    'url' => app()->homeUrl,
+                    'url' => webApp()->homeUrl,
                     'active' => isRouteActive('site/index'),
                 ],
                 [
@@ -161,7 +161,7 @@ AppAsset::register($this);
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="label label-default">
-                        &copy; <?= app()->name; ?> 2013 - <?= date('Y'); ?>
+                        &copy; <?= webApp()->name; ?> 2013 - <?= date('Y'); ?>
                     </span>
                 </div>
             </div>

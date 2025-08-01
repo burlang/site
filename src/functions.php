@@ -29,6 +29,22 @@ function app(): ConsoleApplication|WebApplication
     return Yii::$app;
 }
 
+function webApp(): WebApplication
+{
+    if (app() instanceof WebApplication) {
+        return app();
+    }
+    throw new RuntimeException('This function can only be used in a web application context.');
+}
+
+function consoleApp(): ConsoleApplication
+{
+    if (app() instanceof ConsoleApplication) {
+        return app();
+    }
+    throw new RuntimeException('This function can only be used in a console application context.');
+}
+
 function alias(string $value): string
 {
     return Yii::getAlias($value);
@@ -36,12 +52,12 @@ function alias(string $value): string
 
 function can(string $permission): bool
 {
-    return app()->user->can($permission);
+    return webApp()->user->can($permission);
 }
 
 function isGuest(): bool
 {
-    return app()->user->isGuest;
+    return webApp()->user->isGuest;
 }
 
 function formatDate(null|DateTime|DateTimeInterface|int|string $value, ?string $format = null): string
