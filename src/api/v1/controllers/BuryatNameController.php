@@ -26,6 +26,9 @@ class BuryatNameController extends Controller
     public function actionSearch(string $q): BuryatNameListResource
     {
         $q = trim($q);
+        if ($q === '') {
+            return new BuryatNameListResource([]);
+        }
         $names = BuryatName::find()
             ->select('name')
             ->filterWhere(['like', 'name', "{$q}%", false])

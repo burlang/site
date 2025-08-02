@@ -16,6 +16,9 @@ class BuryatWordController extends Controller
     public function actionSearch(string $q): BuryatWordListResource
     {
         $q = trim($q);
+        if ($q === '') {
+            return new BuryatWordListResource([]);
+        }
         $words = BuryatWord::find()
             ->select('name')
             ->filterWhere(['like', 'name', "{$q}%", false])
