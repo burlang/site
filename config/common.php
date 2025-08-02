@@ -70,7 +70,7 @@ return [
             ],
             AssetManager::class => [
                 'class' => AssetManager::class,
-                'forceCopy' => env('APP_ENV') === 'dev',
+                'forceCopy' => env('APP_ENV', 'prod') === 'dev',
             ],
             ManagerInterface::class => [
                 'class' => AuthManager::class,
@@ -80,11 +80,13 @@ return [
             ],
             Dispatcher::class => [
                 'class' => Dispatcher::class,
-                'traceLevel' => env('APP_DEBUG') ? 3 : 0,
+                'traceLevel' => (bool)env('APP_DEBUG', '') ? 3 : 0,
                 'targets' => [
                     [
                         'class' => FileTarget::class,
-                        'levels' => ['error', 'warning'],
+                        'levels' => env('APP_ENV', 'prod') === 'prod'
+                            ? ['error', 'warning']
+                            : ['error', 'warning', 'info'],
                         'maskVars' => [
                             '_SERVER.COOKIE_SECRET',
                             '_SERVER.MYSQL_HOST',

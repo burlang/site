@@ -168,7 +168,7 @@ AppAsset::register($this);
         </div>
     </footer>
     <?php $this->endBody(); ?>
-    <?php if (env('APP_ENV') === 'prod'): ?>
+    <?php if (env('APP_ENV', 'prod') === 'prod'): ?>
         <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <?php endif; ?>
 </body>
