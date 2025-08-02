@@ -85,7 +85,9 @@ return [
                 'targets' => [
                     [
                         'class' => FileTarget::class,
-                        'levels' => env('APP_ENV', 'prod') === 'prod' ? ['error', 'warning'] : ['error', 'warning', 'info'],
+                        'levels' => env('APP_ENV', 'prod') === 'prod'
+                            ? ['error', 'warning']
+                            : ['error', 'warning', 'info'],
                         'maskVars' => [
                             '_SERVER.COOKIE_SECRET',
                             '_SERVER.MYSQL_HOST',
