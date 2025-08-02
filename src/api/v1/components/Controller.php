@@ -15,6 +15,9 @@ class Controller extends \yii\rest\Controller
             'corsFilter' => [
                 'class' => Cors::class,
             ],
+            'resourceNormalizer' => [
+                'class' => ResourceNormalizer::class,
+            ],
         ]);
     }
 }
