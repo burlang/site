@@ -8,30 +8,20 @@ use Detection\MobileDetect;
 
 class DeviceDetector implements DeviceDetectorInterface
 {
-    private bool $isTablet;
-    private bool $isMobile;
-    private bool $isDesktop;
+    private MobileDetect $mobileDetect;
 
-    public function __construct()
+    public function __construct(MobileDetect $mobileDetect)
     {
-        $mobileDetect = new MobileDetect();
-        $this->isMobile = $mobileDetect->isMobile();
-        $this->isTablet = $mobileDetect->isTablet();
-        $this->isDesktop = !$mobileDetect->isMobile();
+        $this->mobileDetect = $mobileDetect;
     }
 
     public function isMobile(): bool
     {
-        return $this->isMobile;
-    }
-
-    public function isTablet(): bool
-    {
-        return $this->isTablet;
+        return $this->mobileDetect->isMobile();
     }
 
     public function isDesktop(): bool
     {
-        return $this->isDesktop;
+        return !$this->isMobile();
     }
 }

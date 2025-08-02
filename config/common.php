@@ -6,6 +6,7 @@ use app\api\Module;
 use app\components\AuthManager;
 use app\components\DeviceDetector\DeviceDetector;
 use app\components\DeviceDetector\DeviceDetectorInterface;
+use Detection\MobileDetect;
 use yii\caching\CacheInterface;
 use yii\caching\FileCache;
 use yii\db\Connection;
@@ -84,9 +85,7 @@ return [
                 'targets' => [
                     [
                         'class' => FileTarget::class,
-                        'levels' => env('APP_ENV', 'prod') === 'prod'
-                            ? ['error', 'warning']
-                            : ['error', 'warning', 'info'],
+                        'levels' => env('APP_ENV', 'prod') === 'prod' ? ['error', 'warning'] : ['error', 'warning', 'info'],
                         'maskVars' => [
                             '_SERVER.COOKIE_SECRET',
                             '_SERVER.MYSQL_HOST',
@@ -110,7 +109,7 @@ return [
             CacheInterface::class => [
                 'class' => FileCache::class,
             ],
-            DeviceDetectorInterface::class => DeviceDetector::class,
+            DeviceDetectorInterface::class => static fn () => new DeviceDetector(new MobileDetect()),
         ],
         'definitions' => [
             ActionColumn::class => app\components\Grid\ActionColumn::class,

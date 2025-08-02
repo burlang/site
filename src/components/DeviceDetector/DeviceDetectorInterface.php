@@ -8,7 +8,5 @@ interface DeviceDetectorInterface
 {
     public function isMobile(): bool;
 
-    public function isTablet(): bool;
-
     public function isDesktop(): bool;
 }
