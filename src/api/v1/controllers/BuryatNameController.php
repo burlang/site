@@ -5,46 +5,44 @@ declare(strict_types=1);
 namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
+use app\api\v1\resources\BuryatNameListResource;
+use app\api\v1\resources\BuryatNameResource;
 use app\models\BuryatName;
 use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller
 {
-    /** @phpstan-ignore missingType.iterableValue */
-    public function actionIndex(): array
+    public function actionIndex(): BuryatNameListResource
     {
-        return BuryatName::find()
-            ->select(['value' => 'name'])
+        $names = BuryatName::find()
+            ->select('name')
+            ->orderBy('name')
             ->asArray()
-            ->all();
+            ->column();
+
+        return new BuryatNameListResource($names);
     }
 
-    /** @phpstan-ignore missingType.iterableValue */
-    public function actionSearch(string $q): array
+    public function actionSearch(string $q): BuryatNameListResource
     {
-        return BuryatName::find()
-            ->select(['value' => 'name'])
+        $q = trim($q);
+        $names = BuryatName::find()
+            ->select('name')
             ->filterWhere(['like', 'name', "{$q}%", false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
-            ->all();
+            ->column();
+
+        return new BuryatNameListResource($names);
     }
 
-    /**
-     * @return array<string, int|string>
-     * @throws NotFoundHttpException
-     */
-    public function actionGetName(string $q): array
+    public function actionGetName(string $q): BuryatNameResource
     {
+        $q = trim($q);
         $name = $this->getBuryatName($q);
-        return [
-            'name' => $name->name,
-            'description' => $name->description,
-            'note' => $name->note,
-            'male' => $name->male,
-            'female' => $name->female,
-        ];
+
+        return new BuryatNameResource($name);
     }
 
     /**
