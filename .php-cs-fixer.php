@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 return
     (new Config())
+        ->setParallelConfig(ParallelConfigFactory::detect())
         ->setCacheFile(__DIR__ . '/var/.php_cs')
         ->setFinder(
             Finder::create()
