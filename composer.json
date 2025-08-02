@@ -47,7 +47,7 @@
     "scripts": {
         "lint": "phplint",
         "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php",
-        "tests": "pest",
+        "test": "pest",
         "analyze": "phpstan analyse --memory-limit=512M"
     },
     "repositories": [
