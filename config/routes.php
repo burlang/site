@@ -7,11 +7,6 @@ return [
     'news' => 'news/index',
     'news/<slug:[\w-]+>' => 'news/view',
 
-    'book/<action:(create|update|delete|chapter-create|chapter-update|chapter-delete)>' => 'book/<action>',
-    'books' => 'book/index',
-    'book/<slug:[\w-]+>' => 'book/view',
-    'book/<slug:[\w-]+>/<chapterSlug:[\w-]+>' => 'book/chapter',
-
     'buryat-names' => 'buryat-name/index',
     'buryat-name/list' => 'buryat-name/list',
     'buryat-names/letter/<letter:\w{1}>' => 'buryat-name/letter',

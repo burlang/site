@@ -15,18 +15,6 @@ it('open buryat names page', function (): void {
     expect($response->getContent())->toContain('<h1>Бурятские имена</h1>');
 });
 
-it('open books page', function (): void {
-    $response = httpClient()->request('GET', '/books');
-    expect($response->getStatusCode())->toBe(200);
-    expect($response->getContent())->toContain('<h1 class="hidden-xs">Книги</h1>');
-});
-
-it('open book view page', function (): void {
-    $response = httpClient()->request('GET', '/book/ucebnik-buratskogo-azyka');
-    expect($response->getStatusCode())->toBe(200);
-    expect($response->getContent())->toContain('<h1 class="hidden-xs">Учебник бурятского языка</h1>');
-});
-
 it('open news page', function (): void {
     $response = httpClient()->request('GET', '/news');
     expect($response->getStatusCode())->toBe(200);

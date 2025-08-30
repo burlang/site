@@ -69,11 +69,6 @@ AppAsset::register($this);
                     'active' => isRoutePrefixActive('buryat-name/'),
                 ],
                 [
-                    'label' => 'Книги',
-                    'url' => ['/book/index'],
-                    'active' => isRoutePrefixActive('book/'),
-                ],
-                [
                     'label' => 'Новости',
                     'url' => ['/news/index'],
                     'active' => isRoutePrefixActive('news/'),
