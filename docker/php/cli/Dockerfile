@@ -1,7 +1,7 @@
-FROM php:8.1-cli-alpine
+FROM php:8.3-cli-alpine
 
 RUN apk add --no-cache mariadb-client icu-dev libzip-dev zip \
-    && docker-php-ext-install pdo_mysql intl zip
+  && docker-php-ext-install pdo_mysql intl zip
 
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
