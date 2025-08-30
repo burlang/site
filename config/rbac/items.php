@@ -26,12 +26,6 @@ return [
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::BOOKS_MANAGEMENT->value => [
-        'type' => Item::TYPE_PERMISSION,
-        'description' => 'Управление книгами',
-        'ruleName' => null,
-        'data' => null,
-    ],
     PermissionEnum::NEWS_MANAGEMENT->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление новостями',
@@ -73,7 +67,6 @@ return [
             PermissionEnum::BURYAT_WORDS_MANAGEMENT->value,
             PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value,
             PermissionEnum::BURYAT_NAMES_MANAGEMENT->value,
-            PermissionEnum::BOOKS_MANAGEMENT->value,
             PermissionEnum::DICTIONARIES_MANAGEMENT->value,
         ],
         'ruleName' => null,
