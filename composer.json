@@ -26,7 +26,7 @@
         "pestphp/pest": "^2.34",
         "phpstan/phpstan": "^2.1",
         "roave/security-advisories": "dev-latest",
-        "symfony/http-client": "^6.4"
+        "symfony/http-client": "^7.3"
     },
     "autoload": {
         "files": [
