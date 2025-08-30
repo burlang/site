@@ -7,7 +7,7 @@ services:
             - --providers.docker.exposedbydefault=false
             - --entrypoints.http.address=:80
         ports:
-            - "80:80"
+            - "8000:80"
         networks:
             - traefik-public
         volumes:
@@ -99,7 +99,8 @@ services:
             - traefik.http.routers.site-backup-storage.rule=Host(`backup-storage.localhost`)
             - traefik.http.routers.site-backup-storage.entrypoints=http
             - traefik.http.services.site-backup-storage.loadbalancer.server.port=9001
-        entrypoint: ["sh", "-c", "mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ':9001'"]
+        entrypoint:
+            ["sh", "-c", "mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ':9001'"]
 
 volumes:
     site-mysql:

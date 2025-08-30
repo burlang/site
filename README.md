@@ -1,11 +1,9 @@
-Burlang.ru
-==========
+# Burlang.ru
 
 ## Requirements
 
 - `docker`
 - `docker-compose`
-
 
 ## Installation
 
@@ -15,7 +13,7 @@ Burlang.ru
 make init
 ```
 
-### Open `http://localhost`
+### Open `http://localhost:8000`
 
 Login: `admin`
 Password: `admin`
