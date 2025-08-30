@@ -1,7 +1,11 @@
 {
     "name": "burlang/site",
     "description": "Russian-Buryat, Buryat-Russian electronic dictionary",
-    "keywords": ["buryat dictionary", "burlang", "buryat-lang"],
+    "keywords": [
+        "buryat dictionary",
+        "burlang",
+        "buryat-lang"
+    ],
     "homepage": "https://burlang.ru/",
     "type": "project",
     "minimum-stability": "stable",
@@ -23,7 +27,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.57",
         "overtrue/phplint": "^9.3",
-        "pestphp/pest": "^2.34",
+        "pestphp/pest": "^4.0",
         "phpstan/phpstan": "^2.1",
         "roave/security-advisories": "dev-latest",
         "symfony/http-client": "^7.3"
