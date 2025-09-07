@@ -60,7 +60,7 @@ function isGuest(): bool
     return webApp()->user->isGuest;
 }
 
-function formatDate(null|DateTime|DateTimeInterface|int|string $value, ?string $format = null): string
+function formatDate(DateTime|DateTimeInterface|int|string|null $value, ?string $format = null): string
 {
     return app()->formatter->asDate($value, $format);
 }
