@@ -20,6 +20,6 @@
 
 /* Dark theme override for new items */
 [data-theme="dark"] .is-new {
-  background-color: #7a7a00;
+  background-color: #5c5c00;
   color: #fff8cc;
 }
