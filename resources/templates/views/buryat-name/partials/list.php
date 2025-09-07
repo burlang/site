@@ -9,17 +9,16 @@ use yii\helpers\Html;
  */
 ?>
 <?php if (!empty($nameGroups)): ?>
-    <div class="row">
-        <?php foreach ($nameGroups as $nameGroup): ?>
-            <div class="col-md-3">
+    <div>
+        <?php foreach ($nameGroups as $letter => $nameGroup): ?>
+            <div class="mb-20">
+                <h3><?= Html::encode($letter); ?></h3>
                 <?php foreach ($nameGroup as $name): ?>
-                    <div>
-                        <?= Html::a(
-                            Html::encode($name),
-                            ['view', 'name' => $name],
-                            ['class' => 'btn btn-default mb-5']
-                        ); ?>
-                    </div>
+                    <?= Html::a(
+                        Html::encode($name),
+                        ['view', 'name' => $name],
+                        ['class' => 'btn btn-default mb-4']
+                    ); ?>
                 <?php endforeach; ?>
             </div>
         <?php endforeach; ?>

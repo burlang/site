@@ -8,6 +8,7 @@ use app\models\BuryatName;
 use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -62,8 +63,13 @@ class BuryatNameController extends Controller
             $namesQuery->where(['LEFT(name, 1)' => $letter]);
         }
 
-        $names = $namesQuery->column();
-        $nameGroups = array_chunk($names, max(1, (int)ceil(\count($names) / 4)));
+        $names = $namesQuery->orderBy(['name' => SORT_ASC])->column();
+
+        $nameGroups = [];
+        foreach ($names as $name) {
+            $firstLetter = mb_strtoupper(mb_substr($name, 0, 1));
+            $nameGroups[$firstLetter][] = $name;
+        }
 
         return $this->renderPartial('partials/list', [
             'nameGroups' => $nameGroups,

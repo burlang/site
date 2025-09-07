@@ -2,12 +2,20 @@
   margin-bottom: 0;
 }
 
+.mb-4 {
+  margin-bottom: 4px;
+}
+
 .mb-5 {
   margin-bottom: 5px;
 }
 
 .mb-10 {
   margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 
 .mt-20 {
