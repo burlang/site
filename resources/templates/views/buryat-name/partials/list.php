@@ -12,7 +12,7 @@ use yii\helpers\Html;
     <div>
         <?php foreach ($nameGroups as $letter => $nameGroup): ?>
             <div class="mb-20">
-                <h3><?= Html::encode($letter); ?></h3>
+                <h3><?= Html::encode((string)$letter); ?></h3>
                 <?php foreach ($nameGroup as $name): ?>
                     <?= Html::a(
                         Html::encode($name),

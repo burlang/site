@@ -8,7 +8,6 @@ use app\models\BuryatName;
 use yii\caching\CacheInterface;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
