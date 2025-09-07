@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc1fcc4d17157dc101456cfa0d55df53",
+    "content-hash": "43d14ba02cadf44cc96f9e9d381e10bf",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -356,10 +356,44 @@
         },
         {
             "name": "npm-asset/codemirror",
-            "version": "6.65.7",
+            "version": "5.65.20",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/codemirror/-/codemirror-6.65.7.tgz"
+                "url": "https://registry.npmjs.org/codemirror/-/codemirror-5.65.20.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/codemirror-spell-checker",
+            "version": "1.1.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/codemirror-spell-checker/-/codemirror-spell-checker-1.1.2.tgz"
+            },
+            "require": {
+                "npm-asset/typo-js": "*"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/easymde",
+            "version": "2.20.1-patch197.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/easymde/-/easymde-2.20.1-197.0.tgz"
+            },
+            "require": {
+                "npm-asset/codemirror": ">=5.65.15,<6.0.0",
+                "npm-asset/codemirror-spell-checker": "1.1.2",
+                "npm-asset/marked": ">=4.1.0,<5.0.0",
+                "npm-asset/types--codemirror": ">=5.60.10,<6.0.0",
+                "npm-asset/types--marked": ">=4.0.7,<5.0.0"
             },
             "type": "npm-asset",
             "license": [
@@ -376,6 +410,84 @@
             "type": "npm-asset",
             "license": [
                 "0BSD"
+            ]
+        },
+        {
+            "name": "npm-asset/marked",
+            "version": "4.3.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/marked/-/marked-4.3.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/types--codemirror",
+            "version": "5.60.16",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@types/codemirror/-/codemirror-5.60.16.tgz"
+            },
+            "require": {
+                "npm-asset/types--tern": "*"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/types--estree",
+            "version": "1.0.8",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/types--marked",
+            "version": "4.3.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@types/marked/-/marked-4.3.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/types--tern",
+            "version": "0.23.4",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@types/tern/-/tern-0.23.4.tgz"
+            },
+            "require": {
+                "npm-asset/types--estree": "*"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/typo-js",
+            "version": "1.2.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/typo-js/-/typo-js-1.2.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-3-Clause"
             ]
         },
         {
