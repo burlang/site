@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if ($letters): ?>
         <ul class="list-inline list-letter">
             <?php foreach ($letters as $letter => $amount): ?>
-                <li class="mb-5">
+                <li>
                     <?= Html::a(
                         $letter . ' ' . Html::tag('span', (string)$amount, ['class' => 'badge']),
                         ['/buryat-name/letter', 'letter' => $letter],
