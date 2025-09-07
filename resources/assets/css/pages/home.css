@@ -1,0 +1,29 @@
+.site-index .well {
+  background-color: var(--bg-well);
+  border-color: var(--border-well);
+}
+
+.site-index .well h3 {
+  margin: 0;
+}
+
+.site-index .well hr {
+  border-color: var(--border-color);
+}
+
+.site-index .translate-list {
+  padding-left: 15px;
+}
+
+.site-index #russian-translation .alert,
+.site-index #buryat-translation .alert {
+  margin-bottom: 0;
+}
+
+.buryat-word-bot-container {
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

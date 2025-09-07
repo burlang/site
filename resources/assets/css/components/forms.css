@@ -1,0 +1,12 @@
+[data-theme="dark"] .form-control {
+  background-color: var(--bg-well);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--bg-well);
+  border-color: var(--navbar-border);
+  color: var(--text-color);
+  box-shadow: 0 0 5px rgba(30, 104, 135, 0.3);
+}

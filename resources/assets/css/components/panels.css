@@ -1,0 +1,40 @@
+[data-theme="dark"] .well {
+  background-color: var(--bg-well) !important;
+  border: 1px solid var(--border-well);
+}
+
+[data-theme="dark"] .panel {
+  background-color: var(--bg-well);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .panel-default > .panel-heading {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .panel-body {
+  background-color: var(--bg-well);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .panel-footer {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .alert-info {
+  background-color: rgba(30, 104, 135, 0.2);
+  border-color: var(--navbar-border);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .breadcrumb {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .breadcrumb > li + li:before {
+  color: var(--text-muted);
+}

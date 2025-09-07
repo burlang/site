@@ -1,0 +1,71 @@
+:root {
+  /* Light theme colors (default) */
+  --bg-color: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-well: #ecf0f1;
+  --text-color: #333333;
+  --text-muted: #999999;
+  --text-error: #a94442;
+  --text-not-set: #c55;
+
+  --border-color: #ddd;
+  --border-well: #d7e0e2;
+  --border-error: #eed3d7;
+
+  --navbar-bg: #1e6887;
+  --navbar-border: #247ba0;
+  --navbar-text: #ffffff;
+  --navbar-hover: #22769a;
+  --navbar-active: #247ba0;
+  --navbar-dropdonw-bg: #fff;
+  --navbar-dropdown-divider: #0f4d5c;
+
+  --link-color: #1e6887;
+  --link-hover: #103848;
+
+  --hr-color: #ddd;
+
+  --error-bg: #fdf7f7;
+
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-color: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-well: #333333;
+  --text-color: #e0e0e0;
+  --text-muted: #888888;
+  --text-error: #ff6b6b;
+  --text-not-set: #ff8a80;
+
+  --border-color: #444444;
+  --border-well: #555555;
+  --border-error: #5d4e4e;
+
+  --navbar-bg: #0d4a5f;
+  --navbar-border: #1a5c78;
+  --navbar-text: #ffffff;
+  --navbar-hover: #1e6887;
+  --navbar-active: #1a5c78;
+  --navbar-dropdonw-bg: #ddd;
+  --navbar-dropdown-divider: #083440;
+
+  --link-color: #4fc3f7;
+  --link-hover: #81d4fa;
+
+  --hr-color: #555555;
+
+  --error-bg: #2d1f1f;
+
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transition when switching themes */
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}

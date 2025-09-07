@@ -1,8 +1,7 @@
-/* news/_view */
 .news-item {
   margin-bottom: 25px;
   padding: 15px;
-  background-color: #eee;
+  background-color: var(--bg-well);
   border-radius: 4px;
 }
 
@@ -11,7 +10,6 @@
   margin-top: 0;
 }
 
-/* news widget */
 .news-widget h3 {
   margin-top: 5px;
 }

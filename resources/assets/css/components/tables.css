@@ -1,0 +1,40 @@
+[data-theme="dark"] .table {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .table > thead > tr > th,
+[data-theme="dark"] .table > tbody > tr > th,
+[data-theme="dark"] .table > tfoot > tr > th,
+[data-theme="dark"] .table > thead > tr > td,
+[data-theme="dark"] .table > tbody > tr > td,
+[data-theme="dark"] .table > tfoot > tr > td {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .table > thead > tr > th {
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .table-hover > tbody > tr:hover {
+  background-color: var(--bg-well);
+}
+
+[data-theme="dark"] .table-bordered {
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .table-bordered > thead > tr > th,
+[data-theme="dark"] .table-bordered > tbody > tr > th,
+[data-theme="dark"] .table-bordered > tfoot > tr > th,
+[data-theme="dark"] .table-bordered > thead > tr > td,
+[data-theme="dark"] .table-bordered > tbody > tr > td,
+[data-theme="dark"] .table-bordered > tfoot > tr > td {
+  border: 1px solid var(--border-color);
+}

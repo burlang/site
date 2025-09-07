@@ -1,0 +1,24 @@
+.btn-custom {
+  color: #fff;
+  background: #247ba0;
+  border-color: #247ba0;
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+  color: #fff;
+  background: #22769a;
+  border-color: #22769a;
+}
+
+[data-theme="dark"] .btn-default {
+  background-color: var(--bg-well);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-default:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}

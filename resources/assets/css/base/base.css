@@ -2,32 +2,47 @@ html,
 body {
   height: 100%;
   font-family: Arial, Tahoma, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-.wrap {
-  min-height: 100%;
-  height: auto;
-  margin: 0 auto -60px;
-  padding: 0 0 60px;
+a {
+  color: var(--link-color);
 }
 
-.wrap > .container {
-  padding: 70px 15px 20px;
+a:hover,
+a:focus {
+  color: var(--link-hover);
 }
 
-.footer {
-  min-height: 60px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
+hr {
+  border-color: var(--hr-color);
+}
+
+svg.bi-arrow-left-right {
+  vertical-align: middle;
+  margin-bottom: 2px;
 }
 
 .not-set {
-  color: #c55;
+  color: var(--text-not-set);
   font-style: italic;
 }
 
-/* add sorting icons to gridview sort links */
+.hint-block {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-muted);
+}
+
+.error-summary {
+  color: var(--text-error);
+  background: var(--error-bg);
+  border-left: 3px solid var(--border-error);
+  padding: 10px 20px;
+  margin: 0 0 15px 0;
+}
+
 a.asc:after,
 a.desc:after {
   position: relative;
@@ -68,20 +83,6 @@ a.desc:after {
   white-space: nowrap;
 }
 
-.hint-block {
-  display: block;
-  margin-top: 5px;
-  color: #999;
-}
-
-.error-summary {
-  color: #a94442;
-  background: #fdf7f7;
-  border-left: 3px solid #eed3d7;
-  padding: 10px 20px;
-  margin: 0 0 15px 0;
-}
-
 .image-responsive-container img {
   display: block;
   max-width: 100%;
@@ -96,6 +97,10 @@ a.desc:after {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

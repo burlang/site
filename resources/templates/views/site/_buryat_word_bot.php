@@ -1,4 +1,4 @@
-<div class="mt-20 mb-10" style="border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+<div class="buryat-word-bot-container">
     <div class="media">
         <div class="media-left">
             <a href="https://t.me/BuryatWordBot" target="_blank" rel="noopener noreferrer">
