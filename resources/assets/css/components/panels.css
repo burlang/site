@@ -38,3 +38,41 @@
 [data-theme="dark"] .breadcrumb > li + li:before {
   color: var(--text-muted);
 }
+
+[data-theme="dark"] .pagination > li > a,
+[data-theme="dark"] .pagination > li > span {
+  color: var(--link-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .pagination > li > a:hover,
+[data-theme="dark"] .pagination > li > span:hover,
+[data-theme="dark"] .pagination > li > a:focus,
+[data-theme="dark"] .pagination > li > span:focus {
+  color: var(--link-hover);
+  background-color: var(--bg-well);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .pagination > .active > a,
+[data-theme="dark"] .pagination > .active > span,
+[data-theme="dark"] .pagination > .active > a:hover,
+[data-theme="dark"] .pagination > .active > span:hover,
+[data-theme="dark"] .pagination > .active > a:focus,
+[data-theme="dark"] .pagination > .active > span:focus {
+  color: var(--navbar-text);
+  background-color: var(--navbar-bg);
+  border-color: var(--navbar-border);
+}
+
+[data-theme="dark"] .pagination > .disabled > span,
+[data-theme="dark"] .pagination > .disabled > span:hover,
+[data-theme="dark"] .pagination > .disabled > span:focus,
+[data-theme="dark"] .pagination > .disabled > a,
+[data-theme="dark"] .pagination > .disabled > a:hover,
+[data-theme="dark"] .pagination > .disabled > a:focus {
+  color: var(--text-muted);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}

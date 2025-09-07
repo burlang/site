@@ -13,3 +13,13 @@
 .news-widget h3 {
   margin-top: 5px;
 }
+
+.is-new {
+  background-color: #ffeb99;
+}
+
+/* Dark theme override for new items */
+[data-theme="dark"] .is-new {
+  background-color: #7a7a00;
+  color: #fff8cc;
+}

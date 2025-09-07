@@ -10,7 +10,7 @@ use yii\helpers\Html;
 <div class="news-widget">
     <h3>Новости</h3>
     <?php foreach ($lastNews as $news): ?>
-        <div class="news-item" style="<?= $news->isNew() ? 'background-color: #ffeb99' : ''; ?>">
+        <div class="news-item<?= $news->isNew() ? ' is-new' : ''; ?>">
             <h2>
                 <?= Html::a(Html::encode($news->title), ['/news/view', 'slug' => $news->slug]); ?>
             </h2>
