@@ -26,6 +26,7 @@ class BuryatNameController extends Controller
                             'letter',
                             'view',
                             'list',
+                            'search',
                         ],
                         'verbs' => ['GET'],
                     ],
@@ -74,6 +75,50 @@ class BuryatNameController extends Controller
             'nameGroups' => $nameGroups,
         ]);
     }
+
+    /**
+     * Обрабатывает поисковый запрос по именам.
+     * @param string $q Строка поиска
+     * @return string
+     */
+    public function actionSearch(string $q = ''): string
+    {
+        // Очищаем поисковый запрос
+        $searchQuery = trim($q);
+        
+        if (empty($searchQuery)) {
+            // Если запрос пустой, возвращаем пустой результат
+            $nameGroups = [];
+        } else {
+            // Ищем в базе данных по трём полям
+            $namesQuery = BuryatName::find()
+                ->select(['name'])
+                ->where(['or',
+                    ['like', 'name', $searchQuery],
+                    ['like', 'description', $searchQuery],
+                    ['like', 'note', $searchQuery],
+                ])
+                ->orderBy(['name' => SORT_ASC]);
+
+            // Получаем массив имён
+            $names = $namesQuery->column();
+
+            // Группируем имена по первой букве (как в actionList)
+            $nameGroups = [];
+            foreach ($names as $name) {
+                $firstLetter = mb_strtoupper(mb_substr($name, 0, 1));
+                $nameGroups[$firstLetter][] = $name;
+            }
+        }
+
+        // Используем тот же шаблон для отображения
+        return $this->renderPartial('partials/list', [
+            'nameGroups' => $nameGroups,
+        ]);
+    } // ← Конец нового метода actionSearch
+
+    public function actionLetter(string $letter): string
+    // ... существующий код продолжается
 
     public function actionLetter(string $letter): string
     {
