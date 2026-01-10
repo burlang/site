@@ -24,11 +24,13 @@ function env(string $name, ?string $default = null): string
     throw new RuntimeException(sprintf('Undefined env: "%s"', $name));
 }
 
+/** @phpstan-ignore-next-line missingType.generics */
 function app(): ConsoleApplication|WebApplication
 {
     return Yii::$app;
 }
 
+/** @phpstan-ignore-next-line missingType.generics */
 function webApp(): WebApplication
 {
     if (app() instanceof WebApplication) {
@@ -67,12 +69,20 @@ function formatDate(DateTime|DateTimeInterface|int|string|null $value, ?string $
 
 function isRouteActive(string $targetRoute): bool
 {
-    $route = app()->controller->getRoute();
+    $controller = app()->controller;
+    if ($controller === null) {
+        return false;
+    }
+    $route = $controller->getRoute();
     return $route === $targetRoute;
 }
 
 function isRoutePrefixActive(string $routePrefix): bool
 {
-    $route = app()->controller->getRoute();
+    $controller = app()->controller;
+    if ($controller === null) {
+        return false;
+    }
+    $route = $controller->getRoute();
     return StringHelper::startsWith($route, $routePrefix);
 }

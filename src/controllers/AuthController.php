@@ -13,6 +13,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\web\User;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class AuthController extends Controller
 {
     public function behaviors(): array

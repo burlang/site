@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class SiteController extends Controller
 {
     private const SEARCH_LIMIT = 5;

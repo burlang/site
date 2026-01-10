@@ -7,8 +7,12 @@ namespace app\api\v1\components;
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class Controller extends \yii\rest\Controller
 {
+    /**
+     * @return array<mixed>
+     */
     public function behaviors(): array
     {
         return ArrayHelper::merge(parent::behaviors(), [

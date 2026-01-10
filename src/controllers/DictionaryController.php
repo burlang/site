@@ -14,6 +14,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class DictionaryController extends Controller
 {
     public function behaviors(): array

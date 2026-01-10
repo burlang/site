@@ -6,6 +6,7 @@ namespace app\api\v1\controllers;
 
 use yii\web\Controller;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class DefaultController extends Controller
 {
     public function init(): void

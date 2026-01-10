@@ -10,6 +10,7 @@ use yii\console\Controller;
 use yii\console\ExitCode;
 use yii\helpers\Console;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class UserController extends Controller
 {
     public function actionList(): int

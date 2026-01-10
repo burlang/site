@@ -16,6 +16,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
+/** @phpstan-ignore-next-line missingType.generics */
 class StatisticsController extends Controller
 {
     public function behaviors(): array
