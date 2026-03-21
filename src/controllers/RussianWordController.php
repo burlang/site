@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\enums\PermissionEnum;
 use app\models\Dictionary;
 use app\models\RussianTranslation;
@@ -54,14 +53,13 @@ class RussianWordController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
+    public function actionIndex(): string
     {
         $searchModel = new RussianWordSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetector' => $deviceDetector,
         ]);
     }
 
@@ -87,7 +85,6 @@ class RussianWordController extends Controller
      * @throws NotFoundHttpException
      */
     public function actionUpdate(
-        DeviceDetectorInterface $deviceDetector,
         Session $session,
         int $id
     ): Response|string {
@@ -111,7 +108,6 @@ class RussianWordController extends Controller
             'model' => $word,
             'translationForm' => $translationForm,
             'dictionaries' => $dictionaries,
-            'deviceDetector' => $deviceDetector,
         ]);
     }
 

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\enums\PermissionEnum;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
@@ -54,7 +53,7 @@ class BuryatWordController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
+    public function actionIndex(): string
     {
         $searchModel = new BuryatWordSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
@@ -62,7 +61,6 @@ class BuryatWordController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetector' => $deviceDetector,
         ]);
     }
 
@@ -90,7 +88,6 @@ class BuryatWordController extends Controller
      * @throws NotFoundHttpException
      */
     public function actionUpdate(
-        DeviceDetectorInterface $deviceDetector,
         Session $session,
         int $id
     ): Response|string {
@@ -117,7 +114,6 @@ class BuryatWordController extends Controller
             'model' => $word,
             'dictionaries' => $dictionaries,
             'translationForm' => $translationForm,
-            'deviceDetector' => $deviceDetector,
         ]);
     }
 

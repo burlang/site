@@ -1,6 +1,5 @@
 <?php
 
-use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\models\search\BuryatNameSearch;
 use app\widgets\FlashMessages;
 use yii\bootstrap\Html;
@@ -15,11 +14,9 @@ use yii\widgets\Pjax;
  * @var View $this
  * @var BuryatNameSearch $searchModel
  * @var ActiveDataProvider $dataProvider
- * @var DeviceDetectorInterface $deviceDetector
  */
 $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
-$isDesktop = $deviceDetector->isDesktop();
 ?>
 <div class="buryat-name-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
@@ -37,26 +34,23 @@ $isDesktop = $deviceDetector->isDesktop();
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => $isDesktop ? 10 : 5,
+                'maxButtonCount' => 10,
             ],
             'columns' => [
                 ['class' => SerialColumn::class],
                 'name',
                 [
                     'attribute' => 'description',
-                    'visible' => $isDesktop,
                 ],
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',
                     'filter' => ['0' => 'Нет', '1' => 'Да'],
-                    'visible' => $isDesktop,
                 ],
                 [
                     'attribute' => 'female',
                     'format' => 'boolean',
                     'filter' => ['0' => 'Нет', '1' => 'Да'],
-                    'visible' => $isDesktop,
                 ],
                 [
                     'class' => ActionColumn::class,

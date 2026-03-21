@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\controllers\admin;
 
-use app\components\DeviceDetector\DeviceDetectorInterface;
 use app\enums\PermissionEnum;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
@@ -51,14 +50,13 @@ class BuryatNameController extends Controller
         ];
     }
 
-    public function actionIndex(DeviceDetectorInterface $deviceDetector): string
+    public function actionIndex(): string
     {
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'deviceDetector' => $deviceDetector,
         ]);
     }
 

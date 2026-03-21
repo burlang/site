@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 use app\api\Module;
 use app\components\AuthManager;
-use app\components\DeviceDetector\DeviceDetector;
-use app\components\DeviceDetector\DeviceDetectorInterface;
-use Detection\MobileDetect;
 use yii\caching\CacheInterface;
 use yii\caching\FileCache;
 use yii\db\Connection;
@@ -105,7 +102,6 @@ return [
             CacheInterface::class => [
                 'class' => FileCache::class,
             ],
-            DeviceDetectorInterface::class => static fn () => new DeviceDetector(new MobileDetect()),
         ],
         'definitions' => [
             ActionColumn::class => app\components\Grid\ActionColumn::class,

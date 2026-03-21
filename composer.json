@@ -17,7 +17,6 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-zip": "*",
-        "mobiledetect/mobiledetectlib": "^4.8",
         "npm-asset/easymde": "^2.0",
         "npm-asset/htmx.org": "^2.0",
         "vlucas/phpdotenv": "^5.6",
