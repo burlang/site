@@ -60,5 +60,4 @@ class StatisticsController extends Controller
             'names' => $names,
         ]);
     }
-
 }
