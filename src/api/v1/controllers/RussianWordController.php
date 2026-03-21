@@ -8,7 +8,6 @@ use app\api\v1\components\Controller;
 use app\api\v1\resources\RussianWordListResource;
 use app\api\v1\resources\RussianWordTranslationsResource;
 use app\models\RussianWord;
-use app\models\SearchData;
 use yii\web\NotFoundHttpException;
 
 class RussianWordController extends Controller
@@ -38,7 +37,6 @@ class RussianWordController extends Controller
         $q = trim($q);
         $word = RussianWord::findOne(['name' => $q]);
         if (!$word) {
-            SearchData::add($q, SearchData::TYPE_RUSSIAN);
             throw new NotFoundHttpException('Слово не найдено');
         }
 

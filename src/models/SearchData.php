@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "search_data".
@@ -57,29 +55,5 @@ class SearchData extends ActiveRecord
         return [
             TimestampBehavior::class,
         ];
-    }
-
-    public static function add(string $name, int $type): void
-    {
-        $model = new self();
-        $model->name = \strlen($name) > 255
-            ? mb_substr($name, 0, 254)
-            : $name;
-        $model->type = $type;
-        if (!$model->save()) {
-            Yii::error(
-                \sprintf(
-                    'Failed to save SearchData. Attributes: (%s). Errors: (%s).',
-                    json_encode(
-                        $model->getAttributes(),
-                        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-                    ),
-                    json_encode(
-                        ArrayHelper::flatten($model->getErrors()),
-                        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
-                    )
-                )
-            );
-        }
     }
 }
