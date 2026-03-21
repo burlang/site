@@ -10,8 +10,6 @@ use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
-use app\models\SearchData;
-use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -26,7 +24,6 @@ class StatisticsController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'index' => ['GET'],
-                    'search' => ['GET'],
                 ],
             ],
             'access' => [
@@ -36,7 +33,6 @@ class StatisticsController extends Controller
                         'allow' => true,
                         'actions' => [
                             'index',
-                            'search',
                         ],
                         'roles' => [PermissionEnum::STATISTICS_VIEW->value],
                     ],
@@ -65,14 +61,4 @@ class StatisticsController extends Controller
         ]);
     }
 
-    public function actionSearch(): string
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => SearchData::find()->orderBy('created_at DESC'),
-        ]);
-
-        return $this->render('search', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
 }

@@ -14,11 +14,6 @@ use yii\widgets\Menu;
             'url' => ['index'],
             'active' => isRouteActive('statistics/index'),
         ],
-        [
-            'label' => 'Поиск',
-            'url' => ['search'],
-            'active' => isRouteActive('statistics/search'),
-        ],
     ],
     'options' => [
         'class' => 'nav nav-tabs',
