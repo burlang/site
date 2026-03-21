@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\components\GoogleTranslate;
 use app\models\BuryatWord;
 use app\models\RussianWord;
 use yii\filters\VerbFilter;
@@ -61,7 +62,7 @@ class SiteController extends Controller
         return $this->renderPartial('partials/russian_words_form');
     }
 
-    public function actionFindRussianWords(string $q): string
+    public function actionFindRussianWords(string $q, GoogleTranslate $translator): string
     {
         $q = trim($q);
         $words = RussianWord::find()
@@ -74,10 +75,11 @@ class SiteController extends Controller
         return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
+            'translation' => $q !== '' ? $translator->translate($q, 'ru', 'bxr') : null,
         ]);
     }
 
-    public function actionFindBuryatWords(string $q): string
+    public function actionFindBuryatWords(string $q, GoogleTranslate $translator): string
     {
         $q = trim($q);
         $words = BuryatWord::find()
@@ -90,6 +92,7 @@ class SiteController extends Controller
         return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
+            'translation' => $q !== '' ? $translator->translate($q, 'bxr', 'ru') : null,
         ]);
     }
 }

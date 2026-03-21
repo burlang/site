@@ -9,23 +9,44 @@ use yii\helpers\Html;
 /**
  * @var string $q
  * @var BuryatWord[]|RussianWord[] $words
+ * @var array{text: string|null, error: string|null}|null $translation
  */
 ?>
 <?php if ($q): ?>
-    <?php if ($words): ?>
-        <?php foreach ($words as $word): ?>
-            <div class="alert alert-success mt-20 mb-0">
-                <b><?= Html::encode($word->name); ?></b>
-                <ul>
-                    <?php foreach ($word->translations as $translation): ?>
-                        <li><?= Html::encode($translation->name); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <div class="alert alert-danger mt-20 mb-0">
-            Подходящие слова не найдены
+    <div class="search-results">
+
+        <div class="search-block">
+            <?php if ($words): ?>
+                <?php foreach ($words as $word): ?>
+                    <div class="word-card">
+                        <div class="word-card__term"><?= Html::encode($word->name); ?></div>
+                        <div class="word-card__translations">
+                            <?php foreach ($word->translations as $t): ?>
+                                <span class="word-card__translation"><?= Html::encode($t->name); ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="search-empty">
+                    По запросу <strong>«<?= Html::encode($q); ?>»</strong> в словаре ничего не найдено
+                </div>
+            <?php endif; ?>
         </div>
-    <?php endif; ?>
+
+        <?php if ($translation !== null && $translation['text'] !== null): ?>
+            <div class="search-block search-block--translate">
+                <div class="translate-card">
+                    <span class="translate-card__source"><?= Html::encode($q); ?></span>
+                    <span class="translate-card__arrow">→</span>
+                    <span class="translate-card__result"><?= Html::encode($translation['text']); ?></span>
+                    <span class="translate-card__badge">
+                        <span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc05">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span>
+                        <span class="translate-card__badge-text">Translate</span>
+                    </span>
+                </div>
+            </div>
+        <?php endif; ?>
+
+    </div>
 <?php endif; ?>

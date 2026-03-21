@@ -34,104 +34,28 @@ use yii\widgets\ActiveForm;
         autofocus id="rus-search"
         hx-get="<?= Url::to(['/site/find-russian-words']); ?>"
         hx-trigger="keyup changed delay:500ms, search"
-        hx-target="#russian-words">
+        hx-target="#russian-words"
+        hx-indicator="#rus-indicator">
     <?php ActiveForm::end(); ?>
+    <div id="rus-indicator" class="htmx-indicator search-indicator"></div>
     <div id="russian-words"></div>
 </div>
-<style>
-    #russian-words {
-        transition: opacity 0.3s ease, transform 0.6s ease;
-        transform-origin: top;
-    }
-</style>
 <script>
-    (function() {
-        const SEARCH_INPUT_ID = 'rus-search';
-        const RESULTS_CONTAINER_ID = 'russian-words';
-        const LOADING_SPINNER_ID = 'loading-spinner';
+    (function () {
+        const input = document.getElementById('rus-search');
+        const results = document.getElementById('russian-words');
 
-
-        const spinnerSVG = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: spin 1s linear infinite;">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="12 6"/>
-                </svg>`;
-
-        function getResultsContainer() {
-            return document.getElementById(RESULTS_CONTAINER_ID);
-        }
-
-        function removeSpinner() {
-            const spinner = document.getElementById(LOADING_SPINNER_ID);
-            if (spinner) {
-                spinner.remove();
+        document.addEventListener('htmx:beforeRequest', function (e) {
+            if (e.detail.elt !== input) return;
+            if (!input.value.trim()) {
+                results.innerHTML = '';
+                e.preventDefault();
             }
-        }
+        });
 
-        function resetContainerOpacity() {
-            const container = getResultsContainer();
-            if (container) {
-                container.style.opacity = '1';
-            }
-        }
-
-        function showOverlaySpinner() {
-            const container = getResultsContainer();
-            const spinner = document.createElement('div');
-            spinner.id = LOADING_SPINNER_ID;
-            const isMobile = window.innerWidth <= 768;
-            const topPosition = isMobile ? '20px' : '50%';
-            const transform = isMobile ? 'translateX(-50%)' : 'translate(-50%, -50%)';
-            spinner.style.cssText = `position: absolute; top: ${topPosition}; left: 50%; transform: ${transform}; z-index: 1000;`;
-            spinner.innerHTML = spinnerSVG;
-
-            container.style.position = 'relative';
-            container.style.opacity = '0.7';
-            container.appendChild(spinner);
-        }
-
-        function showInlineSpinner() {
-            const container = getResultsContainer();
-            container.innerHTML = `<div class="alert alert-success mt-20 mb-0 text-center">${spinnerSVG}</div>`;
-        }
-
-        function showErrorMessage() {
-            const container = getResultsContainer();
-            container.innerHTML = '<div class="alert alert-danger mt-20 mb-0">Произошла ошибка при загрузке данных</div>';
-        }
-
-        function handleSearchRequest(evt) {
-            if (evt.detail.elt.id !== SEARCH_INPUT_ID) return;
-
-            const searchValue = evt.detail.elt.value.trim();
-            if (searchValue === '') {
-                getResultsContainer().innerHTML = '';
-                return;
-            }
-
-            const container = getResultsContainer();
-            if (container.innerHTML.trim() !== '') {
-                showOverlaySpinner();
-            } else {
-                showInlineSpinner();
-            }
-        }
-
-        function handleRequestComplete(evt) {
-            if (evt.detail.elt.id !== SEARCH_INPUT_ID) return;
-
-            removeSpinner();
-            resetContainerOpacity();
-        }
-
-        function handleRequestError(evt) {
-            if (evt.detail.elt.id !== SEARCH_INPUT_ID) return;
-
-            removeSpinner();
-            resetContainerOpacity();
-            showErrorMessage();
-        }
-
-        document.addEventListener('htmx:beforeRequest', handleSearchRequest);
-        document.addEventListener('htmx:afterRequest', handleRequestComplete);
-        document.addEventListener('htmx:responseError', handleRequestError);
-    })();
+        document.addEventListener('htmx:responseError', function (e) {
+            if (e.detail.elt !== input) return;
+            results.innerHTML = '<div class="search-empty">Произошла ошибка при загрузке данных</div>';
+        });
+    }());
 </script>
