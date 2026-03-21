@@ -107,10 +107,6 @@
   padding: 4px 2px;
 }
 
-.search-empty strong {
-  color: var(--text-color);
-}
-
 /* Google Translate card */
 .translate-card {
   display: flex;
