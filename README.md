@@ -30,7 +30,7 @@ Password: `admin`
 
 ### Development Commands
 
-- `make check` - Run all checks (validation, linting, analysis, tests, backup)
+- `make check` - Run all checks (validation, linting, analysis, tests)
 - `make app-fix` - Fix code style issues
 - `make update-deps` - Update composer dependencies and restart
 
@@ -46,4 +46,3 @@ Password: `admin`
 - `make app-clear-cache` - Clear application cache
 - `make app-test` - Run tests
 - `make app-lint` - Run linting
-- `make app-backup` - Create backup

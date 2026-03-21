@@ -64,47 +64,8 @@ services:
             - site-mysql:/var/lib/mysql
             - ./database/setup.sql:/docker-entrypoint-initdb.d/setup.sql:ro
 
-    site-backup:
-        container_name: site-backup
-        build:
-            context: .
-            dockerfile: ./docker/backup/Dockerfile
-        environment:
-            BACKUP_NAME: "${BACKUP_NAME}"
-            MYSQL_HOST: "${MYSQL_HOST}"
-            MYSQL_DATABASE: "${MYSQL_DATABASE}"
-            MYSQL_USER: "${MYSQL_USER}"
-            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-            AWS_ACCESS_KEY_ID: "${BACKUP_AWS_ACCESS_KEY_ID}"
-            AWS_SECRET_ACCESS_KEY: "${BACKUP_AWS_SECRET_ACCESS_KEY}"
-            AWS_DEFAULT_REGION: "${BACKUP_AWS_DEFAULT_REGION}"
-            S3_ENDPOINT: "${BACKUP_S3_ENDPOINT}"
-            S3_BUCKET: "${BACKUP_S3_BUCKET}"
-        command: ["sh", "-c", "wait-for-it site-mysql:3306 -t 20 && backup"]
-
-    site-backup-storage:
-        image: minio/minio
-        container_name: site-backup-storage
-        environment:
-            MINIO_ROOT_USER: "${BACKUP_AWS_ACCESS_KEY_ID}"
-            MINIO_ROOT_PASSWORD: "${BACKUP_AWS_SECRET_ACCESS_KEY}"
-        networks:
-            - traefik-public
-            - default
-        volumes:
-            - site-backup-storage:/data
-        labels:
-            - traefik.enable=true
-            - traefik.docker.network=traefik-public
-            - traefik.http.routers.site-backup-storage.rule=Host(`backup-storage.localhost`)
-            - traefik.http.routers.site-backup-storage.entrypoints=http
-            - traefik.http.services.site-backup-storage.loadbalancer.server.port=9001
-        entrypoint:
-            ["sh", "-c", "mkdir -p /data/backup && docker-entrypoint.sh minio server /data --console-address ':9001'"]
-
 volumes:
     site-mysql:
-    site-backup-storage:
 
 networks:
     default:
