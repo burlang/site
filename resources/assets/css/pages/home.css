@@ -22,8 +22,10 @@
 
 .buryat-word-bot-container {
   border: 1px solid var(--border-color);
-  padding: 5px;
+  border-left: 3px solid var(--navbar-bg);
+  padding: 12px 15px;
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
+  background-color: var(--bg-secondary);
 }
