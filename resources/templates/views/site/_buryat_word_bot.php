@@ -2,7 +2,7 @@
     <div class="media">
         <div class="media-left">
             <a href="https://t.me/BuryatWordBot" target="_blank" rel="noopener noreferrer">
-                <img src="<?= alias('@web/img/buryat-word-bot-logo.jpg'); ?>" class="media-object img-circle" alt="BuryatWordBot" height="64">
+                <img src="<?= alias('@web/img/buryat-word-bot-logo.jpg'); ?>" class="media-object img-circle" alt="BuryatWordBot" width="64" height="64">
             </a>
         </div>
         <div class="media-body" style="padding-left: 12px;">
