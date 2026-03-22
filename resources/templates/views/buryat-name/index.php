@@ -14,9 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-list">
     <h1><?= Html::encode($this->title); ?></h1>
-    <hr>
     <?php if ($letters): ?>
-        <ul class="list-inline list-letter">
+        <ul class="list-inline list-letter mt-20">
             <?php foreach ($letters as $letter => $amount): ?>
                 <li>
                     <?= Html::a(
@@ -31,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-    <hr>
     <div hx-get="<?= Url::to(['/buryat-name/list']); ?>" hx-trigger="load">
         <p class="text-center">Загрузка имен...</p>
     </div>

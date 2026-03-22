@@ -13,12 +13,14 @@ use yii\helpers\Html;
         <?php foreach ($nameGroups as $letter => $nameGroup): ?>
             <div class="mb-20">
                 <h3><?= Html::encode((string)$letter); ?></h3>
-                <?php foreach ($nameGroup as $i => $name): ?>
-                    <?= ($i > 0 ? ' · ' : '') . Html::a(
-                        Html::encode($name),
-                        ['view', 'name' => $name],
-                    ); ?>
-                <?php endforeach; ?>
+                <div class="flex-wrap">
+                    <?php foreach ($nameGroup as $name): ?>
+                        <?= Html::a(
+                            Html::encode($name),
+                            ['view', 'name' => $name],
+                        ); ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

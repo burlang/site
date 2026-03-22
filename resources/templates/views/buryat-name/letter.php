@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'u
 $this->params['breadcrumbs'][] = sprintf('На букву "%s"', mb_strtoupper($letter));
 ?>
 <h1><?= Html::encode($this->title); ?></h1>
-<hr>
 <div hx-get="<?= Url::to(['/buryat-name/list', 'letter' => $letter]); ?>" hx-trigger="load">
     <p class="text-center">Загрузка имен...</p>
 </div>
