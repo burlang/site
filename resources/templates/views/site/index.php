@@ -32,7 +32,7 @@ $this->title = app()->name . ' - Русско-Бурятский, Бурятск
             <div id="dictionary-search-form">
                 <?= $this->render('partials/buryat_words_form'); ?>
             </div>
-            <?= $this->render('_buryat_word_bot'); ?>
+            <?= $this->render('_buryat_word'); ?>
             <div class="text-center mt-20 mb-10">
                 Альтернативная версия: <a href="https://buryat-lang.ru" target="_blank" rel="noopener noreferrer">buryat-lang.ru</a>
             </div>
