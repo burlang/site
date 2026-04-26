@@ -1,4 +1,4 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 RUN apk add --no-cache mysql-client icu-dev \
   && docker-php-ext-install pdo_mysql intl

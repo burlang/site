@@ -11,7 +11,7 @@
     "minimum-stability": "stable",
     "license": "BSD-3-Clause",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",

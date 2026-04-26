@@ -19,8 +19,7 @@ return
                     __DIR__ . '/src',
                     __DIR__ . '/tests',
                 ])
-                ->exclude([
-                ])
+                ->exclude([])
                 ->append([
                     __DIR__ . '/public/index.php',
                     __FILE__,

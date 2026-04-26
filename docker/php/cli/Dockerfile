@@ -1,4 +1,4 @@
-FROM php:8.3-cli-alpine
+FROM php:8.4-cli-alpine
 
 RUN apk add --no-cache mysql-client icu-dev libzip-dev zip \
   && docker-php-ext-install pdo_mysql intl zip
