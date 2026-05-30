@@ -11,6 +11,7 @@ use yii\helpers\Html;
  * @var string $q
  * @var BuryatWord[]|RussianWord[] $words
  * @var TranslationResult|null $googleTranslation
+ * @var TranslationResult|null $yandexTranslation
  */
 ?>
 <?php if ($q): ?>
@@ -34,6 +35,19 @@ use yii\helpers\Html;
                 </div>
             <?php endif; ?>
         </div>
+
+        <?php if ($yandexTranslation !== null && $yandexTranslation->text !== null): ?>
+            <div class="search-block search-block--translate">
+                <div class="translate-card">
+                    <span class="translate-card__source"><?= Html::encode($q); ?></span>
+                    <span class="translate-card__arrow">→</span>
+                    <span class="translate-card__result"><?= Html::encode($yandexTranslation->text); ?></span>
+                    <span class="translate-card__badge">
+                        <span class="translate-card__badge-text"><span style="color:#FC3F1D;font-weight:600">Yandex</span> Translate</span>
+                    </span>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <?php if ($googleTranslation !== null && $googleTranslation->text !== null): ?>
             <div class="search-block search-block--translate">
