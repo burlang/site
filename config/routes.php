@@ -12,6 +12,8 @@ return [
     'buryat-names/letter/<letter:\w{1}>' => 'buryat-name/letter',
     'buryat-name/<name>' => 'buryat-name/view',
 
+    'health' => 'health/index',
+
     'contacts' => 'site/contacts',
 
     'login' => 'auth/login',
