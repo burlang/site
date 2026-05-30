@@ -7,7 +7,6 @@ namespace app\api\v1\components;
 use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
 
-/** @phpstan-ignore-next-line missingType.generics */
 class Controller extends \yii\rest\Controller
 {
     /**

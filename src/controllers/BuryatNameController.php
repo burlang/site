@@ -11,7 +11,6 @@ use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-/** @phpstan-ignore-next-line missingType.generics */
 class BuryatNameController extends Controller
 {
     public function behaviors(): array

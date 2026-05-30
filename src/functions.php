@@ -24,13 +24,11 @@ function env(string $name, ?string $default = null): string
     throw new RuntimeException(sprintf('Undefined env: "%s"', $name));
 }
 
-/** @phpstan-ignore-next-line missingType.generics */
 function app(): ConsoleApplication|WebApplication
 {
-    return Yii::$app;
+    return Yii::$app; // @phpstan-ignore return.type
 }
 
-/** @phpstan-ignore-next-line missingType.generics */
 function webApp(): WebApplication
 {
     if (app() instanceof WebApplication) {

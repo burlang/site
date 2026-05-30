@@ -11,7 +11,6 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
 
-/** @phpstan-ignore-next-line missingType.generics */
 class HealthController extends Controller
 {
     public $enableCsrfValidation = false;

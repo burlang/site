@@ -18,7 +18,6 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\web\Session;
 
-/** @phpstan-ignore-next-line missingType.generics */
 class BuryatWordController extends Controller
 {
     public function behaviors(): array
