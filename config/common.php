@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 use app\api\Module;
 use app\components\AuthManager;
-use app\components\GoogleTranslate;
+use app\components\Translator\GoogleTranslate;
+use Symfony\Component\HttpClient\HttpClient;
 use yii\caching\CacheInterface;
 use yii\caching\FileCache;
 use yii\db\Connection;
@@ -105,7 +106,10 @@ return [
             ],
             GoogleTranslate::class => [
                 'class' => GoogleTranslate::class,
-                '__construct()' => [env('GOOGLE_TRANSLATE_API_KEY', '')],
+                '__construct()' => [
+                    HttpClient::create(['timeout' => 10]),
+                    env('GOOGLE_TRANSLATE_API_KEY', ''),
+                ],
             ],
         ],
         'definitions' => [
