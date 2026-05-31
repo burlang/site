@@ -45,7 +45,7 @@ class RussianWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => [PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value],
+                        'roles' => [PermissionEnum::RussianWordsManagement->value],
                     ],
                 ],
             ],

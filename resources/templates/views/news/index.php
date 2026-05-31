@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title); ?></h1>
-    <?php if (can(PermissionEnum::NEWS_MANAGEMENT->value)): ?>
+    <?php if (can(PermissionEnum::NewsManagement->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать новость',

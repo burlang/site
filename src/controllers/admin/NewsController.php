@@ -36,7 +36,7 @@ class NewsController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => [PermissionEnum::NEWS_MANAGEMENT->value],
+                        'roles' => [PermissionEnum::NewsManagement->value],
                     ],
                 ],
             ],

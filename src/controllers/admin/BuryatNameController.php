@@ -42,7 +42,7 @@ class BuryatNameController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => [PermissionEnum::BURYAT_NAMES_MANAGEMENT->value],
+                        'roles' => [PermissionEnum::BuryatNamesManagement->value],
                     ],
                 ],
             ],

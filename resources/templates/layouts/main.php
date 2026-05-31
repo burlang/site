@@ -78,34 +78,34 @@ AppAsset::register($this);
                     'url' => ['/site/contacts'],
                     'active' => isRouteActive('site/contacts'),
                 ],
-                can(RoleEnum::MODERATOR->value)
+                can(RoleEnum::Moderator->value)
                     ? [
                         'label' => 'Управление',
                         'items' => [
                             [
                                 'label' => 'Бурятские имена',
                                 'url' => ['/admin/buryat-name/index'],
-                                'visible' => can(PermissionEnum::BURYAT_NAMES_MANAGEMENT->value),
+                                'visible' => can(PermissionEnum::BuryatNamesManagement->value),
                             ],
                             [
                                 'label' => 'Бурятские слова',
                                 'url' => ['/admin/buryat-word/index'],
-                                'visible' => can(PermissionEnum::BURYAT_WORDS_MANAGEMENT->value),
+                                'visible' => can(PermissionEnum::BuryatWordsManagement->value),
                             ],
                             [
                                 'label' => 'Русские слова',
                                 'url' => ['/admin/russian-word/index'],
-                                'visible' => can(PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value),
+                                'visible' => can(PermissionEnum::RussianWordsManagement->value),
                             ],
                             [
                                 'label' => 'Словари',
                                 'url' => ['/admin/dictionary/index'],
-                                'visible' => can(PermissionEnum::DICTIONARIES_MANAGEMENT->value),
+                                'visible' => can(PermissionEnum::DictionariesManagement->value),
                             ],
                             [
                                 'label' => 'Статистика',
                                 'url' => ['/admin/statistics/index'],
-                                'visible' => can(PermissionEnum::STATISTICS_VIEW->value),
+                                'visible' => can(PermissionEnum::StatisticsView->value),
                             ],
                         ],
                     ]

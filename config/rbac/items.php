@@ -8,43 +8,43 @@ use yii\rbac\Item;
 
 return [
     // permissions
-    PermissionEnum::BURYAT_WORDS_MANAGEMENT->value => [
+    PermissionEnum::BuryatWordsManagement->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление бурятскими словами',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value => [
+    PermissionEnum::RussianWordsManagement->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление русскими словами',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::BURYAT_NAMES_MANAGEMENT->value => [
+    PermissionEnum::BuryatNamesManagement->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление именами',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::NEWS_MANAGEMENT->value => [
+    PermissionEnum::NewsManagement->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление новостями',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::DICTIONARIES_MANAGEMENT->value => [
+    PermissionEnum::DictionariesManagement->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Управление словарями',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::DICTIONARIES_DELETE->value => [
+    PermissionEnum::DictionariesDelete->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Удаление словарей',
         'ruleName' => null,
         'data' => null,
     ],
-    PermissionEnum::STATISTICS_VIEW->value => [
+    PermissionEnum::StatisticsView->value => [
         'type' => Item::TYPE_PERMISSION,
         'description' => 'Просмотр статистики',
         'ruleName' => null,
@@ -52,34 +52,34 @@ return [
     ],
 
     // roles
-    RoleEnum::USER->value => [
+    RoleEnum::User->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Пользователь',
         'children' => [],
         'ruleName' => null,
         'data' => null,
     ],
-    RoleEnum::MODERATOR->value => [
+    RoleEnum::Moderator->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Модератор',
         'children' => [
-            RoleEnum::USER->value,
-            PermissionEnum::BURYAT_WORDS_MANAGEMENT->value,
-            PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value,
-            PermissionEnum::BURYAT_NAMES_MANAGEMENT->value,
-            PermissionEnum::DICTIONARIES_MANAGEMENT->value,
+            RoleEnum::User->value,
+            PermissionEnum::BuryatWordsManagement->value,
+            PermissionEnum::RussianWordsManagement->value,
+            PermissionEnum::BuryatNamesManagement->value,
+            PermissionEnum::DictionariesManagement->value,
         ],
         'ruleName' => null,
         'data' => null,
     ],
-    RoleEnum::ADMIN->value => [
+    RoleEnum::Admin->value => [
         'type' => Item::TYPE_ROLE,
         'description' => 'Администратор',
         'children' => [
-            RoleEnum::MODERATOR->value,
-            PermissionEnum::NEWS_MANAGEMENT->value,
-            PermissionEnum::STATISTICS_VIEW->value,
-            PermissionEnum::DICTIONARIES_DELETE->value,
+            RoleEnum::Moderator->value,
+            PermissionEnum::NewsManagement->value,
+            PermissionEnum::StatisticsView->value,
+            PermissionEnum::DictionariesDelete->value,
         ],
         'ruleName' => null,
         'data' => null,

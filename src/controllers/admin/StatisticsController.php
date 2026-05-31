@@ -33,7 +33,7 @@ class StatisticsController extends Controller
                         'actions' => [
                             'index',
                         ],
-                        'roles' => [PermissionEnum::STATISTICS_VIEW->value],
+                        'roles' => [PermissionEnum::StatisticsView->value],
                     ],
                 ],
             ],

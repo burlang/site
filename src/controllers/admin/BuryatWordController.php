@@ -45,7 +45,7 @@ class BuryatWordController extends Controller
                             'delete',
                             'delete-translation',
                         ],
-                        'roles' => [PermissionEnum::BURYAT_WORDS_MANAGEMENT->value],
+                        'roles' => [PermissionEnum::BuryatWordsManagement->value],
                     ],
                 ],
             ],

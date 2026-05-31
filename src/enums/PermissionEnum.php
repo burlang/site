@@ -6,11 +6,11 @@ namespace app\enums;
 
 enum PermissionEnum: string
 {
-    case BURYAT_WORDS_MANAGEMENT = 'buryat_words_management';
-    case RUSSIAN_WORDS_MANAGEMENT = 'russian_words_management';
-    case BURYAT_NAMES_MANAGEMENT = 'buryat_names_management';
-    case NEWS_MANAGEMENT = 'news_management';
-    case DICTIONARIES_MANAGEMENT = 'dictionaries_management';
-    case DICTIONARIES_DELETE = 'dictionaries_delete';
-    case STATISTICS_VIEW = 'statistics_view';
+    case BuryatWordsManagement = 'buryat_words_management';
+    case RussianWordsManagement = 'russian_words_management';
+    case BuryatNamesManagement = 'buryat_names_management';
+    case NewsManagement = 'news_management';
+    case DictionariesManagement = 'dictionaries_management';
+    case DictionariesDelete = 'dictionaries_delete';
+    case StatisticsView = 'statistics_view';
 }

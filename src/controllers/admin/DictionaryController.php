@@ -35,12 +35,12 @@ class DictionaryController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'view', 'update', 'create'],
-                        'roles' => [PermissionEnum::DICTIONARIES_MANAGEMENT->value],
+                        'roles' => [PermissionEnum::DictionariesManagement->value],
                     ],
                     [
                         'allow' => true,
                         'actions' => ['delete'],
-                        'roles' => [PermissionEnum::DICTIONARIES_DELETE->value],
+                        'roles' => [PermissionEnum::DictionariesDelete->value],
                     ],
                 ],
             ],

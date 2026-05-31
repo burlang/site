@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <span class="label label-default">Неактивный</span>
         </p>
     <?php endif; ?>
-    <?php if (can(PermissionEnum::NEWS_MANAGEMENT->value)): ?>
+    <?php if (can(PermissionEnum::NewsManagement->value)): ?>
         <p>
             <?= Html::a(
                 Html::icon('pencil') . ' Редактировать',
