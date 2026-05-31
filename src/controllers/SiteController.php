@@ -57,14 +57,14 @@ class SiteController extends Controller
         return $this->render('contacts');
     }
 
-    public function actionBuryatWordsForm(): string
+    public function actionBuryatWordsForm(string $q = ''): string
     {
-        return $this->renderPartial('partials/buryat_words_form');
+        return $this->renderPartial('partials/buryat_words_form', ['q' => $q]);
     }
 
-    public function actionRussianWordsForm(): string
+    public function actionRussianWordsForm(string $q = ''): string
     {
-        return $this->renderPartial('partials/russian_words_form');
+        return $this->renderPartial('partials/russian_words_form', ['q' => $q]);
     }
 
     public function actionFindRussianWords(string $q): string

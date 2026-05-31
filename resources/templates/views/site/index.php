@@ -30,7 +30,7 @@ $this->title = app()->name . ' - Русско-Бурятский, Бурятск
     <div class="row mt-10">
         <div class="col-sm-8 mb-10">
             <div id="dictionary-search-form">
-                <?= $this->render('partials/buryat_words_form'); ?>
+                <?= $this->render('partials/buryat_words_form', ['q' => '']); ?>
             </div>
             <?= $this->render('_buryat_word'); ?>
             <div class="text-center mt-20 mb-10">
