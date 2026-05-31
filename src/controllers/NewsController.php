@@ -43,7 +43,7 @@ class NewsController extends Controller
     public function actionIndex(): string
     {
         $query = News::find()->orderBy('created_at DESC');
-        if (!can(PermissionEnum::NewsManagement->value)) {
+        if (!can(PermissionEnum::NewsManagement)) {
             $query->where(['active' => 1]);
         }
         $dataProvider = new ActiveDataProvider([
@@ -61,7 +61,7 @@ class NewsController extends Controller
     public function actionView(string $slug): string
     {
         $news = News::findOne(['slug' => $slug]);
-        if (!$news || (!$news->active && !can(PermissionEnum::NewsManagement->value))) {
+        if (!$news || (!$news->active && !can(PermissionEnum::NewsManagement))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [

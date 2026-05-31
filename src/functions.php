@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use app\enums\PermissionEnum;
+use app\enums\RoleEnum;
 use yii\console\Application as ConsoleApplication;
 use yii\helpers\StringHelper;
 use yii\web\Application as WebApplication;
@@ -50,9 +52,9 @@ function alias(string $value): string
     return Yii::getAlias($value);
 }
 
-function can(string $permission): bool
+function can(PermissionEnum|RoleEnum $permission): bool
 {
-    return webApp()->user->can($permission);
+    return webApp()->user->can($permission->value);
 }
 
 function isGuest(): bool
