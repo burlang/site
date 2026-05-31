@@ -9,8 +9,8 @@ use yii\web\View;
  * @var News $model
  */
 $this->title = 'Редактировать: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'slug' => $model->slug]];
+$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['/news/index']];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['/news/view', 'slug' => $model->slug]];
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="news-update">

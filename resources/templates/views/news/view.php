@@ -28,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>
             <?= Html::a(
                 Html::icon('pencil') . ' Редактировать',
-                ['update', 'id' => $model->id],
+                ['/admin/news/update', 'id' => $model->id],
                 ['class' => 'btn btn-primary']
             ); ?>
-            <?= Html::a(Html::icon('trash') . ' Удалить', ['delete', 'id' => $model->id], [
+            <?= Html::a(Html::icon('trash') . ' Удалить', ['/admin/news/delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => 'Вы уверены, что хотите удалить?',

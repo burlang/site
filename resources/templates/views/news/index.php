@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать новость',
-                ['create'],
+                ['/admin/news/create'],
                 ['class' => 'btn btn-success']
             ); ?>
         </p>

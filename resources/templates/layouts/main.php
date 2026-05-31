@@ -89,22 +89,22 @@ AppAsset::register($this);
                             ],
                             [
                                 'label' => 'Бурятские слова',
-                                'url' => ['/buryat-word/index'],
+                                'url' => ['/admin/buryat-word/index'],
                                 'visible' => can(PermissionEnum::BURYAT_WORDS_MANAGEMENT->value),
                             ],
                             [
                                 'label' => 'Русские слова',
-                                'url' => ['/russian-word/index'],
+                                'url' => ['/admin/russian-word/index'],
                                 'visible' => can(PermissionEnum::RUSSIAN_WORDS_MANAGEMENT->value),
                             ],
                             [
                                 'label' => 'Словари',
-                                'url' => ['/dictionary/index'],
+                                'url' => ['/admin/dictionary/index'],
                                 'visible' => can(PermissionEnum::DICTIONARIES_MANAGEMENT->value),
                             ],
                             [
                                 'label' => 'Статистика',
-                                'url' => ['/statistics'],
+                                'url' => ['/admin/statistics/index'],
                                 'visible' => can(PermissionEnum::STATISTICS_VIEW->value),
                             ],
                         ],

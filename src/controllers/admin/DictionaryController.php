@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\controllers;
+namespace app\controllers\admin;
 
 use app\enums\PermissionEnum;
 use app\models\Dictionary;

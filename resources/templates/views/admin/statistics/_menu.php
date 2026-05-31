@@ -12,7 +12,7 @@ use yii\widgets\Menu;
         [
             'label' => 'Данные',
             'url' => ['index'],
-            'active' => isRouteActive('statistics/index'),
+            'active' => isRouteActive('admin/statistics/index'),
         ],
     ],
     'options' => [
