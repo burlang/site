@@ -36,4 +36,5 @@
     var newTheme = current === "dark" ? "light" : "dark";
     setTheme(newTheme, true);
   };
+
 })();

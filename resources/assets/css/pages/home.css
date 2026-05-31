@@ -32,7 +32,7 @@
 }
 
 .search-indicator::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -40%;
@@ -44,8 +44,12 @@
 }
 
 @keyframes search-loading {
-  0%   { left: -40%; }
-  100% { left: 100%; }
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 /* Search results */
@@ -62,10 +66,8 @@
   gap: 6px;
 }
 
-.search-block--translate {
-  margin-top: 4px;
+.search-block__translate {
   padding-top: 12px;
-  border-top: 1px solid var(--border-color);
 }
 
 /* Dictionary word card */
@@ -96,7 +98,7 @@
 }
 
 .word-card__translation + .word-card__translation::before {
-  content: '·';
+  content: "·";
   margin-right: 6px;
   color: var(--border-color);
 }
@@ -151,6 +153,50 @@
   color: var(--text-muted);
   margin-left: 2px;
 }
+
+/* Translation card skeleton */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.translate-card-skeleton {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  border-left: 3px solid var(--border-color);
+}
+
+.translate-card-skeleton__source,
+.translate-card-skeleton__arrow,
+.translate-card-skeleton__result {
+  display: inline-block;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border-color) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2.5s ease infinite;
+}
+
+.translate-card-skeleton__source {
+  width: 90px;
+  height: 16px;
+}
+
+.translate-card-skeleton__arrow {
+  width: 12px;
+  height: 14px;
+}
+
+.translate-card-skeleton__result {
+  width: 120px;
+  height: 22px;
+}
+
 
 .buryat-word-bot-container {
   border: 1px solid var(--border-color);

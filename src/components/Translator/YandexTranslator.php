@@ -7,7 +7,7 @@ namespace app\components\Translator;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class YandexTranslate
+class YandexTranslator
 {
     public function __construct(
         private readonly HttpClientInterface $client,
@@ -27,7 +27,7 @@ class YandexTranslate
     private function translate(string $text, string $source, string $target): TranslationResult
     {
         if ($this->apiKey === '') {
-            return TranslationResult::error('API ключ не настроен');
+            return TranslationResult::error(TranslationProvider::Yandex, 'API ключ не настроен');
         }
 
         try {
@@ -40,12 +40,12 @@ class YandexTranslate
             $translated = $data['translations'][0]['text'] ?? null;
 
             if ($translated === null) {
-                return TranslationResult::error($data['message'] ?? 'Неизвестная ошибка');
+                return TranslationResult::error(TranslationProvider::Yandex, $data['message'] ?? 'Неизвестная ошибка');
             }
 
-            return TranslationResult::success($translated);
+            return TranslationResult::success(TranslationProvider::Yandex, $translated);
         } catch (TransportExceptionInterface $e) {
-            return TranslationResult::error('Ошибка сети');
+            return TranslationResult::error(TranslationProvider::Yandex, 'Ошибка сети');
         }
     }
 }

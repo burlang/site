@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use app\components\Translator\YandexTranslate;
+use app\components\Translator\GoogleTranslator;
 use Symfony\Component\HttpClient\Exception\TransportException;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
@@ -10,11 +10,11 @@ use Symfony\Component\HttpClient\Response\MockResponse;
 it('translates to buryat on success', function (): void {
     $mock = new MockHttpClient([
         new MockResponse((string)json_encode([
-            'translations' => [['text' => 'Сайн байна']],
+            'data' => ['translations' => [['translatedText' => 'Сайн байна']]],
         ])),
     ]);
 
-    $result = (new YandexTranslate($mock, 'test-key'))->translateToBuryat('Привет');
+    $result = (new GoogleTranslator($mock, 'test-key'))->translateToBuryat('Привет');
 
     expect($result->text)->toBe('Сайн байна');
     expect($result->error)->toBeNull();
@@ -23,18 +23,18 @@ it('translates to buryat on success', function (): void {
 it('translates to russian on success', function (): void {
     $mock = new MockHttpClient([
         new MockResponse((string)json_encode([
-            'translations' => [['text' => 'Привет']],
+            'data' => ['translations' => [['translatedText' => 'Привет']]],
         ])),
     ]);
 
-    $result = (new YandexTranslate($mock, 'test-key'))->translateToRussian('Сайн байна');
+    $result = (new GoogleTranslator($mock, 'test-key'))->translateToRussian('Сайн байна');
 
     expect($result->text)->toBe('Привет');
     expect($result->error)->toBeNull();
 });
 
 it('returns error when api key is empty', function (): void {
-    $result = (new YandexTranslate(new MockHttpClient(), ''))->translateToBuryat('Привет');
+    $result = (new GoogleTranslator(new MockHttpClient(), ''))->translateToBuryat('Привет');
 
     expect($result->text)->toBeNull();
     expect($result->error)->toBe('API ключ не настроен');
@@ -43,14 +43,14 @@ it('returns error when api key is empty', function (): void {
 it('returns api error message on failed response', function (): void {
     $mock = new MockHttpClient([
         new MockResponse((string)json_encode([
-            'message' => 'API key is invalid',
+            'error' => ['message' => 'API key not valid'],
         ])),
     ]);
 
-    $result = (new YandexTranslate($mock, 'bad-key'))->translateToBuryat('Привет');
+    $result = (new GoogleTranslator($mock, 'bad-key'))->translateToBuryat('Привет');
 
     expect($result->text)->toBeNull();
-    expect($result->error)->toBe('API key is invalid');
+    expect($result->error)->toBe('API key not valid');
 });
 
 it('returns network error on transport exception', function (): void {
@@ -58,7 +58,7 @@ it('returns network error on transport exception', function (): void {
         throw new TransportException('Connection refused');
     });
 
-    $result = (new YandexTranslate($mock, 'test-key'))->translateToBuryat('Привет');
+    $result = (new GoogleTranslator($mock, 'test-key'))->translateToBuryat('Привет');
 
     expect($result->text)->toBeNull();
     expect($result->error)->toBe('Ошибка сети');

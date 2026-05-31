@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use app\api\Module;
 use app\components\AuthManager;
-use app\components\Translator\GoogleTranslate;
-use app\components\Translator\YandexTranslate;
+use app\components\Translator\GoogleTranslator;
+use app\components\Translator\YandexTranslator;
 use Symfony\Component\HttpClient\HttpClient;
 use yii\caching\CacheInterface;
 use yii\caching\FileCache;
@@ -105,15 +105,15 @@ return [
             CacheInterface::class => [
                 'class' => FileCache::class,
             ],
-            GoogleTranslate::class => [
-                'class' => GoogleTranslate::class,
+            GoogleTranslator::class => [
+                'class' => GoogleTranslator::class,
                 '__construct()' => [
                     HttpClient::create(['timeout' => 10]),
                     env('GOOGLE_TRANSLATE_API_KEY', ''),
                 ],
             ],
-            YandexTranslate::class => [
-                'class' => YandexTranslate::class,
+            YandexTranslator::class => [
+                'class' => YandexTranslator::class,
                 '__construct()' => [
                     HttpClient::create(['timeout' => 10]),
                     env('YANDEX_TRANSLATE_API_KEY', ''),

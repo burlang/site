@@ -7,7 +7,7 @@ namespace app\components\Translator;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class GoogleTranslate
+class GoogleTranslator
 {
     public function __construct(
         private readonly HttpClientInterface $client,
@@ -27,7 +27,7 @@ class GoogleTranslate
     private function translate(string $text, string $source, string $target): TranslationResult
     {
         if ($this->apiKey === '') {
-            return TranslationResult::error('API ключ не настроен');
+            return TranslationResult::error(TranslationProvider::Google, 'API ключ не настроен');
         }
 
         try {
@@ -40,12 +40,12 @@ class GoogleTranslate
             $translated = $data['data']['translations'][0]['translatedText'] ?? null;
 
             if ($translated === null) {
-                return TranslationResult::error($data['error']['message'] ?? 'Неизвестная ошибка');
+                return TranslationResult::error(TranslationProvider::Google, $data['error']['message'] ?? 'Неизвестная ошибка');
             }
 
-            return TranslationResult::success($translated);
+            return TranslationResult::success(TranslationProvider::Google, $translated);
         } catch (TransportExceptionInterface $e) {
-            return TranslationResult::error('Ошибка сети');
+            return TranslationResult::error(TranslationProvider::Google, 'Ошибка сети');
         }
     }
 }

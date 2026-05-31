@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-use app\components\Translator\GoogleTranslate;
-use app\components\Translator\YandexTranslate;
+use app\components\Translator\GoogleTranslator;
+use app\components\Translator\TranslationProvider;
+use app\components\Translator\YandexTranslator;
 use app\models\BuryatWord;
 use app\models\RussianWord;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 
 class SiteController extends Controller
 {
-    private const SEARCH_LIMIT = 5;
+    private const int SEARCH_LIMIT = 5;
 
     public function actions(): array
     {
@@ -37,6 +40,8 @@ class SiteController extends Controller
                     'buryat-words-form' => ['GET'],
                     'find-russian-words' => ['GET'],
                     'find-buryat-words' => ['GET'],
+                    'translate-russian' => ['POST'],
+                    'translate-buryat' => ['POST'],
                 ],
             ],
         ];
@@ -62,7 +67,7 @@ class SiteController extends Controller
         return $this->renderPartial('partials/russian_words_form');
     }
 
-    public function actionFindRussianWords(string $q, GoogleTranslate $googleTranslator, YandexTranslate $yandexTranslator): string
+    public function actionFindRussianWords(string $q): string
     {
         $q = trim($q);
         $words = RussianWord::find()
@@ -75,12 +80,12 @@ class SiteController extends Controller
         return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
-            'googleTranslation' => $q !== '' ? $googleTranslator->translateToBuryat($q) : null,
-            'yandexTranslation' => $q !== '' ? $yandexTranslator->translateToBuryat($q) : null,
+            'googleTranslateUrl' => Url::to(['/site/translate-russian', 'q' => $q, 'provider' => TranslationProvider::Google->value]),
+            'yandexTranslateUrl' => Url::to(['/site/translate-russian', 'q' => $q, 'provider' => TranslationProvider::Yandex->value]),
         ]);
     }
 
-    public function actionFindBuryatWords(string $q, GoogleTranslate $googleTranslator, YandexTranslate $yandexTranslator): string
+    public function actionFindBuryatWords(string $q): string
     {
         $q = trim($q);
         $words = BuryatWord::find()
@@ -93,8 +98,42 @@ class SiteController extends Controller
         return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
-            'googleTranslation' => $q !== '' ? $googleTranslator->translateToRussian($q) : null,
-            'yandexTranslation' => $q !== '' ? $yandexTranslator->translateToRussian($q) : null,
+            'googleTranslateUrl' => Url::to(['/site/translate-buryat', 'q' => $q, 'provider' => TranslationProvider::Google->value]),
+            'yandexTranslateUrl' => Url::to(['/site/translate-buryat', 'q' => $q, 'provider' => TranslationProvider::Yandex->value]),
+        ]);
+    }
+
+    public function actionTranslateRussian(string $q, string $provider, GoogleTranslator $googleTranslator, YandexTranslator $yandexTranslator): string
+    {
+        $q = trim($q);
+        $translationProvider = TranslationProvider::tryFrom($provider)
+            ?? throw new BadRequestHttpException("Unsupported provider: {$provider}");
+
+        $translation = match ($translationProvider) {
+            TranslationProvider::Yandex => $q !== '' ? $yandexTranslator->translateToBuryat($q) : null,
+            TranslationProvider::Google => $q !== '' ? $googleTranslator->translateToBuryat($q) : null,
+        };
+
+        return $this->renderPartial('partials/translation_card', [
+            'q' => $q,
+            'translation' => $translation,
+        ]);
+    }
+
+    public function actionTranslateBuryat(string $q, string $provider, GoogleTranslator $googleTranslator, YandexTranslator $yandexTranslator): string
+    {
+        $q = trim($q);
+        $translationProvider = TranslationProvider::tryFrom($provider)
+            ?? throw new BadRequestHttpException("Unsupported provider: {$provider}");
+
+        $translation = match ($translationProvider) {
+            TranslationProvider::Yandex => $q !== '' ? $yandexTranslator->translateToRussian($q) : null,
+            TranslationProvider::Google => $q !== '' ? $googleTranslator->translateToRussian($q) : null,
+        };
+
+        return $this->renderPartial('partials/translation_card', [
+            'q' => $q,
+            'translation' => $translation,
         ]);
     }
 }
