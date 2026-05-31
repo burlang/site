@@ -5,7 +5,22 @@ declare(strict_types=1);
 namespace app\api\v1\resources;
 
 use app\models\BuryatTranslation;
+use OpenApi\Attributes as OA;
 
+#[OA\Schema(
+    schema: 'BuryatWordTranslations',
+    properties: [
+        new OA\Property(
+            property: 'translations',
+            type: 'array',
+            items: new OA\Items(
+                properties: [new OA\Property(property: 'value', type: 'string', example: 'собака')],
+                type: 'object',
+            ),
+        ),
+    ],
+    type: 'object',
+)]
 class BuryatWordTranslationsResource implements ResourceInterface
 {
     /**

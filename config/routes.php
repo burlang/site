@@ -19,6 +19,7 @@ return [
     'logout' => 'auth/logout',
 
     // api v1
+    'api/v1/openapi.json' => 'api/v1/default/spec',
     'api/v1/names' => 'api/v1/buryat-name/index',
     'api/v1/names/<action>' => 'api/v1/buryat-name/<action>',
     'api/v1/buryat-word/<action>' => 'api/v1/buryat-word/<action>',

@@ -4,6 +4,15 @@ declare(strict_types=1);
 
 namespace app\api\v1\resources;
 
+use OpenApi\Attributes as OA;
+
+#[OA\Schema(
+    schema: 'BuryatWordListItem',
+    properties: [
+        new OA\Property(property: 'value', type: 'string', example: 'нохой'),
+    ],
+    type: 'object',
+)]
 class BuryatWordListResource implements ResourceInterface
 {
     /**
