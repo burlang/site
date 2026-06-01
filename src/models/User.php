@@ -86,4 +86,9 @@ class User extends ActiveRecord
     {
         return $this->blocked_at !== null;
     }
+
+    public function recordLogin(): void
+    {
+        $this->updateAttributes(['last_login_at' => time()]);
+    }
 }

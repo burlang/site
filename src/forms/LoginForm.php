@@ -15,8 +15,7 @@ class LoginForm extends Model
     public string $username = '';
     public string $password = '';
 
-    /** @var false|User|null */
-    private $user = false;
+    private false|User|null $user = false;
 
     private Security $security;
 
@@ -32,8 +31,8 @@ class LoginForm extends Model
             [['username', 'password'], 'required'],
             ['username', 'string', 'min' => 3, 'max' => 255],
             ['password', 'string', 'min' => 5, 'max' => 72],
+            ['username', 'validateBlocked'],
             ['password', 'validatePassword'],
-            [['username'], 'validateBlocked'],
         ];
     }
 
@@ -48,6 +47,16 @@ class LoginForm extends Model
         ];
     }
 
+    public function validateBlocked(string $attribute): void
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if ($user?->isBlocked()) {
+                $this->addError($attribute, 'Ваш аккаунт заблокирован.');
+            }
+        }
+    }
+
     public function validatePassword(string $attribute): void
     {
         if (!$this->hasErrors()) {
@@ -58,31 +67,25 @@ class LoginForm extends Model
         }
     }
 
-    public function validateBlocked(string $attribute): void
-    {
-        if (!$this->hasErrors()) {
-            $user = $this->getUser();
-            if ($user && $user->isBlocked()) {
-                $this->addError($attribute, 'Ваш аккаунт заблокирован.');
-            }
-        }
-    }
-
     /**
      * @param WebUser<AuthIdentity> $webUser
-     * @return bool whether the user is logged in successfully
      */
-    public function login(WebUser $webUser)
+    public function login(WebUser $webUser): bool
     {
         $user = $this->getUser();
         if ($user !== null) {
             $isLogged = $webUser->login(new AuthIdentity((int)$user->id), 3600 * 24);
             if ($isLogged) {
-                $user->updateAttributes(['last_login_at' => time()]);
+                $user->recordLogin();
             }
             return $isLogged;
         }
         return false;
+    }
+
+    public function clearPassword(): void
+    {
+        $this->password = '';
     }
 
     private function getUser(): ?User

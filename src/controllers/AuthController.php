@@ -56,8 +56,8 @@ class AuthController extends Controller
         ) {
             return $this->goBack();
         }
+        $model->clearPassword();
 
-        $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
