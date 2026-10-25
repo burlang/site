@@ -41,6 +41,10 @@ AppAsset::register($this);
         'name' => 'description',
         'content' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     ]); ?>
+    <?php $this->registerMetaTag([
+        'name' => 'htmx-config',
+        'content' => '{"noSwap": [204, 304, "4xx", "5xx"]}',
+    ]); ?>
 
     <?php if (isset($this->blocks['head'])): ?>
         <?= $this->blocks['head']; ?>

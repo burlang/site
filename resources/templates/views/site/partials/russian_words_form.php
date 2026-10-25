@@ -48,16 +48,16 @@ use yii\widgets\ActiveForm;
         const input = document.getElementById('rus-search');
         const results = document.getElementById('russian-words');
 
-        document.addEventListener('htmx:beforeRequest', function (e) {
-            if (e.detail.elt !== input) return;
+        document.addEventListener('htmx:before:request', function (e) {
+            if (e.detail.ctx.sourceElement !== input) return;
             if (!input.value.trim()) {
                 results.innerHTML = '';
                 e.preventDefault();
             }
         });
 
-        document.addEventListener('htmx:responseError', function (e) {
-            if (e.detail.elt !== input) return;
+        document.addEventListener('htmx:response:error', function (e) {
+            if (e.detail.ctx.sourceElement !== input) return;
             results.innerHTML = '<div class="search-empty">Произошла ошибка при загрузке данных</div>';
         });
     }());

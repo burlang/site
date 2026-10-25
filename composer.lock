@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d86d6e62b04139584575f5e84c58c82e",
+    "content-hash": "3f669a11cb0e805387bc417460401c22",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -394,14 +394,14 @@
         },
         {
             "name": "npm-asset/htmx.org",
-            "version": "2.0.11",
+            "version": "4.0.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/htmx.org/-/htmx.org-2.0.11.tgz"
+                "url": "https://registry.npmjs.org/htmx.org/-/htmx.org-4.0.0.tgz"
             },
             "type": "npm-asset",
             "license": [
-                "0BSD"
+                "BSD-0-Clause"
             ]
         },
         {
