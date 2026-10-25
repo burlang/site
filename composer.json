@@ -28,7 +28,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.57",
         "overtrue/phplint": "^9.3",
-        "pestphp/pest": "^4.0",
+        "pestphp/pest": "^5.0",
         "phpstan/phpstan": "^2.1",
         "roave/security-advisories": "dev-latest"
     },
@@ -49,7 +49,7 @@
         }
     },
     "scripts": {
-        "lint": "phplint",
+        "lint": "phplint lint",
         "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php",
         "test": "pest",
         "analyze": "phpstan analyse --memory-limit=512M"
